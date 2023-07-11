@@ -1,3 +1,10 @@
+/*
+ * Patch for MC-158900
+ * 
+ * Authored for CraftBukkit/Spigot by Spottedleaf <Spottedleaf@users.noreply.github.com> on August 13, 2019.
+ * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on July 11, 2023.
+ */
+
 package io.github.rektroth.whiteout.mixin.entity;
 
 import net.minecraft.entity.Entity;

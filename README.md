@@ -1,6 +1,6 @@
 # Whiteout
 
-Whiteout is an attempt to implement the bug fixes offered by the [Paper](https://github.com/PaperMC) project in Fabric.
+Whiteout is an attempt to implement the bug fixes offered by the [Paper](https://github.com/PaperMC/Paper) project in Fabric.
 
 ## Patches
 ### Present
@@ -59,4 +59,4 @@ Whiteout is in no way associated with the Paper project. Please do not contact t
 
 Since all bug fixes provided by this mod are ported from Paper, said fixes inherit their licensing from the Paper project, which is licensed under the [GPLv3](LICESE).
 
-However, some contributors to the Paper project chose to release their code under the more permissive [MIT License](https://github.com/PaperMC/Paper/blob/master/licenses/MIT.md). While I would like to properly annotate which patches were originally authored by which person in the future, for now those wishing to fork or otherwise modify this project will have to cross-reference with the [Paper project's list of permissive contributors](https://github.com/PaperMC/Paper/blob/master/LICENSE.md).
+[While some contributors to the Paper project chose to release their code under the more permissive MIT License](https://github.com/PaperMC/Paper/blob/master/LICENSE.md), it is easier, and legally permissible, to release this entire project under the GPLv3. Patches are however still annotated to attribute appropriate credit to their original authors.
