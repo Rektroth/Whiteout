@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "io.github.rektroth.whiteout.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"entity.EntityMixin",
+		"server.PlayerManagerAccessor",
+		"server.PlayerManagerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

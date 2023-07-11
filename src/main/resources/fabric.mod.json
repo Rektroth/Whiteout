@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "whiteout",
+	"version": "${version}",
+	"name": "Whiteout",
+	"description": "A Fabric implementation of the bug fixes offered by the Paper project.",
+	"authors": [
+		"Rektroth"
+	],
+	"contact": {
+		"sources": "https://github.com/rektroth/Whiteout"
+	},
+	"license": "GPLv3",
+	"icon": "assets/whiteout/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.rektroth.whiteout.Whiteout"
+		]
+	},
+	"mixins": [
+		"whiteout.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17"
+	}
+}
