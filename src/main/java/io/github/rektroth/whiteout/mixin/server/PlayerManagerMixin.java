@@ -26,8 +26,7 @@ public abstract class PlayerManagerMixin {
 	private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 
 	@Inject(at = @At("HEAD"), method = "checkCanJoin(Ljava/net/SocketAddress;Lcom/mojang/authlib/GameProfile;)Lnet/minecraft/text/Text;", cancellable = true)
-	private void fixedBanCheck(SocketAddress address, GameProfile profile, CallbackInfoReturnable<Text> ci)
-	{
+	private void fixedBanCheck(SocketAddress address, GameProfile profile, CallbackInfoReturnable<Text> ci) {
 		if (((PlayerManagerAccessor)((PlayerManager)(Object)this)).getBannedProfiles().contains(profile)) {
 			BannedPlayerEntry bannedPlayerEntry = (BannedPlayerEntry)((PlayerManagerAccessor)((PlayerManager)(Object)this)).getBannedProfiles().get(profile);
 
@@ -46,8 +45,7 @@ public abstract class PlayerManagerMixin {
 	@Redirect(
 		at = @At(value = "INVOKE", target = "Lnet/minecraft/server/BannedPlayerList;contains(Lcom/mojang/authlib/GameProfile;)Z"),
 		method = "checkCanJoin(Ljava/net/SocketAddress;Lcom/mojang/authlib/GameProfile;)Lnet/minecraft/text/Text;")
-	private boolean skipBadBanCheck(BannedPlayerList bannedProfiles, GameProfile profile)
-	{
+	private boolean skipBadBanCheck(BannedPlayerList bannedProfiles, GameProfile profile) {
 		return false;
 	}
 }
