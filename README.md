@@ -8,6 +8,7 @@ Whiteout is an attempt to implement the bug fixes offered by the [Paper](https:/
 | Bug                                                   | Lazy? | Name                                                                 |
 |-------------------------------------------------------|-------|----------------------------------------------------------------------|
 | [MC-4](https://bugs.mojang.com/browse/MC-4)           | Yes   | Item drops sometimes appear at the wrong location                    |
+| [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | Yes   | You can blow the extension off a piston                              |
 | [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | "bad packet id 26" upon connecting after tempban expire              |
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | The ender dragon's name is not reset when it is respawned in the end |
 
@@ -18,7 +19,6 @@ Some of the patches are "lazy". This means that the Paper maintainers are not in
 | Bug       | Name                                                                                                                                                                                            |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [MC-11193](https://bugs.mojang.com/browse/MC-11193)   | The order in which powerable blocks (e.g. redstone dust blocks) along a wire are powered or de-powered is not clearly defined and causes a non-deterministic behavior for redstone contraptions |
-| [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | You can blow the extension off a piston                                                                                                                                                         |
 | [MC-33041](https://bugs.mojang.com/browse/MC-33041)   | Dedicated server logs "java.io.IOException: The handle is invalid" on startup                                                                                                                   |
 | [MC-81098](https://bugs.mojang.com/browse/MC-81098)   | Redstone dust updates cause lag                                                                                                                                                                 |
 | [MC-99075](https://bugs.mojang.com/browse/MC-99075)   | Cancelled block place (spawn protection) causes inventory desync                                                                                                                                |

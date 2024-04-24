@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(Entity.class)
 public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput {
 	// `(Entity)(Object)this` sort of "tricks" the compiler
-	// https://www.reddit.com/r/fabricmc/comments/nw3rs8/how_can_i_access_the_this_in_a_mixin_for_a_class/
+	// https://fabricmc.net/wiki/tutorial:mixin_examples#access_the_this_instance_of_the_class_your_mixin_is_targeting
 	// IDE will likely say the code after the check is unreachable, but it isn't
 
 	@ModifyVariable(argsOnly = true, at = @At("HEAD"), method = "setPos(DDD)V", ordinal = 0)

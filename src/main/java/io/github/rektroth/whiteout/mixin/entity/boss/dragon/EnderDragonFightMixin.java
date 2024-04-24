@@ -7,7 +7,6 @@
 
 package io.github.rektroth.whiteout.mixin.entity.boss.dragon;
 
-import io.github.rektroth.whiteout.mixin.entity.boss.dragon.EnderDragonFightAccessor;
 import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.boss.dragon.EnderDragonFight;

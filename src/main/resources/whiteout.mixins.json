@@ -3,11 +3,13 @@
 	"package": "io.github.rektroth.whiteout.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"entity.boss.dragon.EnderDragonFightAccessor",
+		"entity.boss.dragon.EnderDragonFightMixin",
 		"entity.EntityMixin",
 		"server.PlayerManagerAccessor",
 		"server.PlayerManagerMixin",
-		"entity.boss.dragon.EnderDragonFightAccessor",
-		"entity.boss.dragon.EnderDragonFightMixin"
+		"world.explosion.ExplosionAccessor",
+		"world.explosion.ExplosionMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
