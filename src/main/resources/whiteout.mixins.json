@@ -5,7 +5,9 @@
 	"mixins": [
 		"entity.EntityMixin",
 		"server.PlayerManagerAccessor",
-		"server.PlayerManagerMixin"
+		"server.PlayerManagerMixin",
+		"entity.boss.dragon.EnderDragonFightAccessor",
+		"entity.boss.dragon.EnderDragonFightMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

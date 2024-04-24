@@ -5,10 +5,11 @@ Whiteout is an attempt to implement the bug fixes offered by the [Paper](https:/
 ## Patches
 ### Present
 
-| Bug       | Lazy? | Name                                                                                                |
-|-----------|-------|-----------------------------------------------------------------------------------------------------|
-| [MC-4](https://bugs.mojang.com/browse/MC-4)           | Yes   | Item drops sometimes appear at the wrong location       |
-| [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | "bad packet id 26" upon connecting after tempban expire |
+| Bug                                                   | Lazy? | Name                                                                 |
+|-------------------------------------------------------|-------|----------------------------------------------------------------------|
+| [MC-4](https://bugs.mojang.com/browse/MC-4)           | Yes   | Item drops sometimes appear at the wrong location                    |
+| [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | "bad packet id 26" upon connecting after tempban expire              |
+| [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | The ender dragon's name is not reset when it is respawned in the end |
 
 Some of the patches are "lazy". This means that the Paper maintainers are not incredibly pleased with the manner in which the bug was patched, but the patch works nonetheless. These patches will be disabled by default when configurability is implemented.
 
@@ -40,7 +41,6 @@ Some of the patches are "lazy". This means that the Paper maintainers are not in
 | [MC-252817](https://bugs.mojang.com/browse/MC-252817) | Placing a map into an item frame and removing it does not remove the green player marker                                                                                                        |
 | [MC-253884](https://bugs.mojang.com/browse/MC-253884) | Particles produced from the bad omen effect being consumed cannot be seen by other player                                                                                                       |
 | [MC-253721](https://bugs.mojang.com/browse/MC-253721) | Wrong logs when running /op @a                                                                                                                                                                  |
-| [MC-257487](https://bugs.mojang.com/browse/MC-257487) | The ender dragon's name is not reset when it is respawned in the end                                                                                                                            |
 
 Although MC-27056 covers the most common permanent block breaking exploit, Paper's general patch for breaking permanent blocks is also planned, as well as the general patch for gravity block duplication.
 
