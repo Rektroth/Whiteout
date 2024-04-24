@@ -16,6 +16,7 @@ import net.minecraft.server.PlayerManager;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -23,18 +24,26 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerManager.class)
 public abstract class PlayerManagerMixin {
+	@Unique
 	private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 
-	@Inject(at = @At("HEAD"), method = "checkCanJoin(Ljava/net/SocketAddress;Lcom/mojang/authlib/GameProfile;)Lnet/minecraft/text/Text;", cancellable = true)
+	@Inject(
+		at = @At("HEAD"),
+		method = "checkCanJoin(Ljava/net/SocketAddress;Lcom/mojang/authlib/GameProfile;)Lnet/minecraft/text/Text;",
+		cancellable = true)
 	private void fixedBanCheck(SocketAddress address, GameProfile profile, CallbackInfoReturnable<Text> ci) {
-		if (((PlayerManagerAccessor)((PlayerManager)(Object)this)).getBannedProfiles().contains(profile)) {
-			BannedPlayerEntry bannedPlayerEntry = (BannedPlayerEntry)((PlayerManagerAccessor)((PlayerManager)(Object)this)).getBannedProfiles().get(profile);
+		if (((PlayerManagerAccessor)this).getBannedProfiles().contains(profile)) {
+			BannedPlayerEntry bannedPlayerEntry = ((PlayerManagerAccessor)this).getBannedProfiles().get(profile);
 
 			if (bannedPlayerEntry != null) {
-				MutableText mutableText = Text.translatable("multiplayer.disconnect.banned.reason", bannedPlayerEntry.getReason());
+				MutableText mutableText = Text.translatable(
+					"multiplayer.disconnect.banned.reason",
+					bannedPlayerEntry.getReason());
 
 				if (bannedPlayerEntry.getExpiryDate() != null) {
-					mutableText.append(Text.translatable("multiplayer.disconnect.banned.expiration", DATE_FORMATTER.format(bannedPlayerEntry.getExpiryDate())));
+					mutableText.append(Text.translatable(
+						"multiplayer.disconnect.banned.expiration",
+						DATE_FORMATTER.format(bannedPlayerEntry.getExpiryDate())));
 				}
 
 				ci.setReturnValue(mutableText);

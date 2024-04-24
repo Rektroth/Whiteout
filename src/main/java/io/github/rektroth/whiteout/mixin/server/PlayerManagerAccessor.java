@@ -15,5 +15,5 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(PlayerManager.class)
 public interface PlayerManagerAccessor {
 	@Accessor("bannedProfiles")
-	public BannedPlayerList getBannedProfiles();
+	BannedPlayerList getBannedProfiles();
 }

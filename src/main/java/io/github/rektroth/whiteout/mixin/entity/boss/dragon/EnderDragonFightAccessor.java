@@ -15,5 +15,5 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(EnderDragonFight.class)
 public interface EnderDragonFightAccessor {
 	@Accessor("bossBar")
-	public ServerBossBar getBossBar();
+	ServerBossBar getBossBar();
 }
