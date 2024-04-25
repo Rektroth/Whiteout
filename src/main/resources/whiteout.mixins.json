@@ -4,6 +4,7 @@
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"entity.EntityMixin",
+		"entity.ai.brain.task.VillagerTaskListProviderMixin",
 		"entity.ai.goal.WolfBegGoalAccessor",
 		"entity.ai.goal.WolfBegGoalMixin",
 		"entity.boss.dragon.EnderDragonFightAccessor",
