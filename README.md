@@ -13,6 +13,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | No    | Low                   | Tamed wolves beg for bones while wild wolves don't                             |
 | [MC-157464](https://bugs.mojang.com/browse/MC-157464) | No    | Normal                | Villagers move around in bed or even leave the bed when food is thrown at them |
 | [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | *None*                | "bad packet id 26" upon connecting after tempban expire                        |
+| [MC-167279](https://bugs.mojang.com/browse/MC-167279) | No    | Normal                | Bees get stuck in the void                                                     |
 | [MC-253721](https://bugs.mojang.com/browse/MC-253721) | No    | Important             | Wrong logs when running /op @a                                                 |
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | Low                   | The ender dragon's name is not reset when it is respawned in the end           |
 
@@ -40,7 +41,6 @@ Any patches that are considered "lazy" or are for a bug ticket which does not ha
 | [MC-153086](https://bugs.mojang.com/browse/MC-153086) | Beacons always play deactivating sound when broken, even when not powered                                                                                                                       |
 | [MC-159283](https://bugs.mojang.com/browse/MC-159283) | The End terrain does not generate in multiple rings centered around the world center                                                                                                            |
 | [MC-163962](https://bugs.mojang.com/browse/MC-163962) | Villager demand values decrease indefinitely                                                                                                                                                    |
-| [MC-167279](https://bugs.mojang.com/browse/MC-167279) | Bees get stuck in the void                                                                                                                                                                      |
 | [MC-171420](https://bugs.mojang.com/browse/MC-171420) | OP players get kicked for not being on the whitelist (enforce = on)                                                                                                                             |
 | [MC-174630](https://bugs.mojang.com/browse/MC-174630) | Secondary beacon effect remains when switching primary effect                                                                                                                                   |
 | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Creepers do not defuse when switching from Survival to Creative/Spectator                                                                                                                       |

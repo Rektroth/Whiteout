@@ -9,6 +9,7 @@
 		"entity.ai.goal.WolfBegGoalMixin",
 		"entity.boss.dragon.EnderDragonFightAccessor",
 		"entity.boss.dragon.EnderDragonFightMixin",
+		"entity.passive.BeeEntityMixin",
 		"server.PlayerManagerAccessor",
 		"server.PlayerManagerMixin",
 		"server.dedicated.command.DeOpCommandMixin",
