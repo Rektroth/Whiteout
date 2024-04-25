@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(EnderDragonFight.class)
-public class EnderDragonFightMixin {
+public abstract class EnderDragonFightMixin {
 	@Inject(at = @At("TAIL"), method = "updateFight(Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;)V")
 	private void fixedCustomNameCheck(EnderDragonEntity dragon, CallbackInfo ci) {
 		ServerBossBar bossBar = ((EnderDragonFightAccessor)this).getBossBar();

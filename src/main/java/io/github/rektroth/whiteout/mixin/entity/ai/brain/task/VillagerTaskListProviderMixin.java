@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(VillagerTaskListProvider.class)
-public class VillagerTaskListProviderMixin {
+public abstract class VillagerTaskListProviderMixin {
     @Redirect(
             at = @At(
                 target = "Lnet/minecraft/entity/ai/brain/task/WalkToNearestVisibleWantedItemTask;create(FZI)Lnet/minecraft/entity/ai/brain/task/Task;",

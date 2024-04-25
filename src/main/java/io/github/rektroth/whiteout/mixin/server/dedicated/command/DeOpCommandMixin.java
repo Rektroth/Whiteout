@@ -24,7 +24,7 @@ import java.util.Iterator;
 import java.util.function.Supplier;
 
 @Mixin(DeOpCommand.class)
-public class DeOpCommandMixin {
+public abstract class DeOpCommandMixin {
     @Redirect(
         at = @At(
             value = "INVOKE",

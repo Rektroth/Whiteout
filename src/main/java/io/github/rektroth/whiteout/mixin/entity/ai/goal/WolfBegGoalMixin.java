@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(WolfBegGoal.class)
-public class WolfBegGoalMixin {
+public abstract class WolfBegGoalMixin {
     @Redirect(
         at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/WolfEntity;isTamed()Z"),
         method = "isAttractive(Lnet/minecraft/entity/player/PlayerEntity;)Z")
