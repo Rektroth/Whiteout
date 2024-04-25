@@ -6,16 +6,17 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 
 ### Present
 
-| Bug                                                   | Lazy? | Mojang Prioritization | Name                                                                           |
-|-------------------------------------------------------|-------|-----------------------|--------------------------------------------------------------------------------|
-| [MC-4](https://bugs.mojang.com/browse/MC-4)           | Yes   | Low                   | Item drops sometimes appear at the wrong location                              |
-| [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | Yes   | Low                   | You can blow the extension off a piston                                        |
-| [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | No    | Low                   | Tamed wolves beg for bones while wild wolves don't                             |
-| [MC-157464](https://bugs.mojang.com/browse/MC-157464) | No    | Normal                | Villagers move around in bed or even leave the bed when food is thrown at them |
-| [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | *None*                | "bad packet id 26" upon connecting after tempban expire                        |
-| [MC-167279](https://bugs.mojang.com/browse/MC-167279) | No    | Normal                | Bees get stuck in the void                                                     |
-| [MC-253721](https://bugs.mojang.com/browse/MC-253721) | No    | Important             | Wrong logs when running /op @a                                                 |
-| [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | Low                   | The ender dragon's name is not reset when it is respawned in the end           |
+| Bug                                                   | Lazy? | Mojang Prioritization | Name                                                                                |
+|-------------------------------------------------------|-------|-----------------------|-------------------------------------------------------------------------------------|
+| [MC-4](https://bugs.mojang.com/browse/MC-4)           | Yes   | Low                   | Item drops sometimes appear at the wrong location                                   |
+| [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | Yes   | Low                   | You can blow the extension off a piston                                             |
+| [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | No    | Low                   | Tamed wolves beg for bones while wild wolves don't                                  |
+| [MC-157464](https://bugs.mojang.com/browse/MC-157464) | No    | Normal                | Villagers move around in bed or even leave the bed when food is thrown at them      |
+| [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | *None*                | "bad packet id 26" upon connecting after tempban expire                             |
+| [MC-167279](https://bugs.mojang.com/browse/MC-167279) | No    | Normal                | Bees get stuck in the void                                                          |
+| [MC-224454](https://bugs.mojang.com/browse/MC-224454) | No    | Normal                | Entities don't recognize azaleas or flowering azaleas as obstacles when pathfinding |
+| [MC-253721](https://bugs.mojang.com/browse/MC-253721) | No    | Important             | Wrong logs when running /op @a                                                      |
+| [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | Low                   | The ender dragon's name is not reset when it is respawned in the end                |
 
 Patches that are marked as "lazy" generally meet at least one of the following criteria:
 
@@ -48,7 +49,6 @@ Any patches that are considered "lazy" or are for a bug ticket which does not ha
 | [MC-191591](https://bugs.mojang.com/browse/MC-191591) | Saddles lose their NBT data when equipped on horses, zombie horses, skeleton horses, mules or donkeys via right-clicking                                                                        |
 | [MC-200092](https://bugs.mojang.com/browse/MC-200092) | /setworldspawn seems to ignore the 'angle' parameter                                                                                                                                            |
 | [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Inactive sheep eat grass                                                                                                                                                                        |
-| [MC-224454](https://bugs.mojang.com/browse/MC-224454) | Entities don't recognize azaleas or flowering azaleas as obstacles when pathfinding                                                                                                             |
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Entity type tags suggestions don't work in target selectors                                                                                                                                     |
 | [MC-243057](https://bugs.mojang.com/browse/MC-243057) | Furnace recipes don't consider alternatives when first option of recipe is used for fuel                                                                                                        |
 | [MC-244739](https://bugs.mojang.com/browse/MC-244739) | Goat eating sounds aren't played when feeding them the last item of wheat within a stack                                                                                                        |

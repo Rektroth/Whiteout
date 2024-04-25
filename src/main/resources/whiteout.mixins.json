@@ -3,6 +3,7 @@
 	"package": "io.github.rektroth.whiteout.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"block.AzaleaBlockMixin",
 		"entity.EntityMixin",
 		"entity.ai.brain.task.VillagerTaskListProviderMixin",
 		"entity.ai.goal.WolfBegGoalAccessor",
