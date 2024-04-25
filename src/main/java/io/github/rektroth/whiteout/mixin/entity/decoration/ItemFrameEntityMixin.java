@@ -21,10 +21,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ItemFrameEntity.class)
 public abstract class ItemFrameEntityMixin {
     @Inject(
-            at = @At(
-                    target = "Lnet/minecraft/entity/decoration/ItemFrameEntity;getMapId()Lnet/minecraft/component/type/MapIdComponent;",
-                    value = "INVOKE_ASSIGN"),
-            method = "removeFromFrame(Lnet/minecraft/item/ItemStack;)V"
+        at = @At(
+            target = "Lnet/minecraft/entity/decoration/ItemFrameEntity;getMapId()Lnet/minecraft/component/type/MapIdComponent;",
+            value = "INVOKE_ASSIGN"),
+        method = "removeFromFrame(Lnet/minecraft/item/ItemStack;)V"
     )
     private void getMapIdFromItem(ItemStack stack, CallbackInfo ci, @Local LocalRef<MapIdComponent> mapIdComponent) {
         mapIdComponent.set(stack.get(DataComponentTypes.MAP_ID));

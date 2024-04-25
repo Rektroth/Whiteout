@@ -18,6 +18,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-252817](https://bugs.mojang.com/browse/MC-252817) | No    | Normal                | Placing a map into an item frame and removing it does not remove the green player marker |
 | [MC-253721](https://bugs.mojang.com/browse/MC-253721) | No    | Important             | Wrong logs when running /op @a                                                           |
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | Low                   | The ender dragon's name is not reset when it is respawned in the end                     |
+| [MC-259571](https://bugs.mojang.com/browse/MC-259571) | No    | Normal                | Last player game mode not saved after player dies or the game is reloaded                |
 
 Patches that are marked as "lazy" generally meet at least one of the following criteria:
 
@@ -56,7 +57,6 @@ Any patches that are considered "lazy" or are for a bug ticket which does not ha
 | [MC-248588](https://bugs.mojang.com/browse/MC-248588) | The "mobGriefing" gamerule doesn't prevent burning entities from being able to decrease the levels of water or powder snow cauldrons                                                            |
 | [MC-253884](https://bugs.mojang.com/browse/MC-253884) | Particles produced from the bad omen effect being consumed cannot be seen by other player                                                                                                       |
 | [MC-253721](https://bugs.mojang.com/browse/MC-253721) | Wrong logs when running /op @a                                                                                                                                                                  |
-| [MC-259571](https://bugs.mojang.com/browse/MC-259571) | Last player game mode not saved after player dies or the game is reloaded                                                                                                                       |
 | [MC-262422](https://bugs.mojang.com/browse/MC-262422) | Lightning bolts during thunderstorms can strike players in spectator game mode                                                                                                                  |
 | [MC-263999](https://bugs.mojang.com/browse/MC-263999) | Zombies breaking doors do not show break particles                                                                                                                                              |
 
