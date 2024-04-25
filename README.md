@@ -1,6 +1,6 @@
 # Whiteout
 
-Whiteout is an attempt to implement the bug fixes offered by the [Paper](https://github.com/PaperMC/Paper) project in Fabric.
+Whiteout is an attempt to implement the gameplay and mechanic consistency patches included in the [Paper](https://github.com/PaperMC/Paper) project in Fabric.
 
 ## Patches
 
