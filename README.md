@@ -10,6 +10,7 @@ Whiteout is an attempt to implement the bug fixes offered by the [Paper](https:/
 |-------------------------------------------------------|-------|-----------------------|----------------------------------------------------------------------|
 | [MC-4](https://bugs.mojang.com/browse/MC-4)           | Yes   | Low                   | Item drops sometimes appear at the wrong location                    |
 | [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | Yes   | Low                   | You can blow the extension off a piston                              |
+| [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | No    | Low                   | Tamed wolves beg for bones while wild wolves don't                   |
 | [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | *None*                | "bad packet id 26" upon connecting after tempban expire              |
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | Low                   | The ender dragon's name is not reset when it is respawned in the end |
 
@@ -29,7 +30,6 @@ Any patches that are considered "lazy" or are for a bug ticket which does not ha
 |-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [MC-11193](https://bugs.mojang.com/browse/MC-11193)   | The order in which powerable blocks (e.g. redstone dust blocks) along a wire are powered or de-powered is not clearly defined and causes a non-deterministic behavior for redstone contraptions |
 | [MC-81098](https://bugs.mojang.com/browse/MC-81098)   | Redstone dust updates cause lag                                                                                                                                                                 |
-| [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | Tamed wolves beg for bones while wild wolves don't                                                                                                                                              |
 | [MC-108513](https://bugs.mojang.com/browse/MC-108513) | end crystal did not spawn/despawn correct after enderdragon respawned                                                                                                                           |
 | [MC-123450](https://bugs.mojang.com/browse/MC-123450) | Item frames play sounds when the item within them is read from NBT                                                                                                                              |
 | [MC-123848](https://bugs.mojang.com/browse/MC-123848) | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block                                                                                                     |

@@ -3,9 +3,11 @@
 	"package": "io.github.rektroth.whiteout.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"entity.EntityMixin",
+		"entity.ai.goal.WolfBegGoalAccessor",
+		"entity.ai.goal.WolfBegGoalMixin",
 		"entity.boss.dragon.EnderDragonFightAccessor",
 		"entity.boss.dragon.EnderDragonFightMixin",
-		"entity.EntityMixin",
 		"server.PlayerManagerAccessor",
 		"server.PlayerManagerMixin",
 		"world.explosion.ExplosionAccessor",
