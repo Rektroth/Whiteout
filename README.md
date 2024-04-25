@@ -12,6 +12,7 @@ Whiteout is an attempt to implement the bug fixes offered by the [Paper](https:/
 | [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | Yes   | Low                   | You can blow the extension off a piston                              |
 | [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | No    | Low                   | Tamed wolves beg for bones while wild wolves don't                   |
 | [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | *None*                | "bad packet id 26" upon connecting after tempban expire              |
+| [MC-253721](https://bugs.mojang.com/browse/MC-253721) | No    | Important             | Wrong logs when running /op @a                                       |
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | Low                   | The ender dragon's name is not reset when it is respawned in the end |
 
 Patches that are marked as "lazy" generally meet at least one of the following criteria:
