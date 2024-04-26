@@ -20,7 +20,7 @@ public abstract class AzaleaBlockMixin extends PlantBlock {
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, NavigationType type) {
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 }

@@ -30,8 +30,8 @@ public abstract class ExplosionMixin {
             value = "INVOKE",
             target = "Lnet/minecraft/world/explosion/ExplosionBehavior;canDestroyBlock(Lnet/minecraft/world/explosion/Explosion;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;F)Z"),
         locals = LocalCapture.CAPTURE_FAILHARD,
-        method = "collectBlocksAndDamageEntities()V")
-    public void noHeadlessPiston(
+        method = "collectBlocksAndDamageEntities")
+    private void noHeadlessPiston(
         CallbackInfo ci,
         Set<BlockPos> set,
         int i,

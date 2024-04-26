@@ -24,7 +24,7 @@ public abstract class ItemFrameEntityMixin {
         at = @At(
             target = "Lnet/minecraft/entity/decoration/ItemFrameEntity;getMapId()Lnet/minecraft/component/type/MapIdComponent;",
             value = "INVOKE_ASSIGN"),
-        method = "removeFromFrame(Lnet/minecraft/item/ItemStack;)V"
+        method = "removeFromFrame"
     )
     private void getMapIdFromItem(ItemStack stack, CallbackInfo ci, @Local LocalRef<MapIdComponent> mapIdComponent) {
         mapIdComponent.set(stack.get(DataComponentTypes.MAP_ID));

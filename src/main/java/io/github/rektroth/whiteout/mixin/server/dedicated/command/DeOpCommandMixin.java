@@ -30,7 +30,7 @@ public abstract class DeOpCommandMixin {
             value = "INVOKE",
             target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Ljava/util/function/Supplier;Z)V"
         ),
-        method = "deop(Lnet/minecraft/server/command/ServerCommandSource;Ljava/util/Collection;)I"
+        method = "deop"
     )
     private static void skipBadSendFeedback(ServerCommandSource instance, Supplier<Text> feedbackSupplier, boolean broadcastToOps) {
         // do nothing
@@ -42,7 +42,7 @@ public abstract class DeOpCommandMixin {
             target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Ljava/util/function/Supplier;Z)V"
         ),
         locals = LocalCapture.CAPTURE_FAILHARD,
-        method = "deop(Lnet/minecraft/server/command/ServerCommandSource;Ljava/util/Collection;)I"
+        method = "deop"
     )
     private static void fixedSendFeedback(
         ServerCommandSource source,

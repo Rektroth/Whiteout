@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(EnderDragonFight.class)
 public abstract class EnderDragonFightMixin {
-	@Inject(at = @At("TAIL"), method = "updateFight(Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;)V")
+	@Inject(at = @At("TAIL"), method = "updateFight")
 	private void fixedCustomNameCheck(EnderDragonEntity dragon, CallbackInfo ci) {
 		ServerBossBar bossBar = ((EnderDragonFightAccessor)this).getBossBar();
 
@@ -32,7 +32,7 @@ public abstract class EnderDragonFightMixin {
 
 	@Redirect(
 		at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;hasCustomName()Z"),
-		method = "updateFight(Lnet/minecraft/entity/boss/dragon/EnderDragonEntity;)V")
+		method = "updateFight")
 	private boolean skipBadCustomNameCheck(EnderDragonEntity instance) {
 		return false;
 	}

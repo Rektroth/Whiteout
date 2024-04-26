@@ -29,7 +29,7 @@ public abstract class PlayerManagerMixin {
 
 	@Inject(
 		at = @At("HEAD"),
-		method = "checkCanJoin(Ljava/net/SocketAddress;Lcom/mojang/authlib/GameProfile;)Lnet/minecraft/text/Text;",
+		method = "checkCanJoin",
 		cancellable = true)
 	private void fixedBanCheck(SocketAddress address, GameProfile profile, CallbackInfoReturnable<Text> ci) {
 		if (((PlayerManagerAccessor)this).getBannedProfiles().contains(profile)) {
@@ -53,7 +53,7 @@ public abstract class PlayerManagerMixin {
 
 	@Redirect(
 		at = @At(value = "INVOKE", target = "Lnet/minecraft/server/BannedPlayerList;contains(Lcom/mojang/authlib/GameProfile;)Z"),
-		method = "checkCanJoin(Ljava/net/SocketAddress;Lcom/mojang/authlib/GameProfile;)Lnet/minecraft/text/Text;")
+		method = "checkCanJoin")
 	private boolean skipBadBanCheck(BannedPlayerList bannedProfiles, GameProfile profile) {
 		return false;
 	}

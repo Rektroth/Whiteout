@@ -26,9 +26,9 @@ public abstract class BeeEntityMixin extends AnimalEntity {
 
     @Inject(
         at = @At("TAIL"),
-        method = "<init>(Lnet/minecraft/entity/EntityType;Lnet/minecraft/world/World;)V"
+        method = "<init>"
     )
-    public void fixedMoveControl(EntityType<? extends BeeEntity> entityType, World world, CallbackInfo ci) {
+    private void fixedMoveControl(EntityType<? extends BeeEntity> entityType, World world, CallbackInfo ci) {
         class BeeFlyingMoveControl extends FlightMoveControl {
             public BeeFlyingMoveControl(final MobEntity entity, final int maxPitchChange, final boolean noGravity) {
                 super(entity, maxPitchChange, noGravity);

@@ -17,8 +17,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class WolfBegGoalMixin {
     @Redirect(
         at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/WolfEntity;isTamed()Z"),
-        method = "isAttractive(Lnet/minecraft/entity/player/PlayerEntity;)Z")
-    public boolean fixedBadTameCheck(WolfEntity instance) {
+        method = "isAttractive")
+    private boolean fixedBadTameCheck(WolfEntity instance) {
         return !((WolfBegGoalAccessor)this).getWolf().isTamed();
     }
 }

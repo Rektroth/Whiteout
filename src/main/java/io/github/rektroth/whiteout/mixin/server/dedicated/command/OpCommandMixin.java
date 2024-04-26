@@ -30,7 +30,7 @@ public abstract class OpCommandMixin {
             value = "INVOKE",
             target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Ljava/util/function/Supplier;Z)V"
         ),
-        method = "op(Lnet/minecraft/server/command/ServerCommandSource;Ljava/util/Collection;)I"
+        method = "op"
     )
     private static void skipBadSendFeedback(ServerCommandSource instance, Supplier<Text> feedbackSupplier, boolean broadcastToOps) {
         // do nothing
@@ -42,7 +42,7 @@ public abstract class OpCommandMixin {
             target = "Lnet/minecraft/server/command/ServerCommandSource;sendFeedback(Ljava/util/function/Supplier;Z)V"
         ),
         locals = LocalCapture.CAPTURE_FAILHARD,
-        method = "op(Lnet/minecraft/server/command/ServerCommandSource;Ljava/util/Collection;)I"
+        method = "op"
     )
     private static void fixedSendFeedback(
         ServerCommandSource source,
