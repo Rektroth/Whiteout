@@ -10,6 +10,7 @@
 		"entity.ai.goal.WolfBegGoalMixin",
 		"entity.boss.dragon.EnderDragonFightAccessor",
 		"entity.boss.dragon.EnderDragonFightMixin",
+		"entity.decoration.EndCrystalEntityMixin",
 		"entity.decoration.ItemFrameEntityMixin",
 		"entity.passive.BeeEntityMixin",
 		"server.PlayerManagerAccessor",
@@ -18,6 +19,7 @@
 		"server.dedicated.command.OpCommandMixin",
 		"server.network.ServerPlayerInteractionManagerMixin",
 		"server.world.ServerWorldMixin",
+		"server.world.gen.feature.EndSpikeFeatureMixin",
 		"world.explosion.ExplosionAccessor",
 		"world.explosion.ExplosionMixin"
 	],
