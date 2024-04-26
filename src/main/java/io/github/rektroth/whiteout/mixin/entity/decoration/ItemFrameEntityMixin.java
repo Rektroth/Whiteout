@@ -1,4 +1,11 @@
 /*
+ * Patch for MC-123450
+ *
+ * Authored for CraftBukkit/Spigot by Phoenix616 <mail@moep.tv> on November 5, 2022.
+ * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 26, 2024.
+ */
+
+/*
  * Patch for MC-252817
  *
  * Authored for CraftBukkit/Spigot by braindead <totsuka.sama@gmail.com> on November 5, 2022.
@@ -16,6 +23,7 @@ import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemFrameEntity.class)
@@ -28,5 +36,13 @@ public abstract class ItemFrameEntityMixin {
     )
     private void getMapIdFromItem(ItemStack stack, CallbackInfo ci, @Local LocalRef<MapIdComponent> mapIdComponent) {
         mapIdComponent.set(stack.get(DataComponentTypes.MAP_ID));
+    }
+
+    @Redirect(
+        at = @At(target = "Lnet/minecraft/item/ItemStack;isEmpty()Z", value = "INVOKE", ordinal = 1),
+        method = "setHeldItemStack(Lnet/minecraft/item/ItemStack;Z)V"
+    )
+    private boolean fixedPlaySoundCheck(ItemStack value, @Local(argsOnly = true) boolean update) {
+        return !(!value.isEmpty() && update);
     }
 }
