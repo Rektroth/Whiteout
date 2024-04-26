@@ -17,6 +17,7 @@
 		"server.dedicated.command.DeOpCommandMixin",
 		"server.dedicated.command.OpCommandMixin",
 		"server.network.ServerPlayerInteractionManagerMixin",
+		"server.world.ServerWorldMixin",
 		"world.explosion.ExplosionAccessor",
 		"world.explosion.ExplosionMixin"
 	],
