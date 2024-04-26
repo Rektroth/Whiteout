@@ -9,16 +9,22 @@ package io.github.rektroth.whiteout.mixin.entity.ai.goal;
 
 import net.minecraft.entity.ai.goal.WolfBegGoal;
 import net.minecraft.entity.passive.WolfEntity;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(WolfBegGoal.class)
 public abstract class WolfBegGoalMixin {
+    @Final
+    @Shadow
+    private WolfEntity wolf;
+
     @Redirect(
         at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/passive/WolfEntity;isTamed()Z"),
         method = "isAttractive")
     private boolean fixedBadTameCheck(WolfEntity instance) {
-        return !((WolfBegGoalAccessor)this).getWolf().isTamed();
+        return !this.wolf.isTamed();
     }
 }

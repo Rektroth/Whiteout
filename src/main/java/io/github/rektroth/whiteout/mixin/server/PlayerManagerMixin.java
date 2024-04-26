@@ -15,7 +15,9 @@ import net.minecraft.server.BannedPlayerList;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,6 +26,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerManager.class)
 public abstract class PlayerManagerMixin {
+	@Final
+	@Shadow
+	private BannedPlayerList bannedProfiles;
+
 	@Unique
 	private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 
@@ -32,8 +38,8 @@ public abstract class PlayerManagerMixin {
 		method = "checkCanJoin",
 		cancellable = true)
 	private void fixedBanCheck(SocketAddress address, GameProfile profile, CallbackInfoReturnable<Text> ci) {
-		if (((PlayerManagerAccessor)this).getBannedProfiles().contains(profile)) {
-			BannedPlayerEntry bannedPlayerEntry = ((PlayerManagerAccessor)this).getBannedProfiles().get(profile);
+		if (this.bannedProfiles.contains(profile)) {
+			BannedPlayerEntry bannedPlayerEntry = this.bannedProfiles.get(profile);
 
 			if (bannedPlayerEntry != null) {
 				MutableText mutableText = Text.translatable(
