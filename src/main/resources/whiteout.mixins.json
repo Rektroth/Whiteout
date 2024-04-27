@@ -1,26 +1,27 @@
 {
-	"required": true,
-	"package": "io.github.rektroth.whiteout.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"block.AzaleaBlockMixin",
-		"entity.EntityMixin",
-		"entity.ai.brain.task.VillagerTaskListProviderMixin",
-		"entity.ai.goal.WolfBegGoalMixin",
-		"entity.boss.dragon.EnderDragonFightAccessor",
-		"entity.boss.dragon.EnderDragonFightMixin",
-		"entity.decoration.EndCrystalEntityMixin",
-		"entity.decoration.ItemFrameEntityMixin",
-		"entity.passive.BeeEntityMixin",
-		"server.PlayerManagerMixin",
-		"server.dedicated.command.DeOpCommandMixin",
-		"server.dedicated.command.OpCommandMixin",
-		"server.network.ServerPlayerInteractionManagerMixin",
-		"server.world.ServerWorldMixin",
-		"server.world.gen.feature.EndSpikeFeatureMixin",
-		"world.explosion.ExplosionMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "io.github.rektroth.whiteout.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "block.AzaleaBlockMixin",
+    "block.entity.BeaconBlockEntityMixin",
+    "entity.EntityMixin",
+    "entity.ai.brain.task.VillagerTaskListProviderMixin",
+    "entity.ai.goal.WolfBegGoalMixin",
+    "entity.boss.dragon.EnderDragonFightAccessor",
+    "entity.boss.dragon.EnderDragonFightMixin",
+    "entity.decoration.EndCrystalEntityMixin",
+    "entity.decoration.ItemFrameEntityMixin",
+    "entity.passive.BeeEntityMixin",
+    "server.PlayerManagerMixin",
+    "server.dedicated.command.DeOpCommandMixin",
+    "server.dedicated.command.OpCommandMixin",
+    "server.network.ServerPlayerInteractionManagerMixin",
+    "server.world.ServerWorldMixin",
+    "server.world.gen.feature.EndSpikeFeatureMixin",
+    "world.explosion.ExplosionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
