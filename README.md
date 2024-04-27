@@ -38,7 +38,6 @@ Any patches that are considered "lazy" or are for a bug ticket which does not ha
 | Bug                                                   | Name                                                                                                                                                                                            |
 |-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [MC-11193](https://bugs.mojang.com/browse/MC-11193)   | The order in which powerable blocks (e.g. redstone dust blocks) along a wire are powered or de-powered is not clearly defined and causes a non-deterministic behavior for redstone contraptions |
-| [MC-81098](https://bugs.mojang.com/browse/MC-81098)   | Redstone dust updates cause lag                                                                                                                                                                 |
 | [MC-123848](https://bugs.mojang.com/browse/MC-123848) | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block                                                                                                     |
 | [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Whitelist on state inconsistency                                                                                                                                                                |
 | [MC-145656](https://bugs.mojang.com/browse/MC-145656) | Attribute "follow_range" is not working to hostile mobs before they find the target                                                                                                             |
@@ -47,7 +46,6 @@ Any patches that are considered "lazy" or are for a bug ticket which does not ha
 | [MC-163962](https://bugs.mojang.com/browse/MC-163962) | Villager demand values decrease indefinitely                                                                                                                                                    |
 | [MC-171420](https://bugs.mojang.com/browse/MC-171420) | OP players get kicked for not being on the whitelist (enforce = on)                                                                                                                             |
 | [MC-174630](https://bugs.mojang.com/browse/MC-174630) | Secondary beacon effect remains when switching primary effect                                                                                                                                   |
-| [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Creepers do not defuse when switching from Survival to Creative/Spectator                                                                                                                       |
 | [MC-188840](https://bugs.mojang.com/browse/MC-188840) | *This ticket covered piston-based block duplication. It is unknown why the ticket was privated/deleted.*                                                                                        |
 | [MC-191591](https://bugs.mojang.com/browse/MC-191591) | Saddles lose their NBT data when equipped on horses, zombie horses, skeleton horses, mules or donkeys via right-clicking                                                                        |
 | [MC-200092](https://bugs.mojang.com/browse/MC-200092) | /setworldspawn seems to ignore the 'angle' parameter                                                                                                                                            |
@@ -70,6 +68,15 @@ Although MC-27056 covers the most common permanent block breaking exploit, Paper
 | [MC-99075](https://bugs.mojang.com/browse/MC-99075) | *Unknown* | Cancelled block place (spawn protection) causes inventory desync              |
 
 These patches are from upstream projects. Although these patches would ideally be included at some point, they are not currently a priority.
+
+### Not Planned
+
+| Bug                                                   | Name                                                                      | Alternative                                                             |
+|-------------------------------------------------------|---------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| [MC-81098](https://bugs.mojang.com/browse/MC-81098)   | Redstone dust updates cause lag                                           | [alternate-current](https://github.com/SpaceWalkerRS/alternate-current) |
+| [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Creepers do not defuse when switching from Survival to Creative/Spectator | [Debugify](https://github.com/isXander/Debugify)                        |
+
+These patches are not planned for any future release as they are already implemented in other mods.
 
 ## Disclaimers
 
