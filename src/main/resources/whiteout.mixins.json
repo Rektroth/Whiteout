@@ -19,6 +19,7 @@
     "server.network.ServerPlayerInteractionManagerMixin",
     "server.world.ServerWorldMixin",
     "server.world.gen.feature.EndSpikeFeatureMixin",
+    "village.TradeOfferMixin",
     "world.explosion.ExplosionMixin"
   ],
   "injectors": {
