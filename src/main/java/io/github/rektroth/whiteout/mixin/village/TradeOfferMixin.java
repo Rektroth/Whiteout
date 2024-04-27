@@ -1,3 +1,10 @@
+/*
+ * Patch for MC-163962
+ *
+ * Authored for CraftBukkit/Spigot by chicken <emcchickeneer@gmail.com> on June 5, 2020.
+ * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 27, 2024.
+ */
+
 package io.github.rektroth.whiteout.mixin.village;
 
 import net.minecraft.village.TradeOffer;
