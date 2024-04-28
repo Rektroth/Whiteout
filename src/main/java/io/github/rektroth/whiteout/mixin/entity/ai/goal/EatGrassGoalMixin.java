@@ -1,3 +1,10 @@
+/*
+ * Patch for MC-210802
+ *
+ * Authored for CraftBukkit/Spigot by Jake Potrebic <jake.m.potrebic@gmail.com> on July 11, 2022.
+ * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 27, 2024.
+ */
+
 package io.github.rektroth.whiteout.mixin.entity.ai.goal;
 
 import io.github.rektroth.whiteout.mixin.server.world.ThreadedAnvilChunkStorageInvoker;

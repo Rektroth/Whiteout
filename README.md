@@ -6,26 +6,27 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 
 ### Present
 
-| Bug                                                   | Lazy? | Mojang Prioritization | Name                                                                                        |
-|-------------------------------------------------------|-------|-----------------------|---------------------------------------------------------------------------------------------|
-| [MC-4](https://bugs.mojang.com/browse/MC-4)           | Yes   | Low                   | Item drops sometimes appear at the wrong location                                           |
-| [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | Yes   | Low                   | You can blow the extension off a piston                                                     |
-| [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | No    | Low                   | Tamed wolves beg for bones while wild wolves don't                                          |
-| [MC-108513](https://bugs.mojang.com/browse/MC-108513) | Yes   | *None*                | end crystal did not spawn/despawn correct after enderdragon respawned                       |
-| [MC-123450](https://bugs.mojang.com/browse/MC-123450) | No    | Low                   | Item frames play sounds when the item within them is read from NBT                          |
-| [MC-123848](https://bugs.mojang.com/browse/MC-123848) | No    | Normal                | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block |
-| [MC-153086](https://bugs.mojang.com/browse/MC-153086) | No    | Low                   | Beacons always play deactivating sound when broken, even when not powered                   |
-| [MC-157464](https://bugs.mojang.com/browse/MC-157464) | No    | Normal                | Villagers move around in bed or even leave the bed when food is thrown at them              |
-| [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | *None*                | "bad packet id 26" upon connecting after tempban expire                                     |
-| [MC-163962](https://bugs.mojang.com/browse/MC-163962) | No    | *None*                | Villager demand values decrease indefinitely                                                |
-| [MC-167279](https://bugs.mojang.com/browse/MC-167279) | No    | Normal                | Bees get stuck in the void                                                                  |
-| [MC-210802](https://bugs.mojang.com/browse/MC-210802) | No    | *None*                | Inactive sheep eat grass                                                                    |
-| [MC-224454](https://bugs.mojang.com/browse/MC-224454) | No    | Normal                | Entities don't recognize azaleas or flowering azaleas as obstacles when pathfinding         |
-| [MC-252817](https://bugs.mojang.com/browse/MC-252817) | No    | Normal                | Placing a map into an item frame and removing it does not remove the green player marker    |
-| [MC-253721](https://bugs.mojang.com/browse/MC-253721) | No    | Important             | Wrong logs when running /op @a                                                              |
-| [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | Low                   | The ender dragon's name is not reset when it is respawned in the end                        |
-| [MC-259571](https://bugs.mojang.com/browse/MC-259571) | No    | Normal                | Last player game mode not saved after player dies or the game is reloaded                   |
-| [MC-262422](https://bugs.mojang.com/browse/MC-262422) | No    | Normal                | Lightning bolts during thunderstorms can strike players in spectator game mode              |
+| Bug                                                   | Lazy? | Mojang Prioritization | Name                                                                                                                                 |
+|-------------------------------------------------------|-------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| [MC-4](https://bugs.mojang.com/browse/MC-4)           | Yes   | Low                   | Item drops sometimes appear at the wrong location                                                                                    |
+| [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | Yes   | Low                   | You can blow the extension off a piston                                                                                              |
+| [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | No    | Low                   | Tamed wolves beg for bones while wild wolves don't                                                                                   |
+| [MC-108513](https://bugs.mojang.com/browse/MC-108513) | Yes   | *None*                | end crystal did not spawn/despawn correct after enderdragon respawned                                                                |
+| [MC-123450](https://bugs.mojang.com/browse/MC-123450) | No    | Low                   | Item frames play sounds when the item within them is read from NBT                                                                   |
+| [MC-123848](https://bugs.mojang.com/browse/MC-123848) | No    | Normal                | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block                                          |
+| [MC-153086](https://bugs.mojang.com/browse/MC-153086) | No    | Low                   | Beacons always play deactivating sound when broken, even when not powered                                                            |
+| [MC-157464](https://bugs.mojang.com/browse/MC-157464) | No    | Normal                | Villagers move around in bed or even leave the bed when food is thrown at them                                                       |
+| [MC-158900](https://bugs.mojang.com/browse/MC-158900) | No    | *None*                | "bad packet id 26" upon connecting after tempban expire                                                                              |
+| [MC-163962](https://bugs.mojang.com/browse/MC-163962) | No    | *None*                | Villager demand values decrease indefinitely                                                                                         |
+| [MC-167279](https://bugs.mojang.com/browse/MC-167279) | No    | Normal                | Bees get stuck in the void                                                                                                           |
+| [MC-210802](https://bugs.mojang.com/browse/MC-210802) | No    | *None*                | Inactive sheep eat grass                                                                                                             |
+| [MC-224454](https://bugs.mojang.com/browse/MC-224454) | No    | Normal                | Entities don't recognize azaleas or flowering azaleas as obstacles when pathfinding                                                  |
+| [MC-248588](https://bugs.mojang.com/browse/MC-248588) | No    | Low                   | The "mobGriefing" gamerule doesn't prevent burning entities from being able to decrease the levels of water or powder snow cauldrons |
+| [MC-252817](https://bugs.mojang.com/browse/MC-252817) | No    | Normal                | Placing a map into an item frame and removing it does not remove the green player marker                                             |
+| [MC-253721](https://bugs.mojang.com/browse/MC-253721) | No    | Important             | Wrong logs when running /op @a                                                                                                       |
+| [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | Low                   | The ender dragon's name is not reset when it is respawned in the end                                                                 |
+| [MC-259571](https://bugs.mojang.com/browse/MC-259571) | No    | Normal                | Last player game mode not saved after player dies or the game is reloaded                                                            |
+| [MC-262422](https://bugs.mojang.com/browse/MC-262422) | No    | Normal                | Lightning bolts during thunderstorms can strike players in spectator game mode                                                       |
 
 Patches that are marked as "lazy" generally meet at least one of the following criteria:
 
@@ -53,7 +54,6 @@ Any patches that are considered "lazy" or are for a bug ticket which does not ha
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Entity type tags suggestions don't work in target selectors                                                                                                                                     |
 | [MC-243057](https://bugs.mojang.com/browse/MC-243057) | Furnace recipes don't consider alternatives when first option of recipe is used for fuel                                                                                                        |
 | [MC-244739](https://bugs.mojang.com/browse/MC-244739) | Goat eating sounds aren't played when feeding them the last item of wheat within a stack                                                                                                        |
-| [MC-248588](https://bugs.mojang.com/browse/MC-248588) | The "mobGriefing" gamerule doesn't prevent burning entities from being able to decrease the levels of water or powder snow cauldrons                                                            |
 | [MC-253884](https://bugs.mojang.com/browse/MC-253884) | Particles produced from the bad omen effect being consumed cannot be seen by other player                                                                                                       |
 | [MC-253721](https://bugs.mojang.com/browse/MC-253721) | Wrong logs when running /op @a                                                                                                                                                                  |
 | [MC-263999](https://bugs.mojang.com/browse/MC-263999) | Zombies breaking doors do not show break particles                                                                                                                                              |

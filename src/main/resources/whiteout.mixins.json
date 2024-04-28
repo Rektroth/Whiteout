@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "block.AzaleaBlockMixin",
+    "block.LeveledCauldronBlockMixin",
     "block.entity.BeaconBlockEntityMixin",
     "entity.EntityMixin",
     "entity.ai.brain.task.VillagerTaskListProviderMixin",
