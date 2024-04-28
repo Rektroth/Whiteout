@@ -69,6 +69,14 @@ Although MC-27056 covers the most common permanent block breaking exploit, Paper
 
 These patches are from upstream projects. Although these patches would ideally be included at some point, they are not currently a priority.
 
+### Downstream
+
+| Bug                                                   | Source | Name                                                                              |
+|-------------------------------------------------------|--------|-----------------------------------------------------------------------------------|
+| [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing |
+
+These patches are from downstream projects. These patches might be included eventually, but are not presently planned.
+
 ### Not Planned
 
 | Bug                                                   | Name                                                                      | Alternative                                                             |
