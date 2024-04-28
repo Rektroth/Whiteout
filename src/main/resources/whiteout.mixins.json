@@ -6,6 +6,8 @@
     "block.AzaleaBlockMixin",
     "block.LeveledCauldronBlockMixin",
     "block.PistonBlockMixin",
+    "block.SaplingBlockMixin",
+    "block.dispenser.DispenserBehaviorMixin",
     "block.entity.BeaconBlockEntityMixin",
     "entity.EntityMixin",
     "entity.ai.brain.task.VillagerTaskListProviderMixin",
@@ -16,6 +18,7 @@
     "entity.decoration.EndCrystalEntityMixin",
     "entity.decoration.ItemFrameEntityMixin",
     "entity.passive.BeeEntityMixin",
+    "item.ItemStackMixin",
     "server.PlayerManagerMixin",
     "server.dedicated.command.DeOpCommandMixin",
     "server.dedicated.command.OpCommandMixin",
@@ -25,6 +28,7 @@
     "server.world.gen.feature.EndSpikeFeatureMixin",
     "village.TradeOfferMixin",
     "world.PortalForcerMixin",
+    "world.WorldMixin",
     "world.explosion.ExplosionMixin"
   ],
   "injectors": {

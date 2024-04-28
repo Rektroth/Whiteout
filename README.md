@@ -29,6 +29,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-259571](https://bugs.mojang.com/browse/MC-259571) | No    | Normal                | Last player game mode not saved after player dies or the game is reloaded                                                            |
 | [MC-262422](https://bugs.mojang.com/browse/MC-262422) | No    | Normal                | Lightning bolts during thunderstorms can strike players in spectator game mode                                                       |
 | *N/A*                                                 | No    | *N/A*                 | Top of nether void damage                                                                                                            |
+| *N/A*                                                 | No    | *N/A*                 | Breaking permanent blocks                                                                                                            |
 
 Patches that are marked as "lazy" generally meet at least one of the following criteria:
 

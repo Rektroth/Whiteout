@@ -28,7 +28,8 @@
 	},
 	"custom": {
 		"loom:injected_interfaces": {
-			"net/minecraft/class_1511": ["io/github/rektroth/whiteout/accessors/GeneratedByDragonFightAccessor"]
+			"net/minecraft/class_1511": ["io/github/rektroth/whiteout/accessors/GeneratedByDragonFightAccessor"],
+			"net/minecraft/class_1937": ["io/github/rektroth/whiteout/accessors/CaptureTreeGenerationAccessor"]
 		}
 	}
 }
