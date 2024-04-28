@@ -5,18 +5,28 @@
  * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 27, 2024.
  */
 
+/*
+ * Patch for breaking permanent blocks
+ *
+ * Authored for CraftBukkit/Spigot by Aikar <aikar@aikar.co>> on May 13, 2020.
+ * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 28, 2024.
+ */
+
 package io.github.rektroth.whiteout.mixin.block;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 import java.util.Map;
@@ -55,5 +65,42 @@ public abstract class PistonBlockMixin {
 			Blocks.AIR.getDefaultState(),
 			Block.NOTIFY_LISTENERS | Block.FORCE_STATE | Block.MOVED | 1024
 		);
+	}
+
+	@Inject(at = @At("HEAD"), method = "onSyncedBlockEvent", cancellable = true)
+	private void dontTriggerIfWrongDirection(
+		BlockState state,
+		World world,
+		BlockPos pos,
+		int type,
+		int data,
+		CallbackInfoReturnable<Boolean> cir
+	) {
+		Direction direction = state.get(FacingBlock.FACING);
+		Direction directionAsQueued = Direction.byId(data & 7);
+
+		if (direction != directionAsQueued) {
+			cir.setReturnValue(false);
+		}
+	}
+
+	@Redirect(
+		at = @At(
+			target = "Lnet/minecraft/world/World;removeBlock(Lnet/minecraft/util/math/BlockPos;Z)Z",
+			value = "INVOKE",
+			ordinal = 1
+		),
+		method = "onSyncedBlockEvent"
+	)
+	private boolean removeBlockIfNotPermanent(World instance, BlockPos pos, boolean move, @Local Direction direction) {
+		if (instance.getBlockState(pos) == Blocks.PISTON_HEAD.getDefaultState().with(FacingBlock.FACING, direction)) {
+			return instance.removeBlock(pos, move);
+		}
+
+		if (!instance.isClient) {
+			((ServerWorld)instance).getChunkManager().markForUpdate(pos);
+		}
+
+		return true;
 	}
 }
