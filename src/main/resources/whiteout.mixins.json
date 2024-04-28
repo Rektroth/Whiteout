@@ -5,6 +5,7 @@
   "mixins": [
     "block.AzaleaBlockMixin",
     "block.LeveledCauldronBlockMixin",
+    "block.PistonBlockMixin",
     "block.entity.BeaconBlockEntityMixin",
     "entity.EntityMixin",
     "entity.ai.brain.task.VillagerTaskListProviderMixin",
