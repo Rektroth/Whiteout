@@ -24,6 +24,7 @@
     "server.world.ThreadedAnvilChunkStorageInvoker",
     "server.world.gen.feature.EndSpikeFeatureMixin",
     "village.TradeOfferMixin",
+    "world.PortalForcerMixin",
     "world.explosion.ExplosionMixin"
   ],
   "injectors": {

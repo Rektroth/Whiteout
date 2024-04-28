@@ -28,6 +28,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | No    | Low                   | The ender dragon's name is not reset when it is respawned in the end                                                                 |
 | [MC-259571](https://bugs.mojang.com/browse/MC-259571) | No    | Normal                | Last player game mode not saved after player dies or the game is reloaded                                                            |
 | [MC-262422](https://bugs.mojang.com/browse/MC-262422) | No    | Normal                | Lightning bolts during thunderstorms can strike players in spectator game mode                                                       |
+| *N/A*                                                 | No    | *N/A*                 | Top of nether void damage                                                                                                            |
 
 Patches that are marked as "lazy" generally meet at least one of the following criteria:
 
