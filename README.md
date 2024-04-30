@@ -81,3 +81,11 @@ Whiteout is in no way associated with the Paper project. Please do not contact t
 Since all bug fixes provided by this mod are ported from Paper, said fixes inherit their licensing from the Paper project, which is licensed under the [GPLv3](./LICENSE).
 
 [While some contributors to the Paper project chose to release their code under the more permissive MIT License](https://github.com/PaperMC/Paper/blob/master/LICENSE.md), it is easier, and legally permissible, to release this entire project under the GPLv3. Patches are however still annotated to attribute appropriate credit to their original authors.
+
+### Compatibility
+
+Best effort is made to keep Whiteout compatible with Lithium. Reporting of issues with compatibility is appreciated.
+
+Compatibility with other mods is not guaranteed, but if you make an issue ticket I may get around to it. Attempts at compatibility are at my discretion. I generally will not make an effort maintain compatibility with very niche mods or large mod-packs, and will make no attempt at compatibility with mods that are fundamentally incompatible with the goals of Whiteout.
+
+Compatibility with Sinytra Connector and similar projects is **not supported at all**. If you have issues using Whiteout with such layers, that is your problem.

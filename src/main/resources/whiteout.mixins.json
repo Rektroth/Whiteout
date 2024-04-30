@@ -2,6 +2,7 @@
   "required": true,
   "package": "io.github.rektroth.whiteout.mixin",
   "compatibilityLevel": "JAVA_21",
+  "plugin": "io.github.rektroth.whiteout.mixin.WhiteoutMixinPlugin",
   "mixins": [
     "block.AbstractBlockMixin",
     "block.AbstractBlockMixin$AbstractBlockStateMixin",
@@ -11,6 +12,7 @@
     "block.SaplingBlockMixin",
     "block.dispenser.DispenserBehaviorMixin",
     "block.entity.BeaconBlockEntityMixin",
+    "breakingpermablocks.DontPlacePortalInPermaBlocks",
     "entity.EntityMixin",
     "entity.ai.brain.task.VillagerTaskListProviderMixin",
     "entity.ai.goal.EatGrassGoalMixin",
@@ -21,6 +23,7 @@
     "entity.decoration.ItemFrameEntityMixin",
     "entity.passive.BeeEntityMixin",
     "item.ItemStackMixin",
+    "nethervoiddamage.DontCreatePortalOnRoof",
     "server.PlayerManagerMixin",
     "server.dedicated.command.DeOpCommandMixin",
     "server.dedicated.command.OpCommandMixin",
@@ -29,7 +32,6 @@
     "server.world.ThreadedAnvilChunkStorageInvoker",
     "server.world.gen.feature.EndSpikeFeatureMixin",
     "village.TradeOfferMixin",
-    "world.PortalForcerMixin",
     "world.WorldMixin",
     "world.explosion.ExplosionMixin"
   ],
