@@ -3,7 +3,6 @@
  *
  * Authored for CraftBukkit/Spigot by Zach Brown <zach.brown@destroystokyo.com> on March 1, 2016.
  * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 28, 2024.
- * Made compatible with Lithium by Rektroth <brian.rexroth.jr@gmail.com> on April 29, 2024
  */
 
 package io.github.rektroth.whiteout.mixin.nethervoiddamage.compat.lithium;
@@ -27,11 +26,13 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 import java.util.Optional;
 
 @Mixin(PortalForcer.class)
-public abstract class DontLinkToPortalOnRoof {
+public abstract class PortalForcerMixin {
 	@Final
 	@Shadow
 	private ServerWorld world;
@@ -44,10 +45,9 @@ public abstract class DontLinkToPortalOnRoof {
 	 * @param worldBorder  The world border.
 	 * @return The rectangle of the closest valid existing portal if one exists within the valid range.
 	 * @author Rektroth
-	 * @reason Unfortunately, since Lithium completely overwrites this function rather than doing something reasonable,
-	 * I have no choice but to completely overwrite their overwrite.
-	 * What's important is the first line of the predicate passed to `lithium$findNearestForPortalLogic`,
-	 * which prevents portals in the overworld from linking to portals that exist above the nether roof.
+	 * @reason Lithium completely overwrites this function with essentially what you see below,
+	 * but without the `PortalUtil.isBelowCeiling` check added to the predicate.
+	 * Easiest way to achieve compatibility with Lithium in this case is to simply overwrite the method ourselves.
 	 */
 	@Overwrite
 	public Optional<BlockLocating.Rectangle> getPortalRect(
@@ -58,6 +58,8 @@ public abstract class DontLinkToPortalOnRoof {
 		int searchRadius = destIsNether ? 16 : 128;
 		PointOfInterestStorage poiStorage = this.world.getPointOfInterestStorage();
 		poiStorage.preloadChunks(this.world, pos, searchRadius);
+
+		// all the same above
 
 		Optional<PointOfInterest> ret = ((PointOfInterestStorageExtended)poiStorage).lithium$findNearestForPortalLogic(
 			pos,

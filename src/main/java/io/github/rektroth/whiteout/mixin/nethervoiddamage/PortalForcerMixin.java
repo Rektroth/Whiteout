@@ -17,13 +17,14 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 @Mixin(PortalForcer.class)
-public abstract class DontLinkToPortalOnRoof {
+public abstract class PortalForcerMixin {
 	@Final
 	@Shadow
 	private ServerWorld world;
@@ -51,5 +52,20 @@ public abstract class DontLinkToPortalOnRoof {
 		return instance
 			.filter(predicate)
 			.filter((poi) -> PortalUtil.isBelowCeiling(poi, this.world));
+	}
+
+	/**
+	 * Returns the provided value or dimension's ceiling height, whichever is smallest.
+	 * @param value The value.
+	 * @return The value if below the dimension's ceiling or the dimension doesn't have one,
+	 * the dimension's ceiling height otherwise.
+	 */
+	@ModifyVariable(at = @At("STORE"), method = "createPortal", ordinal = 0)
+	private int roofMaximum(int value) {
+		if (this.world.getDimension().hasCeiling()) {
+			return Math.min(value, this.world.getBottomY() + this.world.getLogicalHeight() - 1);
+		}
+
+		return value;
 	}
 }
