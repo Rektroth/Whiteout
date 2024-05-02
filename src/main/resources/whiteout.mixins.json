@@ -32,10 +32,14 @@
     "mc259571.ServerPlayerInteractionManagerMixin",
     "mc262422.ServerWorldMixin",
     "mc27056.ExplosionMixin",
+    "mc27056.compat.lithium.ExplosionMixin",
+    "mc27056.compat.lithium.LithiumCompatExplosionMixin",
     "mc4.EntityMixin",
     "mc84789.WolfBegGoalMixin",
     "nethervoiddamage.EntityMixin",
-    "nethervoiddamage.PortalForcerMixin"
+    "nethervoiddamage.PortalForcerMixin",
+    "nethervoiddamage.compat.lithium.LithiumCompatPortalForcerMixin",
+    "nethervoiddamage.compat.lithium.PortalForcerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

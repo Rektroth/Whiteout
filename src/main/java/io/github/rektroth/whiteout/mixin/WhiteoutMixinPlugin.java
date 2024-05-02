@@ -27,8 +27,10 @@ public final class WhiteoutMixinPlugin implements IMixinConfigPlugin {
 	private final Logger logger = LogManager.getLogger("Whiteout");
 	private static final Supplier<Boolean> TRUE = () -> true;
 	private static final Map<String, Supplier<Boolean>> CONDITIONS = ImmutableMap.of(
-		"nethervoiddamage.compat.lithium.PortalForcerMixin", () -> FabricLoader.getInstance().isModLoaded("lithium"),
-		"nethervoiddamage.PortalForcerMixin", () -> !FabricLoader.getInstance().isModLoaded("lithium")
+		"nethervoiddamage.compat.lithium.LithiumCompatPortalForcerMixin", () -> FabricLoader.getInstance().isModLoaded("lithium"),
+		"nethervoiddamage.PortalForcerMixin", () -> !FabricLoader.getInstance().isModLoaded("lithium"),
+		"mc27056.compat.lithium.LithiumCompatExplosionMixin", () -> FabricLoader.getInstance().isModLoaded("lithium"),
+		"mc27056.ExplosionsMixin", () -> !FabricLoader.getInstance().isModLoaded("lithium")
 	);
 
 	private WhiteoutConfig config;

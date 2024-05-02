@@ -32,7 +32,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import java.util.Optional;
 
 @Mixin(PortalForcer.class)
-public abstract class PortalForcerMixin {
+public abstract class LithiumCompatPortalForcerMixin {
 	@Final
 	@Shadow
 	private ServerWorld world;
@@ -83,5 +83,20 @@ public abstract class PortalForcerMixin {
 				21,
 				(posx) -> this.world.getBlockState(posx) == blockState);
 		});
+	}
+
+	/**
+	 * Returns the provided value or dimension's ceiling height, whichever is smallest.
+	 * @param value The value.
+	 * @return The value if below the dimension's ceiling or the dimension doesn't have one,
+	 * the dimension's ceiling height otherwise.
+	 */
+	@ModifyVariable(at = @At("STORE"), method = "createPortal", ordinal = 0)
+	private int roofMaximum(int value) {
+		if (this.world.getDimension().hasCeiling()) {
+			return Math.min(value, this.world.getBottomY() + this.world.getLogicalHeight() - 1);
+		}
+
+		return value;
 	}
 }

@@ -32,8 +32,7 @@ public abstract class ExplosionMixin {
     private World world;
 
     /**
-     * Modifies the method to destroy the piston itself in the event that an explosion destroys
-     * the a piston head.
+     * Modifies the method to also destroy the corresponding piston base of any piston heads it destroys.
      * @param ci         boilerplate
      * @param set        The set of positions of blocks destroyed.
      * @param blockPos   The position of the block just destroyed.
