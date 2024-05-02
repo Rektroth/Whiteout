@@ -39,7 +39,7 @@ Patches that are marked as "lazy" generally meet at least one of the following c
 
 Mojang prioritization is also noted here. If a ticket has *not* been assigned a priority by Mojang, this potentially means that a Mojang employee has not yet personally reviewed the ticket and confirmed that the behavior is unintentional.
 
-Any patches that are considered "lazy" or are for a bug ticket which does not have a Mojang-assigned priority will be disabled by default when configurability is implemented.
+Patches that are considered "lazy" or are for a bug ticket which does not have a Mojang-assigned priority are disabled by default. You will have to enable them in `.minecraft/configs/whiteout.properties` if you wish to have them enabled.
 
 ### Planned
 
