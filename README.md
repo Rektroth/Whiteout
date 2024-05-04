@@ -84,7 +84,7 @@ Since all bug fixes provided by this mod are ported from Paper, said fixes inher
 
 ### Compatibility
 
-Best effort is made to keep Whiteout compatible with Lithium. Reporting of issues with compatibility is appreciated.
+Best effort is made to keep Whiteout compatible with [Lithium](https://github.com/caffeinemc/lithium-fabric). Reporting of issues with compatibility is appreciated.
 
 Compatibility with other mods is not guaranteed, but if you make an issue ticket I may get around to it. Attempts at compatibility are at my discretion. I generally will not make an effort maintain compatibility with very niche mods or large mod-packs, and will make no attempt at compatibility with mods that are fundamentally incompatible with the goals of Whiteout.
 

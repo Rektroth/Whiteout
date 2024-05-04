@@ -40,6 +40,6 @@ public abstract class OpCommandMixin {
         boolean broadcastToOps,
         @Local GameProfile gameProfile
     ) {
-        instance.sendFeedback(() -> Text.translatable("commands.deop.success", gameProfile.getName()), broadcastToOps);
+        instance.sendFeedback(() -> Text.translatable("commands.op.success", gameProfile.getName()), broadcastToOps);
     }
 }
