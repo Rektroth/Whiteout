@@ -31,7 +31,8 @@ public interface DispenserBehaviorMixin {
 	@Redirect(
 		at = @At(
 			target = "Lnet/minecraft/block/DispenserBlock;registerBehavior(Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/block/dispenser/DispenserBehavior;)V",
-			value = "INVOKE"
+			value = "INVOKE",
+			ordinal = 53
 		),
 		method = "registerDefaults"
 	)
