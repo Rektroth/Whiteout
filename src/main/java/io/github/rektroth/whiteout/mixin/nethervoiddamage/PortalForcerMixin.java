@@ -10,7 +10,7 @@ package io.github.rektroth.whiteout.mixin.nethervoiddamage;
 import com.llamalad7.mixinextras.sugar.Local;
 import io.github.rektroth.whiteout.util.PortalUtil;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.world.PortalForcer;
+import net.minecraft.world.dimension.PortalForcer;
 import net.minecraft.world.border.WorldBorder;
 import net.minecraft.world.poi.PointOfInterest;
 import org.spongepowered.asm.mixin.Final;
@@ -42,7 +42,7 @@ public abstract class PortalForcerMixin {
 			value = "INVOKE",
 			ordinal = 0
 		),
-		method = "getPortalRect"
+		method = "getPortalPos"
 	)
 	private Stream<PointOfInterest> filterPointsOutsideLogic(
 		Stream<PointOfInterest> instance,

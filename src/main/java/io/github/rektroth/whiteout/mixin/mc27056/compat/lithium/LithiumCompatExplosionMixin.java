@@ -40,8 +40,14 @@ public abstract class LithiumCompatExplosionMixin {
      * and add the base block counterparts for any piston heads found.
      * @param ci boilerplate
      */
-    @Inject(method = "collectBlocksAndDamageEntities()V",
-        at = @At(value = "INVOKE_ASSIGN", target = "Lit/unimi/dsi/fastutil/objects/ObjectArrayList;addAll(Ljava/util/Collection;)Z", remap = false))
+    @Inject(
+        method = "collectBlocksAndDamageEntities()V",
+        at = @At(
+            remap = false,
+            target = "Lit/unimi/dsi/fastutil/objects/ObjectArrayList;addAll(Ljava/util/Collection;)Z",
+            value = "INVOKE_ASSIGN"
+        )
+    )
     private void removeHeadlessPistons(CallbackInfo ci) {
         for (int i = 0; i < this.affectedBlocks.size(); i++) {
             BlockPos pos = this.affectedBlocks.get(i);

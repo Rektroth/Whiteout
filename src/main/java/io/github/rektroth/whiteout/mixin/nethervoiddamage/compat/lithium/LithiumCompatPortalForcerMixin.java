@@ -8,8 +8,8 @@
 package io.github.rektroth.whiteout.mixin.nethervoiddamage.compat.lithium;
 
 import io.github.rektroth.whiteout.util.PortalUtil;
-import me.jellysquid.mods.lithium.common.util.POIRegistryEntries;
-import me.jellysquid.mods.lithium.common.world.interests.PointOfInterestStorageExtended;
+//import me.jellysquid.mods.lithium.common.util.POIRegistryEntries;
+//import me.jellysquid.mods.lithium.common.world.interests.PointOfInterestStorageExtended;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ChunkTicketType;
 import net.minecraft.server.world.ServerWorld;
@@ -18,7 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockLocating;
-import net.minecraft.world.PortalForcer;
+import net.minecraft.world.dimension.PortalForcer;
 import net.minecraft.world.border.WorldBorder;
 import net.minecraft.world.poi.PointOfInterest;
 import net.minecraft.world.poi.PointOfInterestStorage;
@@ -49,8 +49,8 @@ public abstract class LithiumCompatPortalForcerMixin {
 	 * but without the `PortalUtil.isBelowCeiling` check added to the predicate.
 	 * Easiest way to achieve compatibility with Lithium in this case is to simply overwrite the method ourselves.
 	 */
-	@Overwrite
-	public Optional<BlockLocating.Rectangle> getPortalRect(
+	/*@Overwrite
+	public Optional<BlockLocating.Rectangle> getPortalPos(
 		BlockPos pos,
 		boolean destIsNether,
 		WorldBorder worldBorder
@@ -83,7 +83,7 @@ public abstract class LithiumCompatPortalForcerMixin {
 				21,
 				(posx) -> this.world.getBlockState(posx) == blockState);
 		});
-	}
+	}*/
 
 	/**
 	 * Returns the provided value or dimension's ceiling height, whichever is smallest.
