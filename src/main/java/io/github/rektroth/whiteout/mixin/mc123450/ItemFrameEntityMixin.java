@@ -29,7 +29,7 @@ public abstract class ItemFrameEntityMixin {
      */
     @Inject(
         at = @At(
-            target = "Lnet/minecraft/entity/decoration/ItemFrameEntity;getMapId()Lnet/minecraft/component/type/MapIdComponent;",
+            target = "Lnet/minecraft/entity/decoration/ItemFrameEntity;getMapId(Lnet/minecraft/item/ItemStack;)Lnet/minecraft/component/type/MapIdComponent;",
             value = "INVOKE_ASSIGN"),
         method = "removeFromFrame"
     )
