@@ -36,23 +36,7 @@ import java.util.*;
 public class ExplosionMixin {
 	@Final
 	@Shadow
-	private ObjectArrayList<BlockPos> affectedBlocks;
-
-	@Final
-	@Shadow
-	private Map<PlayerEntity, Vec3d> affectedPlayers;
-
-	@Final
-	@Shadow
 	private ExplosionBehavior behavior;
-
-	@Final
-	@Shadow
-	private DamageSource damageSource;
-
-	@Final
-	@Shadow
-	private Entity entity;
 
 	@Final
 	@Shadow
@@ -74,39 +58,48 @@ public class ExplosionMixin {
 	@Shadow
 	private double z;
 
+	/**
+	 * Skips the existing loop.
+	 * @param prevValue boilerplate
+	 */
 	@ModifyConstant(constant = @Constant(floatValue = 0.0F, ordinal = 0), method = "collectBlocksAndDamageEntities")
 	private float skipLoop(float prevValue) {
 		return Float.MAX_VALUE;
 	}
 
+	/**
+	 * yadayada
+	 * @param ci  boilerplate
+	 * @param set he set of positions of blocks destroyed.
+	 * @param d   d
+	 * @param e   e
+	 * @param f   f
+	 */
 	@Inject(
 		at = @At(
-			by = 4,
-			shift = At.Shift.BY,
 			target = "Lnet/minecraft/util/math/random/Random;nextFloat()F",
-			value = "INVOKE"
+			value = "INVOKE_ASSIGN"
 		),
 		method = "collectBlocksAndDamageEntities"
 	)
 	private void newLoop(
 		CallbackInfo ci,
 		@Local LocalRef<Set<BlockPos>> set,
-		@Local(ordinal = 0) float h,
 		@Local(ordinal = 0) double d,
 		@Local(ordinal = 1) double e,
-		@Local(ordinal = 2) double f,
-		@Local(ordinal = 4) double m,
-		@Local(ordinal = 5) double n,
-		@Local(ordinal = 6) double o
+		@Local(ordinal = 2) double f
 	) {
 		Set<BlockPos> newSet = set.get();
-		float h2 = h;
-		double m2 = m;
-		double n2 = n;
-		double o2 = o;
 
-		for (float p = 0.3F; h2 > 0.0F; h2 -= 0.22500001F) {
-			BlockPos blockPos = BlockPos.ofFloored(m2, n2, o2);
+		// these 4 already exist in the base class as local variables,
+		// but Fabric claims it can't find them - so I must redefine them here
+		float h = this.power * (0.7F + this.world.random.nextFloat() * 0.6F);
+		double m = this.x;
+		double n = this.y;
+		double o = this.z;
+
+		for (float p = 0.3F; h > 0.0F; h -= 0.22500001F) {
+			BlockPos blockPos = BlockPos.ofFloored(m, n, o);
 			BlockState blockState = this.world.getBlockState(blockPos);
 
 			if (BlockUtil.isDestroyable(blockState.getBlock())) {
@@ -122,17 +115,17 @@ public class ExplosionMixin {
 			Optional<Float> optional = this.behavior.getBlastResistance((Explosion) (Object) this, this.world, blockPos, blockState, fluidState);
 
 			if (optional.isPresent()) {
-				h2 -= (optional.get() + 0.3F) * 0.3F;
+				h -= (optional.get() + 0.3F) * 0.3F;
 			}
 
-			if (h2 > 0.0F && this.behavior.canDestroyBlock((Explosion) (Object) this, this.world, blockPos, blockState, h2)) {
+			if (h > 0.0F && this.behavior.canDestroyBlock((Explosion) (Object) this, this.world, blockPos, blockState, h)) {
 				newSet.add(blockPos);
 				set.set(newSet);
 			}
 
-			m2 += d * 0.30000001192092896;
-			n2 += e * 0.30000001192092896;
-			o2 += f * 0.30000001192092896;
+			m += d * 0.30000001192092896;
+			n += e * 0.30000001192092896;
+			o += f * 0.30000001192092896;
 		}
 	}
 }
