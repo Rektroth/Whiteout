@@ -20,6 +20,7 @@
     "mc153086.BeaconBlockEntityMixin",
     "mc157464.VillagerTaskListProviderMixin",
     "mc158900.PlayerManagerMixin",
+    "mc159283.EndIslandsMixin",
     "mc163962.TradeOfferMixin",
     "mc167279.BeeEntityMixin",
     "mc188840.PistonBlockMixin",
