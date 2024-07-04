@@ -2,32 +2,40 @@
  * Patch for MC-123848
  *
  * Authored for CraftBukkit/Spigot by Jake Potrebic <jake.m.potrebic@gmail.com> on July 11, 2022.
- * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 27, 2024.
+ * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 25, 2024.
  */
 
 package io.github.rektroth.whiteout.mixin.mc123848;
 
-import com.llamalad7.mixinextras.sugar.Local;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.decoration.AbstractDecorationEntity;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(ItemFrameEntity.class)
-public abstract class ItemFrameEntityMixin {
+public abstract class ItemFrameEntityMixin extends AbstractDecorationEntity {
     /**
-     * Redirects checking if the item frame is empty to check both that and if the item frame was updated,
-     * so that the item frame only plays a sound when updated.
-     * @param value  The item stack.
-     * @param update Whether the item frame was updated.
-     * @return True if the item frame should play its place sound, false otherwise.
+     * boilerplate
+     * @param entityType boilerplate
+     * @param world      boilerplate
      */
-    @Redirect(
-        at = @At(target = "Lnet/minecraft/item/ItemStack;isEmpty()Z", value = "INVOKE", ordinal = 1),
-        method = "setHeldItemStack(Lnet/minecraft/item/ItemStack;Z)V"
-    )
-    private boolean shouldPlaySound(ItemStack value, @Local(argsOnly = true) boolean update) {
-        return !(!value.isEmpty() && update);
+    protected ItemFrameEntityMixin(EntityType<? extends AbstractDecorationEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
+    /**
+     * Overrides the parent method to drop the item stack as an entity *below* the item frame when facing down.
+     * @param stack The item stack.
+     * @return The item entity to drop.
+     */
+    @Nullable
+    @Override
+    public ItemEntity dropStack(ItemStack stack) {
+        return this.dropStack(stack, getMovementDirection().equals(Direction.DOWN) ? -0.6F : 0.0F);
     }
 }

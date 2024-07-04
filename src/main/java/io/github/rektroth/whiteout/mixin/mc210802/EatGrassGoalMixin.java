@@ -34,7 +34,7 @@ public abstract class EatGrassGoalMixin {
 	 */
 	@Inject(at = @At("HEAD"), method = "canStart", cancellable = true)
 	private void fixCanUse(CallbackInfoReturnable<Boolean> cir) {
-		if (!((ThreadedAnvilChunkStorageInvoker)((ServerWorld)this.world).getChunkManager().threadedAnvilChunkStorage).invokeShouldTick(this.mob.getChunkPos())) {
+		if (!((ServerChunkLoadingManagerInvoker)((ServerWorld)this.world).getChunkManager().chunkLoadingManager).invokeShouldTick(this.mob.getChunkPos())) {
 			cir.setReturnValue(false);
 		}
 	}

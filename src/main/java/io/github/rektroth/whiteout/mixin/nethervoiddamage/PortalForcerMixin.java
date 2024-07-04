@@ -7,11 +7,10 @@
 
 package io.github.rektroth.whiteout.mixin.nethervoiddamage;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import io.github.rektroth.whiteout.util.PortalUtil;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.world.PortalForcer;
-import net.minecraft.world.border.WorldBorder;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.dimension.PortalForcer;
 import net.minecraft.world.poi.PointOfInterest;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -33,7 +32,6 @@ public abstract class PortalForcerMixin {
 	 * Filters points that are outside the logical boundary of the dimension out of a stream of points.
 	 * @param instance    The stream of points to be filtered.
 	 * @param predicate   The predicate already being used to filter the points.
-	 * @param worldBorder The world border.
 	 * @return The same stream of points with those outside the logical boundary removed.
 	 */
 	@Redirect(
@@ -42,16 +40,15 @@ public abstract class PortalForcerMixin {
 			value = "INVOKE",
 			ordinal = 0
 		),
-		method = "getPortalRect"
+		method = "getPortalPos"
 	)
-	private Stream<PointOfInterest> filterPointsOutsideLogic(
-		Stream<PointOfInterest> instance,
-		Predicate<? super PointOfInterest> predicate,
-		@Local(argsOnly = true) WorldBorder worldBorder
+	private Stream<BlockPos> filterPointsOutsideLogic(
+		Stream<BlockPos> instance,
+		Predicate<? super BlockPos> predicate
 	) {
 		return instance
 			.filter(predicate)
-			.filter((poi) -> PortalUtil.isBelowCeiling(poi, this.world));
+			.filter((pos) -> PortalUtil.isBelowCeiling(pos, this.world));
 	}
 
 	/**

@@ -7,13 +7,13 @@
 
 package io.github.rektroth.whiteout.mixin.mc210802;
 
-import net.minecraft.server.world.ThreadedAnvilChunkStorage;
+import net.minecraft.server.world.ServerChunkLoadingManager;
 import net.minecraft.util.math.ChunkPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(ThreadedAnvilChunkStorage.class)
-public interface ThreadedAnvilChunkStorageInvoker {
+@Mixin(ServerChunkLoadingManager.class)
+public interface ServerChunkLoadingManagerInvoker {
 	@Invoker("shouldTick")
 	boolean invokeShouldTick(ChunkPos pos);
 }
