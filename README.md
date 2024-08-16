@@ -50,16 +50,13 @@ Patches that are considered "lazy" or are for a bug ticket which does not have a
 | [MC-92282](https://bugs.mojang.com/browse/MC-33041)   | Spigot    | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials                                    |
 | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur    | Skeletons and illusioners aren't looking up / down at their target while strafing                                        |
 | [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Paper     | Whitelist on state inconsistency                                                                                         |
-| [MC-145656](https://bugs.mojang.com/browse/MC-145656) | Paper     | Attribute "follow_range" is not working to hostile mobs before they find the target                                      |
 | [MC-147659](https://bugs.mojang.com/browse/MC-147659) | Paper     | Some witch huts spawn the incorrect cat                                                                                  |
 | [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot    | Small armor stands drop no loot table                                                                                    |
 | [MC-174630](https://bugs.mojang.com/browse/MC-174630) | Paper     | Secondary beacon effect remains when switching primary effect                                                            |
-| [MC-191591](https://bugs.mojang.com/browse/MC-191591) | Paper     | Saddles lose their NBT data when equipped on horses, zombie horses, skeleton horses, mules or donkeys via right-clicking |
 | [MC-200092](https://bugs.mojang.com/browse/MC-200092) | Paper     | /setworldspawn seems to ignore the 'angle' parameter                                                                     |
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper     | Entity type tags suggestions don't work in target selectors                                                              |
 | [MC-243057](https://bugs.mojang.com/browse/MC-243057) | Paper     | Furnace recipes don't consider alternatives when first option of recipe is used for fuel                                 |
 | [MC-244739](https://bugs.mojang.com/browse/MC-244739) | Paper     | Goat eating sounds aren't played when feeding them the last item of wheat within a stack                                 |
-| [MC-253884](https://bugs.mojang.com/browse/MC-253884) | Paper     | Particles produced from the bad omen effect being consumed cannot be seen by other player                                |
 | [MC-263999](https://bugs.mojang.com/browse/MC-263999) | Paper     | Zombies breaking doors do not show break particles                                                                       |
 | [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot    | Unbreakable flint and steels are completely consumed when igniting a creeper                                             |
 | [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot    | Fresh installations print NoSuchFileException for server.properties                                                      |
