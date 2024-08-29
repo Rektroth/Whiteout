@@ -78,8 +78,12 @@ public abstract class CommandManagerMixin {
 
 		if (requiredArgumentBuilder.getSuggestionsProvider() != null) {
 			requiredArgumentBuilder.suggests(SuggestionProviders.getLocalProvider(requiredArgumentBuilder.getSuggestionsProvider()));
-			registeredAskServerSuggestionsForTree = requiredArgumentBuilder.getSuggestionsProvider() == SuggestionProviders.ASK_SERVER;
-		} else if (!registeredAskServerSuggestionsForTree && requiredArgumentBuilder.getType() instanceof EntityArgumentType) {
+			registeredAskServerSuggestionsForTree =
+				requiredArgumentBuilder.getSuggestionsProvider() == SuggestionProviders.ASK_SERVER;
+		} else if (
+			!registeredAskServerSuggestionsForTree &&
+			requiredArgumentBuilder.getType() instanceof EntityArgumentType
+		) {
 			requiredArgumentBuilder.suggests(requiredArgumentBuilder.getType()::listSuggestions);
 			registeredAskServerSuggestionsForTree = true;
 		}

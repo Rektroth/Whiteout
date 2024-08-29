@@ -30,6 +30,8 @@
     "mc224454.AzaleaBlockMixin",
     "mc235045.CommandManagerMixin",
     "mc235045.EntityArgumentTypeMixin",
+    "mc235045.EntitySelectorOptionsMixin",
+    "mc235045.EntitySelectorReaderMixin",
     "mc235045.ServerCommandSourceMixin",
     "mc248588.LeveledCauldronBlockMixin",
     "mc253721.DeOpCommandMixin",
