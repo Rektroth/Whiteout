@@ -25,6 +25,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Paper           | ❌                  | Inactive sheep eat grass                                                                                                                          |
 | [MC-224454](https://bugs.mojang.com/browse/MC-224454) | Paper           | ✔️                 | Entities don't recognize azaleas or flowering azaleas as obstacles when pathfinding                                                               |
 | [MC-243057](https://bugs.mojang.com/browse/MC-243057) | Paper           | ✔️                 | Furnace recipes don't consider alternatives when first option of recipe is used for fuel                                                          |
+| [MC-244739](https://bugs.mojang.com/browse/MC-244739) | Paper           | ✔️                 | Goat eating sounds aren't played when feeding them the last item of wheat within a stack                                                          |
 | [MC-248588](https://bugs.mojang.com/browse/MC-248588) | Paper           | ✔️                 | The "mobGriefing" gamerule doesn't prevent burning entities from being able to decrease the levels of water or powder snow cauldrons              |
 | [MC-253721](https://bugs.mojang.com/browse/MC-253721) | Paper           | ✔️                 | Wrong logs when running /op @a                                                                                                                    |
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | Paper           | ✔️                 | The ender dragon's name is not reset when it is respawned in the end                                                                              |
@@ -56,7 +57,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Paper  | Creepers do not defuse when switching from Survival to Creative/Spectator                |
 | [MC-200092](https://bugs.mojang.com/browse/MC-200092) | Paper  | /setworldspawn seems to ignore the 'angle' parameter                                     |
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                              |
-| [MC-244739](https://bugs.mojang.com/browse/MC-244739) | Paper  | Goat eating sounds aren't played when feeding them the last item of wheat within a stack |
 | [MC-263999](https://bugs.mojang.com/browse/MC-263999) | Paper  | Zombies breaking doors do not show break particles                                       |
 | [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper             |
 | [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot | Fresh installations print NoSuchFileException for server.properties                      |

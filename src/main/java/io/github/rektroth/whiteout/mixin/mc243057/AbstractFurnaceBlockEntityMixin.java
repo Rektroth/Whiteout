@@ -1,3 +1,10 @@
+/*
+ * Patch for MC-243057
+ *
+ * Authored for CraftBukkit/Spigot by Jake Potrebic <jake.m.potrebic@gmail.com> on July 11, 2022.
+ * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on August 28, 2024.
+ */
+
 package io.github.rektroth.whiteout.mixin.mc243057;
 
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
