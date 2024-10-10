@@ -8,32 +8,33 @@
 package io.github.rektroth.whiteout.mixin.mc27056;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PistonHeadBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.PistonBlockEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.*;
-import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.explosion.ExplosionImpl;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.*;
 
-@Mixin(Explosion.class)
-public abstract class ExplosionMixin {
+@Mixin(ExplosionImpl.class)
+public abstract class ExplosionImplMixin {
     @Final
     @Shadow
-    private World world;
+    private ServerWorld world;
 
     /**
      * Modifies the method to also destroy the corresponding piston base of any piston heads it destroys.
-     * @param ci         boilerplate
+     * @param cir        boilerplate
      * @param set        The set of positions of blocks destroyed.
      * @param blockPos   The position of the block just destroyed.
      * @param blockState The state of the block just destroyed.
@@ -42,10 +43,10 @@ public abstract class ExplosionMixin {
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/world/explosion/ExplosionBehavior;canDestroyBlock(Lnet/minecraft/world/explosion/Explosion;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;F)Z"),
-        method = "collectBlocksAndDamageEntities")
-    private void noHeadlessPiston(
-        CallbackInfo ci,
-        @Local Set<BlockPos> set,
+        method = "getBlocksToDestroy")
+    private void destroyHeadlessPiston(
+        CallbackInfoReturnable<List<BlockPos>> cir,
+        @Local LocalRef<Set<BlockPos>> set,
         @Local BlockPos blockPos,
         @Local BlockState blockState
     ) {
@@ -54,7 +55,10 @@ public abstract class ExplosionMixin {
 
             if (extension instanceof PistonBlockEntity blockEntity && blockEntity.isSource()) {
                 Direction direction = blockState.get(PistonHeadBlock.FACING);
-                set.add(blockPos.offset(direction.getOpposite()));
+
+                Set<BlockPos> newSet = set.get();
+                newSet.add(blockPos.offset(direction.getOpposite()));
+                set.set(newSet);
             }
         }
     }

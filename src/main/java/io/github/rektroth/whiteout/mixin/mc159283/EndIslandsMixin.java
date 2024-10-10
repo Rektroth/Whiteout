@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 // compiler warning says that the target is public - this is incorrect, ignore it
+// i can't figure out how to suppress it
 @Mixin(targets = "net.minecraft.world.gen.densityfunction.DensityFunctionTypes$EndIslands")
 public abstract class EndIslandsMixin {
 	/**
