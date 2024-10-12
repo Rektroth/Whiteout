@@ -41,8 +41,8 @@ public abstract class ExplosionImplMixin {
      */
     @Inject(
         at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/explosion/ExplosionBehavior;canDestroyBlock(Lnet/minecraft/world/explosion/Explosion;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;F)Z"),
+            value = "INVOKE_ASSIGN",
+            target = "Ljava/util/Set;add(Ljava/lang/Object;)Z"),
         method = "getBlocksToDestroy")
     private void destroyHeadlessPiston(
         CallbackInfoReturnable<List<BlockPos>> cir,
@@ -50,7 +50,10 @@ public abstract class ExplosionImplMixin {
         @Local BlockPos blockPos,
         @Local BlockState blockState
     ) {
+        System.out.println("Worked1");
+
         if (blockState.getBlock() == Blocks.MOVING_PISTON) {
+            System.out.println("Worked2");
             BlockEntity extension = this.world.getBlockEntity(blockPos);
 
             if (extension instanceof PistonBlockEntity blockEntity && blockEntity.isSource()) {
