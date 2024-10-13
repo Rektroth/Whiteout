@@ -12,6 +12,7 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.decoration.AbstractDecorationEntity;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -30,12 +31,14 @@ public abstract class ItemFrameEntityMixin extends AbstractDecorationEntity {
 
     /**
      * Overrides the parent method to drop the item stack as an entity *below* the item frame when facing down.
-     * @param stack The item stack.
+     * @param world   The world the item frame is in.
+     * @param stack   The item stack.
+     * @param yOffset The y-level offset from the item frame where the item should drop.
      * @return The item entity to drop.
      */
     @Nullable
     @Override
-    public ItemEntity dropStack(ItemStack stack) {
-        return this.dropStack(stack, getMovementDirection().equals(Direction.DOWN) ? -0.6F : 0.0F);
+    public ItemEntity dropStack(ServerWorld world, ItemStack stack, float yOffset) {
+        return super.dropStack(world, stack, getMovementDirection().equals(Direction.DOWN) ? yOffset - 0.6F : yOffset);
     }
 }

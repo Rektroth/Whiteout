@@ -10,7 +10,7 @@ package io.github.rektroth.whiteout.mixin.mc157464;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.task.Task;
 import net.minecraft.entity.ai.brain.task.VillagerTaskListProvider;
-import net.minecraft.entity.ai.brain.task.WalkToNearestVisibleWantedItemTask;
+import net.minecraft.entity.ai.brain.task.WalkTowardsNearestVisibleWantedItemTask;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -27,11 +27,11 @@ public abstract class VillagerTaskListProviderMixin {
      */
     @Redirect(
         at = @At(
-            target = "Lnet/minecraft/entity/ai/brain/task/WalkToNearestVisibleWantedItemTask;create(FZI)Lnet/minecraft/entity/ai/brain/task/Task;",
+            target = "Lnet/minecraft/entity/ai/brain/task/WalkTowardsNearestVisibleWantedItemTask;create(FZI)Lnet/minecraft/entity/ai/brain/task/Task;",
             value = "INVOKE"),
         method = "createCoreTasks")
     private static Task<LivingEntity> goToWantedItemFix(float speed, boolean requiresWalkTarget, int radius) {
-        return WalkToNearestVisibleWantedItemTask.create(
+        return WalkTowardsNearestVisibleWantedItemTask.create(
             villager -> !villager.isSleeping(),
             speed,
             requiresWalkTarget,

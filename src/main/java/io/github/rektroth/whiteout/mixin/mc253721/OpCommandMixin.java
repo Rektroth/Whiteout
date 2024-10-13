@@ -34,7 +34,7 @@ public abstract class OpCommandMixin {
         ),
         method = "op"
     )
-    private static void skipBadSendFeedback(
+    private static void sendCorrectedFeedback(
         ServerCommandSource instance,
         Supplier<Text> feedbackSupplier,
         boolean broadcastToOps,

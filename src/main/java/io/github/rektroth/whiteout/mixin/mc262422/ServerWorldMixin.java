@@ -33,10 +33,9 @@ public abstract class ServerWorldMixin extends World {
      * @param registryRef               boilerplate
      * @param registryManager           boilerplate
      * @param dimensionEntry            boilerplate
-     * @param profiler                  boilerplate
      * @param isClient                  boilerplate
      * @param debugWorld                boilerplate
-     * @param biomeAccess               boilerplate
+     * @param seed                      boilerplate
      * @param maxChainedNeighborUpdates boilerplate
      */
     protected ServerWorldMixin(
@@ -44,10 +43,9 @@ public abstract class ServerWorldMixin extends World {
         RegistryKey<World> registryRef,
         DynamicRegistryManager registryManager,
         RegistryEntry<DimensionType> dimensionEntry,
-        Supplier<Profiler> profiler,
         boolean isClient,
         boolean debugWorld,
-        long biomeAccess,
+        long seed,
         int maxChainedNeighborUpdates
     ) {
         super(
@@ -55,10 +53,9 @@ public abstract class ServerWorldMixin extends World {
             registryRef,
             registryManager,
             dimensionEntry,
-            profiler,
             isClient,
             debugWorld,
-            biomeAccess,
+            seed,
             maxChainedNeighborUpdates);
     }
 
