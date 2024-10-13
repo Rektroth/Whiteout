@@ -28,7 +28,7 @@ public abstract class BeaconBlockEntityMixin {
 	int level;
 
 	/**
-	 * Redirects the call to the `playSound` method in `markRemoved` to only play the sound if the beacon is activated.
+	 * Redirects the target method to only play the sound if the beacon is activated.
 	 * @param world The world.
 	 * @param pos   The position of the beacon.
 	 * @param sound The sound to play.

@@ -7,50 +7,44 @@
 
 package io.github.rektroth.whiteout.mixin.mc27056.compat.lithium;
 
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PistonHeadBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.PistonBlockEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
+import net.minecraft.world.explosion.ExplosionImpl;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(Explosion.class)
-public abstract class LithiumCompatExplosionMixin {
+import java.util.List;
+import java.util.Set;
+
+@Mixin(ExplosionImpl.class)
+public abstract class LithiumCompatExplosionImplMixin {
     @Final
     @Shadow
-    private World world;
-
-    @Final
-    @Shadow
-    private ObjectArrayList<BlockPos> affectedBlocks;
+    private ServerWorld world;
 
     /**
      * I imagine this causes a massive slow-down, but the only way I can think to get around the fact that Lithium
      * completely skips the code loop where Paper's fix is injected is to go through the list they make
      * and add the base block counterparts for any piston heads found.
-     * @param ci boilerplate
+     * @param cir boilerplate
      */
-    @Inject(
-        method = "collectBlocksAndDamageEntities()V",
-        at = @At(
-            remap = false,
-            target = "Lit/unimi/dsi/fastutil/objects/ObjectArrayList;addAll(Ljava/util/Collection;)Z",
-            value = "INVOKE_ASSIGN"
-        )
-    )
-    private void removeHeadlessPistons(CallbackInfo ci) {
-        for (int i = 0; i < this.affectedBlocks.size(); i++) {
-            BlockPos pos = this.affectedBlocks.get(i);
+    @Inject(at = @At("RETURN"), method = "getBlocksToDestroy")
+    private void destroyHeadlessPistons(CallbackInfoReturnable<List<BlockPos>> cir, @Local LocalRef<Set<BlockPos>> set) {
+        Set<BlockPos> newSet = set.get();
+
+        for (BlockPos pos : newSet) {
             BlockState state = this.world.getBlockState(pos);
 
             if (state.getBlock() == Blocks.MOVING_PISTON) {
@@ -58,9 +52,11 @@ public abstract class LithiumCompatExplosionMixin {
 
                 if (extension instanceof PistonBlockEntity blockEntity && blockEntity.isSource()) {
                     Direction direction = state.get(PistonHeadBlock.FACING);
-                    this.affectedBlocks.add(pos.offset(direction.getOpposite()));
+                    newSet.add(pos.offset(direction.getOpposite()));
                 }
             }
         }
+
+        set.set(newSet);
     }
 }

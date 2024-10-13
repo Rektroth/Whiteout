@@ -32,7 +32,7 @@ public interface DispenserBehaviorMixin {
 		at = @At(
 			target = "Lnet/minecraft/block/DispenserBlock;registerBehavior(Lnet/minecraft/item/ItemConvertible;Lnet/minecraft/block/dispenser/DispenserBehavior;)V",
 			value = "INVOKE",
-			ordinal = 53
+			ordinal = 35
 		),
 		method = "registerDefaults"
 	)

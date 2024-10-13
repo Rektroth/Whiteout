@@ -11,7 +11,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-4](https://bugs.mojang.com/browse/MC-4)           | Paper           | ❌                  | Item drops sometimes appear at the wrong location                                                                                                 |
 | [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | Paper           | ❌                  | You can blow the extension off a piston                                                                                                           |
 | [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | Paper           | ✔️                 | Tamed wolves beg for bones while wild wolves don't *(this has been partially fixed in the vanilla game, so this fix is no longer included Paper)* |
-| [MC-108513](https://bugs.mojang.com/browse/MC-108513) | Paper           | ❌                  | end crystal did not spawn/despawn correct after enderdragon respawned                                                                             |
+| [MC-108513](https://bugs.mojang.com/browse/MC-108513) | Paper           | ❌                  | End crystal did not spawn/despawn correct after enderdragon respawned                                                                             |
 | [MC-123450](https://bugs.mojang.com/browse/MC-123450) | Paper           | ✔️                 | Item frames play sounds when the item within them is read from NBT                                                                                |
 | [MC-123848](https://bugs.mojang.com/browse/MC-123848) | Paper           | ✔️                 | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block                                                       |
 | [MC-153086](https://bugs.mojang.com/browse/MC-153086) | Paper           | ✔️                 | Beacons always play deactivating sound when broken, even when not powered                                                                         |
@@ -23,12 +23,14 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-171420](https://bugs.mojang.com/browse/MC-171420) | Paper           | ✔️                 | OP players get kicked for not being on the whitelist (enforce = on)                                                                               |
 | [MC-188840](https://bugs.mojang.com/browse/MC-188840) | Paper           | ❌                  | *This ticket covered piston-based block duplication. It is unknown why the ticket was privated/deleted.*                                          |
 | [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Paper           | ❌                  | Inactive sheep eat grass                                                                                                                          |
-| [MC-224454](https://bugs.mojang.com/browse/MC-224454) | Paper           | ✔️                 | Entities don't recognize azaleas or flowering azaleas as obstacles when pathfinding                                                               |
+| [MC-243057](https://bugs.mojang.com/browse/MC-243057) | Paper           | ✔️                 | Furnace recipes don't consider alternatives when first option of recipe is used for fuel                                                          |
+| [MC-244739](https://bugs.mojang.com/browse/MC-244739) | Paper           | ✔️                 | Goat eating sounds aren't played when feeding them the last item of wheat within a stack                                                          |
 | [MC-248588](https://bugs.mojang.com/browse/MC-248588) | Paper           | ✔️                 | The "mobGriefing" gamerule doesn't prevent burning entities from being able to decrease the levels of water or powder snow cauldrons              |
 | [MC-253721](https://bugs.mojang.com/browse/MC-253721) | Paper           | ✔️                 | Wrong logs when running /op @a                                                                                                                    |
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | Paper           | ✔️                 | The ender dragon's name is not reset when it is respawned in the end                                                                              |
 | [MC-259571](https://bugs.mojang.com/browse/MC-259571) | Paper           | ✔️                 | Last player game mode not saved after player dies or the game is reloaded                                                                         |
 | [MC-262422](https://bugs.mojang.com/browse/MC-262422) | Paper           | ✔️                 | Lightning bolts during thunderstorms can strike players in spectator game mode                                                                    |
+| [MC-263999](https://bugs.mojang.com/browse/MC-263999) | Paper           | ✔️                 | Zombies breaking doors do not show break particles                                                                                                |
 | *N/A*                                                 | Paper           | ❌                  | Accessing the nether roof                                                                                                                         |
 | *N/A*                                                 | Paper           | ❌                  | Breaking permanent blocks                                                                                                                         |
 
@@ -55,9 +57,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Paper  | Creepers do not defuse when switching from Survival to Creative/Spectator                |
 | [MC-200092](https://bugs.mojang.com/browse/MC-200092) | Paper  | /setworldspawn seems to ignore the 'angle' parameter                                     |
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                              |
-| [MC-243057](https://bugs.mojang.com/browse/MC-243057) | Paper  | Furnace recipes don't consider alternatives when first option of recipe is used for fuel |
-| [MC-244739](https://bugs.mojang.com/browse/MC-244739) | Paper  | Goat eating sounds aren't played when feeding them the last item of wheat within a stack |
-| [MC-263999](https://bugs.mojang.com/browse/MC-263999) | Paper  | Zombies breaking doors do not show break particles                                       |
 | [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper             |
 | [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot | Fresh installations print NoSuchFileException for server.properties                      |
 
