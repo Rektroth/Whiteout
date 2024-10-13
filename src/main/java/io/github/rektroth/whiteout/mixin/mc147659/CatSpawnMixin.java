@@ -61,6 +61,6 @@ public abstract class CatSpawnMixin {
 		method = "spawn(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/server/world/ServerWorld;)I"
 	)
 	private void skipRefreshPositionAndAngles(CatEntity instance, BlockPos blockPos, float yaw, float pitch) {
-		// nothing
+		return;
 	}
 }
