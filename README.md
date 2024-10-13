@@ -14,6 +14,8 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-108513](https://bugs.mojang.com/browse/MC-108513) | Paper           | ❌                  | End crystal did not spawn/despawn correct after enderdragon respawned                                                                             |
 | [MC-123450](https://bugs.mojang.com/browse/MC-123450) | Paper           | ✔️                 | Item frames play sounds when the item within them is read from NBT                                                                                |
 | [MC-123848](https://bugs.mojang.com/browse/MC-123848) | Paper           | ✔️                 | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block                                                       |
+| [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Paper           | ❌                  | Whitelist on state inconsistency                                                                                                                  |
+| [MC-147659](https://bugs.mojang.com/browse/MC-147659) | Paper           | ❌                  | Some witch huts spawn the incorrect cat                                                                                                           |
 | [MC-153086](https://bugs.mojang.com/browse/MC-153086) | Paper           | ✔️                 | Beacons always play deactivating sound when broken, even when not powered                                                                         |
 | [MC-157464](https://bugs.mojang.com/browse/MC-157464) | Paper           | ✔️                 | Villagers move around in bed or even leave the bed when food is thrown at them                                                                    |
 | [MC-158900](https://bugs.mojang.com/browse/MC-158900) | Paper           | ❌                  | "bad packet id 26" upon connecting after tempban expire                                                                                           |
@@ -47,18 +49,18 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 
 ### Planned
 
-| Bug                                                   | Source | Name                                                                                     |
-|-------------------------------------------------------|--------|------------------------------------------------------------------------------------------|
-| [MC-33041](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup            |
-| [MC-92282](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials    |
-| [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing        |
-| [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Paper  | Whitelist on state inconsistency                                                         |
-| [MC-147659](https://bugs.mojang.com/browse/MC-147659) | Paper  | Some witch huts spawn the incorrect cat                                                  |
-| [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                    |
-| [MC-200092](https://bugs.mojang.com/browse/MC-200092) | Paper  | /setworldspawn seems to ignore the 'angle' parameter                                     |
-| [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                              |
-| [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper             |
-| [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot | Fresh installations print NoSuchFileException for server.properties                      |
+| Bug                                                   | Source | Name                                                                                  |
+|-------------------------------------------------------|--------|---------------------------------------------------------------------------------------|
+| [MC-33041](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup         |
+| [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials |
+| [MC-99075](https://bugs.mojang.com/browse/MC-99075)   | Paper  | Cancelled block place (spawn protection) causes inventory desync                      |
+| [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing     |
+| [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                 |
+| [MC-200092](https://bugs.mojang.com/browse/MC-200092) | Paper  | /setworldspawn seems to ignore the 'angle' parameter                                  |
+| [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                           |
+| [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper          |
+| [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot | Fresh installations print NoSuchFileException for server.properties                   |
+| [MC-273635](https://bugs.mojang.com/browse/MC-273635) | Paper  | Trial Spawner keeps flashing after cooldown ends                                      |
 
 ### Not Planned
 
