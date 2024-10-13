@@ -44,6 +44,7 @@
     "mc27056.compat.lithium.LithiumCompatExplosionImplMixin",
     "mc4.EntityMixin",
     "mc84789.WolfBegGoalMixin",
+    "mc99075.ServerPlayNetworkHandlerMixin",
     "nethervoiddamage.EntityMixin",
     "nethervoiddamage.PortalForcerMixin",
     "nethervoiddamage.compat.lithium.LithiumCompatPortalForcerMixin"
