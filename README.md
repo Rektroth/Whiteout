@@ -46,20 +46,22 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 
 ### Planned
 
-| Bug                                                   | Source | Name                                                                                     |
-|-------------------------------------------------------|--------|------------------------------------------------------------------------------------------|
-| [MC-33041](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup            |
-| [MC-92282](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials    |
-| [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing        |
-| [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Paper  | Whitelist on state inconsistency                                                         |
-| [MC-147659](https://bugs.mojang.com/browse/MC-147659) | Paper  | Some witch huts spawn the incorrect cat                                                  |
-| [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                    |
-| [MC-174630](https://bugs.mojang.com/browse/MC-174630) | Paper  | Secondary beacon effect remains when switching primary effect                            |
-| [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Paper  | Creepers do not defuse when switching from Survival to Creative/Spectator                |
-| [MC-200092](https://bugs.mojang.com/browse/MC-200092) | Paper  | /setworldspawn seems to ignore the 'angle' parameter                                     |
-| [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                              |
-| [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper             |
-| [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot | Fresh installations print NoSuchFileException for server.properties                      |
+| Bug                                                   | Source | Name                                                                                  |
+|-------------------------------------------------------|--------|---------------------------------------------------------------------------------------|
+| [MC-33041](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup         |
+| [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials |
+| [MC-99075](https://bugs.mojang.com/browse/MC-99075)   | Paper  | Cancelled block place (spawn protection) causes inventory desync                      |
+| [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing     |
+| [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Paper  | Whitelist on state inconsistency                                                      |
+| [MC-147659](https://bugs.mojang.com/browse/MC-147659) | Paper  | Some witch huts spawn the incorrect cat                                               |
+| [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                 |
+| [MC-174630](https://bugs.mojang.com/browse/MC-174630) | Paper  | Secondary beacon effect remains when switching primary effect                         |
+| [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Paper  | Creepers do not defuse when switching from Survival to Creative/Spectator             |
+| [MC-200092](https://bugs.mojang.com/browse/MC-200092) | Paper  | /setworldspawn seems to ignore the 'angle' parameter                                  |
+| [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                           |
+| [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper          |
+| [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot | Fresh installations print NoSuchFileException for server.properties                   |
+| [MC-273635](https://bugs.mojang.com/browse/MC-273635) | Paper  | Trial Spawner keeps flashing after cooldown ends                                      |
 
 ### Not Planned
 
