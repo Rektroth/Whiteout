@@ -30,7 +30,7 @@ public final class WhiteoutMixinPlugin implements IMixinConfigPlugin {
 		"nethervoiddamage.compat.lithium.LithiumCompatPortalForcerMixin", () -> FabricLoader.getInstance().isModLoaded("lithium"),
 		"nethervoiddamage.PortalForcerMixin", () -> !FabricLoader.getInstance().isModLoaded("lithium"),
 		"mc27056.compat.lithium.LithiumCompatExplosionImplMixin", () -> FabricLoader.getInstance().isModLoaded("lithium"),
-		"mc27056.ExplosionsMixin", () -> !FabricLoader.getInstance().isModLoaded("lithium")
+		"mc27056.ExplosionImplMixin", () -> !FabricLoader.getInstance().isModLoaded("lithium")
 	);
 
 	private WhiteoutConfig config;

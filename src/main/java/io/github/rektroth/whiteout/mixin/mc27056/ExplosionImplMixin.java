@@ -15,7 +15,8 @@ import net.minecraft.block.PistonHeadBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.PistonBlockEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.explosion.ExplosionImpl;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,7 +25,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 
 @Mixin(ExplosionImpl.class)
 public abstract class ExplosionImplMixin {
@@ -33,15 +35,17 @@ public abstract class ExplosionImplMixin {
     private ServerWorld world;
 
     /**
-     * Modifies the method to also destroy the corresponding piston base of any piston heads it destroys.
+     * Modifies the target method to also add the position of the corresponding piston base to the set of block
+     * positions if the block in the position just added was a piston head.
      * @param cir        boilerplate
-     * @param set        The set of positions of blocks destroyed.
-     * @param blockPos   The position of the block just destroyed.
-     * @param blockState The state of the block just destroyed.
+     * @param set        The set of block positions.
+     * @param blockPos   The position of the block just added to the set.
+     * @param blockState The state of the block just added to the set.
      */
     @Inject(
         at = @At(
             value = "INVOKE_ASSIGN",
+            //target = "Lnet/minecraft/world/explosion/ExplosionBehavior;canDestroyBlock(Lnet/minecraft/world/explosion/Explosion;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;F)Z"),
             target = "Ljava/util/Set;add(Ljava/lang/Object;)Z"),
         method = "getBlocksToDestroy")
     private void destroyHeadlessPiston(
@@ -50,10 +54,7 @@ public abstract class ExplosionImplMixin {
         @Local BlockPos blockPos,
         @Local BlockState blockState
     ) {
-        System.out.println("Worked1");
-
         if (blockState.getBlock() == Blocks.MOVING_PISTON) {
-            System.out.println("Worked2");
             BlockEntity extension = this.world.getBlockEntity(blockPos);
 
             if (extension instanceof PistonBlockEntity blockEntity && blockEntity.isSource()) {
