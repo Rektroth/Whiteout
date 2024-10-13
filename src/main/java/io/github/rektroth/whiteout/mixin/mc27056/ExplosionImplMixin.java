@@ -45,7 +45,6 @@ public abstract class ExplosionImplMixin {
     @Inject(
         at = @At(
             value = "INVOKE_ASSIGN",
-            //target = "Lnet/minecraft/world/explosion/ExplosionBehavior;canDestroyBlock(Lnet/minecraft/world/explosion/Explosion;Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;F)Z"),
             target = "Ljava/util/Set;add(Ljava/lang/Object;)Z"),
         method = "getBlocksToDestroy")
     private void destroyHeadlessPiston(
