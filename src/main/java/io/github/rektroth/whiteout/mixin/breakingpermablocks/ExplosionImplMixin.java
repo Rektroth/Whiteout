@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.*;
 import java.util.Set;
 
 @Mixin(ExplosionImpl.class)
-public class ExplosionMixin {
+public class ExplosionImplMixin {
 	/**
 	 * Redirects the target method to only add the provided block position if the corresponding block is destroyable.
 	 * @param instance   The set of block positions.

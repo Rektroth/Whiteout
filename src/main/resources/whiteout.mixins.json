@@ -6,7 +6,7 @@
   "mixins": [
     "breakingpermablocks.AbstractBlockMixin",
     "breakingpermablocks.DispenserBehaviorMixin",
-    "breakingpermablocks.ExplosionMixin",
+    "breakingpermablocks.ExplosionImplMixin",
     "breakingpermablocks.ItemStackMixin",
     "breakingpermablocks.PistonBlockMixin",
     "breakingpermablocks.PortalForcerMixin",
