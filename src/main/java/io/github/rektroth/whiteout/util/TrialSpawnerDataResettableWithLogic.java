@@ -13,15 +13,17 @@ import net.minecraft.block.spawner.TrialSpawnerLogic;
 import java.util.Optional;
 
 public class TrialSpawnerDataResettableWithLogic extends TrialSpawnerData {
-	public void deactivate(TrialSpawnerLogic logic) {
-		this.players.clear();
-		this.totalSpawnedMobs = 0;
-		this.nextMobSpawnsAt = 0L;
-		this.cooldownEnd = 0L;
+	/**
+	 * Resets the trial spawner's data, but based on provided logic.
+	 * @param logic The logic.
+	 */
+	public void reset(TrialSpawnerLogic logic) {
 		this.spawnedMobsAlive.clear();
 
 		if (!logic.getConfig().spawnPotentials().isEmpty()) {
 			this.spawnData = Optional.empty();
 		}
+
+		this.deactivate();
 	}
 }

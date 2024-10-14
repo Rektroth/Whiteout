@@ -18,17 +18,22 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(TrialSpawnerState.class)
 public class TrialSpawnerStateMixin {
+	/**
+	 * Redirects the target method to use improved reset logic.
+	 * @param instance The trial spawner data.
+	 * @param logic    The trial spawner logic.
+	 */
 	@Redirect(
 		at = @At(
-			target = "Lnet/minecraft/block/spawner/TrialSpawnerData;deactivate()V",
+			target = "Lnet/minecraft/block/spawner/TrialSpawnerData;reset()V",
 			value = "INVOKE"
 		),
 		method = "tick"
 	)
-	private void syncWorldEventWithOldDoorState(
+	private void resetWithLogic(
 		TrialSpawnerData instance,
 		@Local(argsOnly = true) TrialSpawnerLogic logic
 	) {
-		((TrialSpawnerDataResettableWithLogic)instance).deactivate(logic);
+		((TrialSpawnerDataResettableWithLogic)instance).reset(logic);
 	}
 }
