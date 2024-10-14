@@ -42,6 +42,7 @@
     "mc263999.BreakDoorGoalMixin",
     "mc27056.ExplosionImplMixin",
     "mc27056.compat.lithium.LithiumCompatExplosionImplMixin",
+    "mc273635.TrialSpawnerStateMixin",
     "mc4.EntityMixin",
     "mc84789.WolfBegGoalMixin",
     "mc99075.ServerPlayNetworkHandlerMixin",

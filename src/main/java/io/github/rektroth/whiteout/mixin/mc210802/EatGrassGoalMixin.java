@@ -29,7 +29,7 @@ public abstract class EatGrassGoalMixin {
 	private World world;
 
 	/**
-	 * Cancels the method and returns false if the sheep is outside of ticking range.
+	 * Makes the target method return {@code false} if the sheep is outside of ticking range.
 	 * @param cir The callback.
 	 */
 	@Inject(at = @At("HEAD"), method = "canStart", cancellable = true)
