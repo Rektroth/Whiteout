@@ -27,6 +27,7 @@
     "mc167279.BeeEntityMixin",
     "mc171420.MinecraftServerMixin",
     "mc174630.BeaconScreenHandlerMixin",
+    "mc179072.CreeperIgniteGoalMixin",
     "mc188840.PistonBlockMixin",
     "mc210802.EatGrassGoalMixin",
     "mc210802.ServerChunkLoadingManagerInvoker",

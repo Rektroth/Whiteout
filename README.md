@@ -24,6 +24,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-167279](https://bugs.mojang.com/browse/MC-167279) | Paper           | ✔️                 | Bees get stuck in the void                                                                                                                        |
 | [MC-171420](https://bugs.mojang.com/browse/MC-171420) | Paper           | ✔️                 | OP players get kicked for not being on the whitelist (enforce = on)                                                                               |
 | [MC-174630](https://bugs.mojang.com/browse/MC-174630) | Paper           | ❌                  | Secondary beacon effect remains when switching primary effect                                                                                     |
+| [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Paper           | ❌                  | Creepers do not defuse when switching from Survival to Creative/Spectator                                                                         |
 | [MC-188840](https://bugs.mojang.com/browse/MC-188840) | Paper           | ❌                  | *This ticket covered piston-based block duplication. It is unknown why the ticket was privated/deleted.*                                          |
 | [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Paper           | ❌                  | Inactive sheep eat grass                                                                                                                          |
 | [MC-243057](https://bugs.mojang.com/browse/MC-243057) | Paper           | ✔️                 | Furnace recipes don't consider alternatives when first option of recipe is used for fuel                                                          |
@@ -55,7 +56,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | [MC-99075](https://bugs.mojang.com/browse/MC-99075)   | Paper  | Cancelled block place (spawn protection) causes inventory desync                      |
 | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing     |
 | [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                 |
-| [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Paper  | Creepers do not defuse when switching from Survival to Creative/Spectator             |
 | [MC-200092](https://bugs.mojang.com/browse/MC-200092) | Paper  | /setworldspawn seems to ignore the 'angle' parameter                                  |
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                           |
 | [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper          |
