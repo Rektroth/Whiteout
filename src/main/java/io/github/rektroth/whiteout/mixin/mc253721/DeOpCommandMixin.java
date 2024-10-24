@@ -40,7 +40,7 @@ public abstract class DeOpCommandMixin {
         ),
         method = "deop"
     )
-    private static void skipBadSendFeedback(
+    private static void sendCorrectedFeedback(
         ServerCommandSource instance,
         Supplier<Text> feedbackSupplier,
         boolean broadcastToOps,
