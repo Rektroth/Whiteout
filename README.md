@@ -14,6 +14,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-108513](https://bugs.mojang.com/browse/MC-108513) | Paper           | ❌                  | End crystal did not spawn/despawn correct after enderdragon respawned                                                                             |
 | [MC-123450](https://bugs.mojang.com/browse/MC-123450) | Paper           | ✔️                 | Item frames play sounds when the item within them is read from NBT                                                                                |
 | [MC-123848](https://bugs.mojang.com/browse/MC-123848) | Paper           | ✔️                 | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block                                                       |
+| [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Paper           | ❌                  | Whitelist on state inconsistency                                                                                                                  |
 | [MC-147659](https://bugs.mojang.com/browse/MC-147659) | Paper           | ❌                  | Some witch huts spawn the incorrect cat                                                                                                           |
 | [MC-153086](https://bugs.mojang.com/browse/MC-153086) | Paper           | ✔️                 | Beacons always play deactivating sound when broken, even when not powered                                                                         |
 | [MC-157464](https://bugs.mojang.com/browse/MC-157464) | Paper           | ✔️                 | Villagers move around in bed or even leave the bed when food is thrown at them                                                                    |
@@ -52,7 +53,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials |
 | [MC-99075](https://bugs.mojang.com/browse/MC-99075)   | Paper  | Cancelled block place (spawn protection) causes inventory desync                      |
 | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing     |
-| [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Paper  | Whitelist on state inconsistency                                                      |
 | [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                 |
 | [MC-174630](https://bugs.mojang.com/browse/MC-174630) | Paper  | Secondary beacon effect remains when switching primary effect                         |
 | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Paper  | Creepers do not defuse when switching from Survival to Creative/Spectator             |
