@@ -8,16 +8,11 @@
 package io.github.rektroth.whiteout.mixin.nethervoiddamage.compat.lithium;
 
 import io.github.rektroth.whiteout.util.PortalUtil;
-//import me.jellysquid.mods.lithium.common.util.POIRegistryEntries;
-//import me.jellysquid.mods.lithium.common.world.interests.PointOfInterestStorageExtended;
-import net.minecraft.block.BlockState;
-import net.minecraft.server.world.ChunkTicketType;
+import me.jellysquid.mods.lithium.common.util.POIRegistryEntries;
+import me.jellysquid.mods.lithium.common.world.interests.PointOfInterestStorageExtended;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockLocating;
 import net.minecraft.world.dimension.PortalForcer;
 import net.minecraft.world.border.WorldBorder;
 import net.minecraft.world.poi.PointOfInterest;
@@ -40,50 +35,31 @@ public abstract class LithiumCompatPortalForcerMixin {
 	/**
 	 * Gets the rectangle of the closest valid existing portal in the opposite dimension if one exists within
 	 * the valid range.
-	 * @param pos          The position of the portal.
-	 * @param destIsNether Whether the destination is in the nether.
-	 * @param worldBorder  The world border.
+	 * @param centerPos   The position of the portal.
+	 * @param dstIsNether Whether the destination is in the nether.
+	 * @param worldBorder The world border.
 	 * @return The rectangle of the closest valid existing portal if one exists within the valid range.
 	 * @author Rektroth
 	 * @reason Lithium completely overwrites this function with essentially what you see below,
 	 * but without the `PortalUtil.isBelowCeiling` check added to the predicate.
 	 * Easiest way to achieve compatibility with Lithium in this case is to simply overwrite the method ourselves.
 	 */
-	/*@Overwrite
-	public Optional<BlockLocating.Rectangle> getPortalPos(
-		BlockPos pos,
-		boolean destIsNether,
-		WorldBorder worldBorder
-	) {
-		int searchRadius = destIsNether ? 16 : 128;
+	@Overwrite
+	public Optional<BlockPos> getPortalPos(BlockPos centerPos, boolean dstIsNether, WorldBorder worldBorder) {
+		int searchRadius = dstIsNether ? 16 : 128;
+
 		PointOfInterestStorage poiStorage = this.world.getPointOfInterestStorage();
-		poiStorage.preloadChunks(this.world, pos, searchRadius);
+		poiStorage.preloadChunks(this.world, centerPos, searchRadius);
 
-		// all the same above
-
-		Optional<PointOfInterest> ret = ((PointOfInterestStorageExtended)poiStorage).lithium$findNearestForPortalLogic(
-			pos,
-			searchRadius,
-			POIRegistryEntries.NETHER_PORTAL_ENTRY,
-			PointOfInterestStorage.OccupationStatus.ANY,
-			(poi) -> PortalUtil.isBelowCeiling(poi, this.world) // this line is what's important
+		Optional<PointOfInterest> ret = ((PointOfInterestStorageExtended) poiStorage).lithium$findNearestForPortalLogic(centerPos, searchRadius,
+			POIRegistryEntries.NETHER_PORTAL_ENTRY, PointOfInterestStorage.OccupationStatus.ANY,
+			(poi) -> PortalUtil.isBelowCeiling(poi.getPos(), this.world) // this line is what's important
 				&& this.world.getBlockState(poi.getPos()).contains(Properties.HORIZONTAL_AXIS),
-			worldBorder);
+			worldBorder
+		);
 
-		return ret.map((poi) -> {
-			BlockPos blockPos = poi.getPos();
-			this.world.getChunkManager().addTicket(ChunkTicketType.PORTAL, new ChunkPos(blockPos), 3, blockPos);
-			BlockState blockState = this.world.getBlockState(blockPos);
-
-			return BlockLocating.getLargestRectangle(
-				blockPos,
-				blockState.get(Properties.HORIZONTAL_AXIS),
-				21,
-				Direction.Axis.Y,
-				21,
-				(posx) -> this.world.getBlockState(posx) == blockState);
-		});
-	}*/
+		return ret.map(PointOfInterest::getPos);
+	}
 
 	/**
 	 * Returns the provided value or dimension's ceiling height, whichever is smallest.
