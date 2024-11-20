@@ -60,7 +60,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                           |
 | [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper          |
 | [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot | Fresh installations print NoSuchFileException for server.properties                   |
-| [MC-273635](https://bugs.mojang.com/browse/MC-273635) | Paper  | Trial Spawner keeps flashing after cooldown ends                                      |
 
 ### Not Planned
 

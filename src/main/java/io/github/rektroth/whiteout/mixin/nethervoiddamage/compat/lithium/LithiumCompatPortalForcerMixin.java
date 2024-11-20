@@ -8,8 +8,8 @@
 package io.github.rektroth.whiteout.mixin.nethervoiddamage.compat.lithium;
 
 import io.github.rektroth.whiteout.util.PortalUtil;
-import me.jellysquid.mods.lithium.common.util.POIRegistryEntries;
-import me.jellysquid.mods.lithium.common.world.interests.PointOfInterestStorageExtended;
+import net.caffeinemc.mods.lithium.common.util.POIRegistryEntries;
+import net.caffeinemc.mods.lithium.common.world.interests.PointOfInterestStorageExtended;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;

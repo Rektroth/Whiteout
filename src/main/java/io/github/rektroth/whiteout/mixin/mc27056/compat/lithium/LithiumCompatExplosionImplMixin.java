@@ -36,9 +36,10 @@ public abstract class LithiumCompatExplosionImplMixin {
 
     /**
      * I imagine this causes a massive slow-down, but the only way I can think to get around the fact that Lithium
-     * completely skips the code loop where Paper's fix is injected is to go through the list they make
-     * and add the base block counterparts for any piston heads found.
+     * completely skips the code loop where Paper's fix is injected is to go through the list they make and add the
+     * base block counterparts for any piston heads found.
      * @param cir boilerplate
+     * @param set The set of block positions.
      */
     @Inject(at = @At("RETURN"), method = "getBlocksToDestroy")
     private void destroyHeadlessPistons(CallbackInfoReturnable<List<BlockPos>> cir, @Local LocalRef<Set<BlockPos>> set) {
