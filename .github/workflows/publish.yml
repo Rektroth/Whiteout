@@ -46,3 +46,4 @@ jobs:
           file: 'builds/libs/whiteout-${{ github.event.release.tag_name }}.jar'
           changelog: '${{ github.event.release.body }}'
           loaders: 'fabric'
+          dependencies: '[{"project_id":"lithium","dependency_type":"optional"}]'
