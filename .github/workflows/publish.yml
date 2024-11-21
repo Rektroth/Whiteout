@@ -39,7 +39,7 @@ jobs:
         uses: cloudnode-pro/modrinth-publish@1.0.0
         with:
           token: '${{ secrets.MODRINTH_TOKEN }}'
-          project: whiteout
+          project: 'whiteout'
           file: 'builds/libs/whiteout-${{ github.event.release.tag_name }}.jar'
           changelog: '${{ github.event.release.body }}'
           loaders: 'fabric'
