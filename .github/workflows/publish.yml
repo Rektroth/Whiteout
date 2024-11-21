@@ -3,18 +3,21 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: build
-on: [pull_request, push]
+name: release
+on:
+  release:
+    types: [published]
 
 jobs:
-  build:
+  publish:
+    name: Build and Upload JARs
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         # Use these Java versions
         java: [
           21,    # Current Java LTS
         ]
-    runs-on: ubuntu-22.04
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
@@ -35,3 +38,11 @@ jobs:
         with:
           name: Artifacts
           path: build/libs/
+      - name: upload to modrinth
+        uses: cloudnode-pro/modrinth-publish@1.0.0
+        with:
+          token: '${{ secrets.MODRINTH_TOKEN }}'
+          project: whiteout
+          file: 'builds/libs/whiteout-${{ github.event.release.tag_name }}.jar'
+          changelog: '${{ github.event.release.body }}'
+          loaders: 'fabric'
