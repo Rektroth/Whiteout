@@ -1,7 +1,4 @@
-# Automatically build the project and run any configured tests for every push
-# and submitted pull request. This can help catch issues that only occur on
-# certain platforms or Java versions, and provides a first line of defence
-# against bad commits.
+# Automatically build the project and publish to Modrinth.
 
 name: release
 on:
@@ -47,3 +44,4 @@ jobs:
           changelog: '${{ github.event.release.body }}'
           loaders: 'fabric'
           dependencies: '[{"project_id":"lithium","dependency_type":"optional"}]'
+          api-domain: 'staging-api.modrinth.com'
