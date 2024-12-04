@@ -7,8 +7,6 @@
 
 package io.github.rektroth.whiteout.mixin.mc27056.compat.lithium;
 
-import com.llamalad7.mixinextras.sugar.Local;
-import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.PistonHeadBlock;
@@ -22,11 +20,9 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.List;
-import java.util.Set;
 
 @Mixin(ExplosionImpl.class)
 public abstract class LithiumCompatExplosionImplMixin {
@@ -34,18 +30,23 @@ public abstract class LithiumCompatExplosionImplMixin {
     @Shadow
     private ServerWorld world;
 
+    @Shadow
+    protected abstract List<BlockPos> getBlocksToDestroy();
+
     /**
      * I imagine this causes a massive slow-down, but the only way I can think to get around the fact that Lithium
      * completely skips the code loop where Paper's fix is injected is to go through the list they make and add the
      * base block counterparts for any piston heads found.
-     * @param cir boilerplate
-     * @param set The set of block positions.
+     * Unfortunately, this work-around relies on redirecting the one and only place in the *vanilla* code where
+     * the target is called - mods that call the target elsewhere will not receive this patch. I'm not sure how to
+     * get around this problem.
+     * @return List of blocks to destroy along with any headless pistons found.
      */
-    @Inject(at = @At("RETURN"), method = "getBlocksToDestroy")
-    private void destroyHeadlessPistons(CallbackInfoReturnable<List<BlockPos>> cir, @Local LocalRef<Set<BlockPos>> set) {
-        Set<BlockPos> newSet = set.get();
+    @Redirect(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/explosion/ExplosionImpl;getBlocksToDestroy()Ljava/util/List;"), method = "explode")
+    private List<BlockPos> getBlocksAndHeadlessPistonsToDestroy(ExplosionImpl instance) {
+        List<BlockPos> list = this.getBlocksToDestroy();
 
-        for (BlockPos pos : newSet) {
+        for (BlockPos pos : list) {
             BlockState state = this.world.getBlockState(pos);
 
             if (state.getBlock() == Blocks.MOVING_PISTON) {
@@ -53,11 +54,11 @@ public abstract class LithiumCompatExplosionImplMixin {
 
                 if (extension instanceof PistonBlockEntity blockEntity && blockEntity.isSource()) {
                     Direction direction = state.get(PistonHeadBlock.FACING);
-                    newSet.add(pos.offset(direction.getOpposite()));
+                    list.add(pos.offset(direction.getOpposite()));
                 }
             }
         }
 
-        set.set(newSet);
+        return list;
     }
 }
