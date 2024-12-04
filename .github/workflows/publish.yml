@@ -40,7 +40,7 @@ jobs:
         with:
           token: '${{ secrets.MODRINTH_TOKEN }}'
           project: 'whiteout'
-          file: 'builds/libs/whiteout-${{ github.event.release.tag_name }}.jar'
+          file: 'build/libs/whiteout-${{ github.event.release.tag_name }}.jar'
           changelog: '${{ github.event.release.body }}'
           loaders: 'fabric'
           dependencies: '[{"project_id":"lithium","dependency_type":"optional"}]'
