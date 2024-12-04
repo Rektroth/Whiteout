@@ -44,4 +44,4 @@ jobs:
           changelog: '${{ github.event.release.body }}'
           loaders: 'fabric'
           dependencies: '[{"project_id":"lithium","dependency_type":"optional"}]'
-          api-domain: 'staging-api.modrinth.com'
+          api-domain: 'api.modrinth.com'
