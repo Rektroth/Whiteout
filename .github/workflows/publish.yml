@@ -1,0 +1,47 @@
+# Automatically build the project and publish to Modrinth.
+
+name: release
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Build and Upload JARs
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        # Use these Java versions
+        java: [
+          21,    # Current Java LTS
+        ]
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - name: validate gradle wrapper
+        uses: gradle/wrapper-validation-action@v2
+      - name: setup jdk ${{ matrix.java }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'microsoft'
+      - name: make gradle wrapper executable
+        run: chmod +x ./gradlew
+      - name: build
+        run: ./gradlew build
+      - name: capture build artifacts
+        if: ${{ matrix.java == '21' }} # Only upload artifacts built from latest java
+        uses: actions/upload-artifact@v4
+        with:
+          name: Artifacts
+          path: build/libs/
+      - name: upload to modrinth
+        uses: cloudnode-pro/modrinth-publish@1.0.0
+        with:
+          token: '${{ secrets.MODRINTH_TOKEN }}'
+          project: 'whiteout'
+          file: 'build/libs/whiteout-${{ github.event.release.tag_name }}.jar'
+          changelog: '${{ github.event.release.body }}'
+          loaders: 'fabric'
+          dependencies: '[{"project_id":"lithium","dependency_type":"optional"}]'
+          api-domain: 'api.modrinth.com'
