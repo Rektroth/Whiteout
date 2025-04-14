@@ -97,8 +97,8 @@ public abstract class EndCrystalEntityMixin extends Entity implements GeneratedB
      */
     @Inject(at = @At("TAIL"), method = "readCustomDataFromNbt")
     private void readGeneratedByDragonFightFromNbt(NbtCompound nbt, CallbackInfo ci) {
-        if (nbt.contains("Paper.GeneratedByDragonFight")) {
-            this.generatedByDragonFight = nbt.getBoolean("Paper.GeneratedByDragonFight");
+        if (nbt.getBoolean("Paper.GeneratedByDragonFight").isPresent()) {
+            this.generatedByDragonFight = nbt.getBoolean("Paper.GeneratedByDragonFight").get();
         }
     }
 }

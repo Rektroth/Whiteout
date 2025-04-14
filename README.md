@@ -27,11 +27,8 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-174630](https://bugs.mojang.com/browse/MC-174630) | Paper           | ❌                  | Secondary beacon effect remains when switching primary effect                                                                                     |
 | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Paper           | ❌                  | Creepers do not defuse when switching from Survival to Creative/Spectator                                                                         |
 | [MC-188840](https://bugs.mojang.com/browse/MC-188840) | Paper           | ❌                  | *This ticket covered piston-based block duplication. It is unknown why the ticket was privated/deleted.*                                          |
-| [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Paper           | ❌                  | Inactive sheep eat grass                                                                                                                          |
 | [MC-243057](https://bugs.mojang.com/browse/MC-243057) | Paper           | ✔️                 | Furnace recipes don't consider alternatives when first option of recipe is used for fuel                                                          |
-| [MC-244739](https://bugs.mojang.com/browse/MC-244739) | Paper           | ✔️                 | Goat eating sounds aren't played when feeding them the last item of wheat within a stack                                                          |
 | [MC-248588](https://bugs.mojang.com/browse/MC-248588) | Paper           | ✔️                 | The "mobGriefing" gamerule doesn't prevent burning entities from being able to decrease the levels of water or powder snow cauldrons              |
-| [MC-253721](https://bugs.mojang.com/browse/MC-253721) | Paper           | ✔️                 | Wrong logs when running /op @a                                                                                                                    |
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | Paper           | ✔️                 | The ender dragon's name is not reset when it is respawned in the end                                                                              |
 | [MC-259571](https://bugs.mojang.com/browse/MC-259571) | Paper           | ✔️                 | Last player game mode not saved after player dies or the game is reloaded                                                                         |
 | [MC-262422](https://bugs.mojang.com/browse/MC-262422) | Paper           | ✔️                 | Lightning bolts during thunderstorms can strike players in spectator game mode                                                                    |
@@ -67,8 +64,9 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 |-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [MC-11193](https://bugs.mojang.com/browse/MC-11193)   | The order in which powerable blocks (e.g. redstone dust blocks) along a wire are powered or de-powered is not clearly defined and causes a non-deterministic behavior for redstone contraptions |
 | [MC-81098](https://bugs.mojang.com/browse/MC-81098)   | Redstone dust updates cause lag                                                                                                                                                                 |
+| [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Inactive sheep eat grass                                                                                                                                                                        |
 
-These patches are not planned for any future release. They are currently being addressed by Mojang in the experimental snapshots.
+These patches are not planned for any future release.
 
 ## Disclaimers
 

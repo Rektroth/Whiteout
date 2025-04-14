@@ -38,7 +38,7 @@ public abstract class ServerPlayNetworkHandlerMixin {
         @Local ServerWorld serverWorld,
         @Local BlockPos blockPos
     ) {
-        if (!(this.requestedTeleportPos == null && serverWorld.canPlayerModifyAt(this.player, blockPos))) {
+        if (!(this.requestedTeleportPos == null && serverWorld.canEntityModifyAt(this.player, blockPos))) {
             this.player.playerScreenHandler.syncState();
         }
     }

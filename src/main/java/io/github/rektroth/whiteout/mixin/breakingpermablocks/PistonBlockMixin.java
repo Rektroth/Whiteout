@@ -44,7 +44,7 @@ public abstract class PistonBlockMixin {
 		CallbackInfoReturnable<Boolean> cir
 	) {
 		Direction direction = state.get(FacingBlock.FACING);
-		Direction directionAsQueued = Direction.byId(data & 7);
+		Direction directionAsQueued = Direction.byIndex(data & 7);
 
 		if (direction != directionAsQueued) {
 			cir.setReturnValue(false);

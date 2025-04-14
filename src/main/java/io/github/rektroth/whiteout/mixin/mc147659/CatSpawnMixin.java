@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(CatSpawner.class)
 public abstract class CatSpawnMixin {
@@ -25,7 +25,7 @@ public abstract class CatSpawnMixin {
 	 * Sets the cat's position before it's type is set.
 	 * @param pos       The cat's spawn position.
 	 * @param world     boilerplate
-	 * @param cir       boilerplate
+	 * @param ci        boilerplate
 	 * @param catEntity The cat.
 	 */
 	@Inject(
@@ -33,13 +33,14 @@ public abstract class CatSpawnMixin {
 			target = "Lnet/minecraft/entity/passive/CatEntity;initialize(Lnet/minecraft/world/ServerWorldAccess;Lnet/minecraft/world/LocalDifficulty;Lnet/minecraft/entity/SpawnReason;Lnet/minecraft/entity/EntityData;)Lnet/minecraft/entity/EntityData;",
 			value = "INVOKE"
 		),
-		method = "spawn(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/server/world/ServerWorld;)I"
+		method = "spawn(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/server/world/ServerWorld;Z)V"
 	)
 	private void refreshPositionAndAnglesBeforeInitialize(
-		BlockPos pos,
-		ServerWorld world,
-		CallbackInfoReturnable<Integer> cir,
-		@Local LocalRef<CatEntity> catEntity
+			BlockPos pos,
+			ServerWorld world,
+			boolean persistent,
+			CallbackInfo ci,
+			@Local LocalRef<CatEntity> catEntity
 	) {
 		CatEntity cat2 = catEntity.get();
 		cat2.refreshPositionAndAngles(pos, 0.0F, 0.0F);
@@ -58,7 +59,7 @@ public abstract class CatSpawnMixin {
 			target = "Lnet/minecraft/entity/passive/CatEntity;refreshPositionAndAngles(Lnet/minecraft/util/math/BlockPos;FF)V",
 			value = "INVOKE"
 		),
-		method = "spawn(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/server/world/ServerWorld;)I"
+		method = "spawn(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/server/world/ServerWorld;Z)V"
 	)
 	private void skipRefreshPositionAndAngles(CatEntity instance, BlockPos blockPos, float yaw, float pitch) {
 		return;
