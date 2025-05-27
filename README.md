@@ -53,7 +53,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials |
 | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing     |
 | [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                 |
-| [MC-200092](https://bugs.mojang.com/browse/MC-200092) | Paper  | /setworldspawn seems to ignore the 'angle' parameter                                  |
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                           |
 | [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper          |
 | [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot | Fresh installations print NoSuchFileException for server.properties                   |
