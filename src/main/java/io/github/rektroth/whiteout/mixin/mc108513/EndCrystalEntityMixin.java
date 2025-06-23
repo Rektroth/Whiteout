@@ -12,8 +12,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.boss.dragon.EnderDragonSpawnState;
 import net.minecraft.entity.decoration.EndCrystalEntity;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -80,25 +81,21 @@ public abstract class EndCrystalEntityMixin extends Entity implements GeneratedB
 
     /**
      * Writes "GeneratedByDragonFight" property to NBT.
-     * @param nbt The NBT.
-     * @param ci  boilerplate
+     * @param view The NBT view.
+     * @param ci   boilerplate
      */
-    @Inject(at = @At("TAIL"), method = "writeCustomDataToNbt")
-    private void writeGeneratedByDragonFightToNbt(NbtCompound nbt, CallbackInfo ci) {
-        if (this.generatedByDragonFight) {
-            nbt.putBoolean("Paper.GeneratedByDragonFight", this.generatedByDragonFight);
-        }
+    @Inject(at = @At("TAIL"), method = "writeCustomData")
+    private void writeGeneratedByDragonFightToNbt(WriteView view, CallbackInfo ci) {
+        view.putBoolean("Paper.GeneratedByDragonFight", this.generatedByDragonFight);
     }
 
     /**
      * Reads "GeneratedByDragonFight" property from NBT.
-     * @param nbt The NBT
-     * @param ci  boilerplate
+     * @param view The NBT view.
+     * @param ci   boilerplate
      */
-    @Inject(at = @At("TAIL"), method = "readCustomDataFromNbt")
-    private void readGeneratedByDragonFightFromNbt(NbtCompound nbt, CallbackInfo ci) {
-        if (nbt.getBoolean("Paper.GeneratedByDragonFight").isPresent()) {
-            this.generatedByDragonFight = nbt.getBoolean("Paper.GeneratedByDragonFight").get();
-        }
+    @Inject(at = @At("TAIL"), method = "readCustomData")
+    private void readGeneratedByDragonFightFromNbt(ReadView view, CallbackInfo ci) {
+        this.generatedByDragonFight = view.getBoolean("Paper.GeneratedByDragonFight", false);
     }
 }

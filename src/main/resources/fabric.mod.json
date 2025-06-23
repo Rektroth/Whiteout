@@ -22,15 +22,15 @@
 		"whiteout.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.16.13",
-		"minecraft": "1.21.5",
+		"fabricloader": ">=0.16.14",
+		"minecraft": "1.21.6",
 		"java": ">=21"
 	},
 	"suggests": {
-		"lithium": "0.16.2"
+		"lithium": "0.17.0"
 	},
 	"breaks": {
-		"lithium": ">0.16.2"
+		"lithium": ">0.17.0"
 	},
 	"custom": {
 		"loom:injected_interfaces": {
