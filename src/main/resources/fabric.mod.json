@@ -23,14 +23,14 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",
-		"minecraft": "1.21.6",
+		"minecraft": "1.21.7",
 		"java": ">=21"
 	},
 	"suggests": {
-		"lithium": "0.17.0"
+		"lithium": "0.18.0"
 	},
 	"breaks": {
-		"lithium": ">0.17.0"
+		"lithium": ">0.18.0"
 	},
 	"custom": {
 		"loom:injected_interfaces": {
