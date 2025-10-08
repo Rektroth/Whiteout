@@ -10,6 +10,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 |-------------------------------------------------------|-----------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | [MC-4](https://bugs.mojang.com/browse/MC-4)           | Paper           | ❌                  | Item drops sometimes appear at the wrong location                                                                                    |
 | [MC-27056](https://bugs.mojang.com/browse/MC-27056)   | Paper           | ❌                  | You can blow the extension off a piston                                                                                              |
+| [MC-44654](https://bugs.mojang.com/browse/MC-44654)   | Paper           | ✔️                 | Some entities don't update position to the client when teleported                                                                    |
 | [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | Paper           | ✔️                 | Wolves still beg for bones after being tamed                                                                                         |
 | [MC-99075](https://bugs.mojang.com/browse/MC-99075)   | Paper           | ✔️                 | Cancelled block place (spawn protection) causes inventory desync                                                                     |
 | [MC-108513](https://bugs.mojang.com/browse/MC-108513) | Paper           | ❌                  | End crystal did not spawn/despawn correct after enderdragon respawned                                                                |
@@ -51,7 +52,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | Bug                                                   | Source | Name                                                                                                                   |
 |-------------------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------|
 | [MC-33041](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup                                          |
-| [MC-44654](https://bugs.mojang.com/browse/MC-44654)   | Paper  | Some entities don't update position to the client when teleported                                                      |
 | [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials                                  |
 | [MC-117075](https://bugs.mojang.com/browse/MC-117075) | Paper  | Performance issue with unloading large number of block entities                                                        |
 | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing                                      |
