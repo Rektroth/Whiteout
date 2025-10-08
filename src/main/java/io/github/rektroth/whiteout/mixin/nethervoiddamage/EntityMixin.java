@@ -36,7 +36,7 @@ public abstract class EntityMixin {
 	 */
 	@Inject(at = @At("TAIL"), method = "attemptTickInVoid")
 	protected void attemptTickInRoofVoid(CallbackInfo ci) {
-		if (!this.world.isClient
+		if (!this.world.isClient()
 			&& this.world.getDimension().hasCeiling()
 			&& this.getY() > this.world.getBottomY() + ((ServerWorld)this.world).getLogicalHeight() - 1
 			&& (!((Entity)(Object)this instanceof PlayerEntity player) || !player.getAbilities().invulnerable)

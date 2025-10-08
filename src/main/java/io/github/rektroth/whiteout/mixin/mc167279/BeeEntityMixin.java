@@ -47,7 +47,7 @@ public abstract class BeeEntityMixin extends AnimalEntity {
 
             @Override
             public void tick() {
-                if (!BeeEntityMixin.this.getWorld().isInBuildLimit(this.entity.getBlockPos())) {
+                if (!BeeEntityMixin.this.getEntityWorld().isInBuildLimit(this.entity.getBlockPos())) {
                     this.entity.setNoGravity(false);
                 }
 

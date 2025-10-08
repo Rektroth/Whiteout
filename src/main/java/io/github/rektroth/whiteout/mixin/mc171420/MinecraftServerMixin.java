@@ -7,8 +7,8 @@
 
 package io.github.rektroth.whiteout.mixin.mc171420;
 
-import com.mojang.authlib.GameProfile;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.PlayerConfigEntry;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.Whitelist;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,18 +23,18 @@ public abstract class MinecraftServerMixin {
 
 	/**
 	 * Checks if the player is whitelisted *or* is an operator.
-	 * @param instance The whitelist.
-	 * @param profile  The player profile.
+	 * @param instance           The whitelist.
+	 * @param playerConfigEntry  The player profile.
 	 * @return True if the player is whitelisted or an operator, false otherwise.
 	 */
 	@Redirect(
 		at = @At(
-			target = "Lnet/minecraft/server/Whitelist;isAllowed(Lcom/mojang/authlib/GameProfile;)Z",
+			target = "Lnet/minecraft/server/Whitelist;isAllowed(Lnet/minecraft/server/PlayerConfigEntry;)Z",
 			value = "INVOKE"
 		),
 		method = "kickNonWhitelistedPlayers"
 	)
-	private boolean isAllowedOrOp(Whitelist instance, GameProfile profile) {
-		return instance.isAllowed(profile) || this.getPlayerManager().isOperator(profile);
+	private boolean isAllowedOrOp(Whitelist instance, PlayerConfigEntry playerConfigEntry) {
+		return instance.isAllowed(playerConfigEntry) || this.getPlayerManager().isOperator(playerConfigEntry);
 	}
 }

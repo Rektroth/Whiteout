@@ -7,8 +7,8 @@
 
 package io.github.rektroth.whiteout.mixin.mc158900;
 
-import com.mojang.authlib.GameProfile;
 import net.minecraft.server.BannedPlayerList;
+import net.minecraft.server.PlayerConfigEntry;
 import net.minecraft.server.PlayerManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,15 +18,15 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class PlayerManagerMixin {
 	/**
 	 * Redirects the call to `contains` to also check that the profile instance in the list isn't null.
-	 * @param bannedProfiles The list of banned profiles.
-	 * @param profile        The profile.
+	 * @param bannedPlayerList The list of banned players.
+	 * @param configEntry      The player config entry.
 	 * @return True if the profile is in the list of banned profiles and the instance in the list is mot null,
 	 * false otherwise.
 	 */
 	@Redirect(
-		at = @At(value = "INVOKE", target = "Lnet/minecraft/server/BannedPlayerList;contains(Lcom/mojang/authlib/GameProfile;)Z"),
+		at = @At(value = "INVOKE", target = "Lnet/minecraft/server/BannedPlayerList;contains(Lnet/minecraft/server/PlayerConfigEntry;)Z"),
 		method = "checkCanJoin")
-	private boolean containsAndIsNotNull(BannedPlayerList bannedProfiles, GameProfile profile) {
-		return bannedProfiles.contains(profile) && bannedProfiles.get(profile) != null;
+	private boolean containsAndIsNotNull(BannedPlayerList bannedPlayerList, PlayerConfigEntry configEntry) {
+		return bannedPlayerList.contains(configEntry) && bannedPlayerList.get(configEntry) != null;
 	}
 }

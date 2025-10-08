@@ -73,7 +73,7 @@ public abstract class PistonBlockMixin {
 			return instance.removeBlock(pos, move);
 		}
 
-		if (!instance.isClient) {
+		if (!instance.isClient()) {
 			((ServerWorld)instance).getChunkManager().markForUpdate(pos);
 		}
 

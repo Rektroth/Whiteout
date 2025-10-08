@@ -32,7 +32,6 @@
     "mc243057.AbstractFurnaceBlockEntityMixin",
     "mc248588.LeveledCauldronBlockMixin",
     "mc257487.EnderDragonFightMixin",
-    "mc259571.ServerPlayerInteractionManagerMixin",
     "mc262422.ServerWorldMixin",
     "mc263999.BreakDoorGoalMixin",
     "mc27056.ExplosionImplMixin",

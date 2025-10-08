@@ -67,9 +67,9 @@ public abstract class EndCrystalEntityMixin extends Entity implements GeneratedB
             // Will want to check how Paper modified this function after they update
             // The fix as-is will still prevent most common exploits
             if (/*!Objects.equals(((ServerWorld)this.getWorld()).uuid, this.getOriginWorld())
-                ||*/ ((ServerWorld)this.getWorld()).getEnderDragonFight() == null
-                || ((EnderDragonFightAccessor)((ServerWorld)this.getWorld()).getEnderDragonFight()).getDragonSpawnState() == null
-                || ((EnderDragonFightAccessor)((ServerWorld)this.getWorld()).getEnderDragonFight()).getDragonSpawnState().ordinal() > EnderDragonSpawnState.SUMMONING_DRAGON.ordinal()
+                ||*/ ((ServerWorld)this.getEntityWorld()).getEnderDragonFight() == null
+                || ((EnderDragonFightAccessor)((ServerWorld)this.getEntityWorld()).getEnderDragonFight()).getDragonSpawnState() == null
+                || ((EnderDragonFightAccessor)((ServerWorld)this.getEntityWorld()).getEnderDragonFight()).getDragonSpawnState().ordinal() > EnderDragonSpawnState.SUMMONING_DRAGON.ordinal()
             ) {
                 this.setInvulnerable(false);
                 this.setBeamTarget(null);

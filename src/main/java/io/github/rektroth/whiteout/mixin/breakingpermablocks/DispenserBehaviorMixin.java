@@ -47,7 +47,7 @@ public interface DispenserBehaviorMixin {
 
 				if (!BoneMealItem.useOnFertilizable(stack, world, blockPos) && !BoneMealItem.useOnGround(stack, world, blockPos, null)) {
 					this.setSuccess(false);
-				} else if (!world.isClient) {
+				} else if (!world.isClient()) {
 					world.syncWorldEvent(1505, blockPos, 15);
 				}
 

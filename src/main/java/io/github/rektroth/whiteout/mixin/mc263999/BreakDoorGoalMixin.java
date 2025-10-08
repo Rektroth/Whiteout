@@ -42,7 +42,7 @@ public class BreakDoorGoalMixin extends DoorInteractGoal {
 		method = "tick"
 	)
 	private void getOldDoorState(CallbackInfo ci) {
-		oldDoorState = this.mob.getWorld().getBlockState(this.doorPos);
+		oldDoorState = this.mob.getEntityWorld().getBlockState(this.doorPos);
 	}
 
 	/**
