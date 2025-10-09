@@ -15,6 +15,7 @@
     "mc108513.EndCrystalEntityMixin",
     "mc108513.EnderDragonFightAccessor",
     "mc108513.EndSpikeFeatureMixin",
+    "mc117075.WorldMixin",
     "mc123450.ItemFrameEntityMixin",
     "mc123848.ItemFrameEntityMixin",
     "mc145260.MinecraftServerMixin",

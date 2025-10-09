@@ -14,6 +14,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-84789](https://bugs.mojang.com/browse/MC-84789)   | Paper           | ✔️                 | Wolves still beg for bones after being tamed                                                                                         |
 | [MC-99075](https://bugs.mojang.com/browse/MC-99075)   | Paper           | ✔️                 | Cancelled block place (spawn protection) causes inventory desync                                                                     |
 | [MC-108513](https://bugs.mojang.com/browse/MC-108513) | Paper           | ❌                  | End crystal did not spawn/despawn correct after enderdragon respawned                                                                |
+| [MC-117075](https://bugs.mojang.com/browse/MC-117075) | Paper           | ✔️                 | Performance issue with unloading large number of block entities                                                                      |
 | [MC-123450](https://bugs.mojang.com/browse/MC-123450) | Paper           | ✔️                 | Item frames play sounds when the item within them is read from NBT                                                                   |
 | [MC-123848](https://bugs.mojang.com/browse/MC-123848) | Paper           | ✔️                 | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block                                          |
 | [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Paper           | ❌                  | Whitelist on state inconsistency                                                                                                     |
@@ -53,7 +54,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 |-------------------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------|
 | [MC-33041](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup                                          |
 | [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials                                  |
-| [MC-117075](https://bugs.mojang.com/browse/MC-117075) | Paper  | Performance issue with unloading large number of block entities                                                        |
 | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing                                      |
 | [MC-153010](https://bugs.mojang.com/browse/MC-153010) | Paper  | doMobLoot gamerule doesn't prevent foxes from dropping their items                                                     |
 | [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                                                  |
