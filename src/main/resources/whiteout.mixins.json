@@ -37,6 +37,7 @@
     "mc263999.BreakDoorGoalMixin",
     "mc27056.ExplosionImplMixin",
     "mc27056.compat.lithium.LithiumCompatExplosionImplMixin",
+    "mc300685.WaypointCommandMixin",
     "mc4.EntityMixin",
     "mc44654.EntityMixin",
     "mc84789.WolfBegGoalMixin",
