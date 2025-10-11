@@ -29,6 +29,7 @@
     "mc167279.BeeEntityMixin",
     "mc171420.MinecraftServerMixin",
     "mc174630.BeaconScreenHandlerMixin",
+    "mc177381.LocateCommandMixin",
     "mc179072.CreeperIgniteGoalMixin",
     "mc188840.PistonBlockMixin",
     "mc243057.AbstractFurnaceBlockEntityMixin",
