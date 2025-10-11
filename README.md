@@ -19,6 +19,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-123848](https://bugs.mojang.com/browse/MC-123848) | Paper           | ✔️                 | Item frames (and items within) when removed from a ceiling, drop atop, not under, the block                                          |
 | [MC-145260](https://bugs.mojang.com/browse/MC-145260) | Paper           | ❌                  | Whitelist on state inconsistency                                                                                                     |
 | [MC-147659](https://bugs.mojang.com/browse/MC-147659) | Paper           | ❌                  | Some witch huts spawn the incorrect cat                                                                                              |
+| [MC-153010](https://bugs.mojang.com/browse/MC-153010) | Paper           | ❌                  | doMobLoot gamerule doesn't prevent foxes from dropping their items                                                                   |
 | [MC-153086](https://bugs.mojang.com/browse/MC-153086) | Paper           | ✔️                 | Beacons always play deactivating sound when broken, even when not powered                                                            |
 | [MC-157464](https://bugs.mojang.com/browse/MC-157464) | Paper           | ✔️                 | Villagers move around in bed or even leave the bed when food is thrown at them                                                       |
 | [MC-158900](https://bugs.mojang.com/browse/MC-158900) | Paper           | ❌                  | "bad packet id 26" upon connecting after tempban expire                                                                              |
@@ -56,7 +57,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | [MC-33041](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup                                          |
 | [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials                                  |
 | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing                                      |
-| [MC-153010](https://bugs.mojang.com/browse/MC-153010) | Paper  | doMobLoot gamerule doesn't prevent foxes from dropping their items                                                     |
 | [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                                                  |
 | [MC-177381](https://bugs.mojang.com/browse/MC-177381) | Paper  | Game does not count the distance properly if you locate a structure from more than 46340 blocks away                   |
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                                                            |

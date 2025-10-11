@@ -24,7 +24,7 @@ public class WaypointCommandMixin {
 	@Redirect(
 		at = @At(
 			target = "Lnet/minecraft/server/command/ServerCommandSource;getWorld()Lnet/minecraft/server/world/ServerWorld;",
-			value="INVOKE"
+			value = "INVOKE"
 		),
 		method = "updateWaypointConfig"
 	)

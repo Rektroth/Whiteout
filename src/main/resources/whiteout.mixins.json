@@ -20,6 +20,7 @@
     "mc123848.ItemFrameEntityMixin",
     "mc145260.MinecraftServerMixin",
     "mc147659.CatSpawnMixin",
+    "mc153010.FoxEntityMixin",
     "mc153086.BeaconBlockEntityMixin",
     "mc157464.VillagerTaskListProviderMixin",
     "mc158900.PlayerManagerMixin",
