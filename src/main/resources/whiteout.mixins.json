@@ -37,6 +37,7 @@
     "mc257487.EnderDragonFightMixin",
     "mc262422.ServerWorldMixin",
     "mc263999.BreakDoorGoalMixin",
+    "mc264979.AbstractPropertiesHandlerMixin",
     "mc27056.ExplosionImplMixin",
     "mc27056.compat.lithium.LithiumCompatExplosionImplMixin",
     "mc300685.WaypointCommandMixin",
