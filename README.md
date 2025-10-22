@@ -36,6 +36,7 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-257487](https://bugs.mojang.com/browse/MC-257487) | Paper           | ✔️                 | The ender dragon's name is not reset when it is respawned in the end                                                                 |
 | [MC-262422](https://bugs.mojang.com/browse/MC-262422) | Paper           | ✔️                 | Lightning bolts during thunderstorms can strike players in spectator game mode                                                       |
 | [MC-263999](https://bugs.mojang.com/browse/MC-263999) | Paper           | ✔️                 | Zombies breaking doors do not show break particles                                                                                   |
+| [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot          | ✔️                 | Unbreakable flint and steels are completely consumed when igniting a creeper                                                         |
 | [MC-264979](https://bugs.mojang.com/browse/MC-264979) | Spigot          | ✔️                 | Fresh installations print NoSuchFileException for server.properties                                                                  |
 | [MC-300685](https://bugs.mojang.com/browse/MC-300685) | Paper           | ✔️                 | Running '/waypoint modify' on an entity in another dimension causes the waypoint to appear in the executor's dimension               |
 | *N/A*                                                 | Paper           | ❌                  | Accessing the nether roof                                                                                                            |
@@ -61,7 +62,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing                                      |
 | [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                                                  |
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                                                            |
-| [MC-264285](https://bugs.mojang.com/browse/MC-264285) | Spigot | Unbreakable flint and steels are completely consumed when igniting a creeper                                           |
 
 ### Not Planned
 
