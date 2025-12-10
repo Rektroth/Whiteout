@@ -16,7 +16,7 @@ import net.minecraft.entity.EntityCollisionHandler;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.GameRules;
+import net.minecraft.world.rule.GameRules;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -44,6 +44,7 @@ public abstract class LeveledCauldronBlockMixin {
 	@Redirect(
 		at = @At(
 			target = "Lnet/minecraft/entity/EntityCollisionHandler;addPreCallback(Lnet/minecraft/entity/CollisionEvent;Ljava/util/function/Consumer;)V",
+            //target = "Lnet/minecraft/entity/Entity;canModifyAt(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;)Z",
 			value = "INVOKE"
 		),
 		method = "onEntityCollision"
@@ -60,7 +61,7 @@ public abstract class LeveledCauldronBlockMixin {
 		instance.addPreCallback(collisionEvent, (collidedEntity) -> {
 			if (collidedEntity.isOnFire()
 				&& collidedEntity.canModifyAt(serverWorld, blockPos)
-				&& (collidedEntity instanceof PlayerEntity || serverWorld.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) // the relevant change
+				&& (collidedEntity instanceof PlayerEntity || serverWorld.getGameRules().getValue(GameRules.DO_MOB_GRIEFING)) // the relevant change
 			) {
 				this.onFireCollision(state, world, blockPos);
 			}
