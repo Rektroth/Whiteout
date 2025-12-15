@@ -58,18 +58,18 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | Bug                                                   | Source | Name                                                                                                                   |
 |-------------------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------|
 | [MC-33041](https://bugs.mojang.com/browse/MC-33041)   | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup                                          |
-| [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Spigot | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials                                  |
 | [MC-121706](https://bugs.mojang.com/browse/MC-121706) | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing                                      |
 | [MC-157395](https://bugs.mojang.com/browse/MC-157395) | Spigot | Small armor stands drop no loot table                                                                                  |
 | [MC-235045](https://bugs.mojang.com/browse/MC-235045) | Paper  | Entity type tags suggestions don't work in target selectors                                                            |
 
 ### Not Planned
 
-| Bug                                                   | Name                                                                                                                                                                                            |
-|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [MC-11193](https://bugs.mojang.com/browse/MC-11193)   | The order in which powerable blocks (e.g. redstone dust blocks) along a wire are powered or de-powered is not clearly defined and causes a non-deterministic behavior for redstone contraptions |
-| [MC-81098](https://bugs.mojang.com/browse/MC-81098)   | Redstone dust updates cause lag                                                                                                                                                                 |
-| [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Inactive sheep eat grass                                                                                                                                                                        |
+| Bug                                                   | Name                                                                                                                                                                                            | Reason                                                          |
+|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| [MC-11193](https://bugs.mojang.com/browse/MC-11193)   | The order in which powerable blocks (e.g. redstone dust blocks) along a wire are powered or de-powered is not clearly defined and causes a non-deterministic behavior for redstone contraptions | Actively being addressed by Mojang in experimental snapshots.   |
+| [MC-81098](https://bugs.mojang.com/browse/MC-81098)   | Redstone dust updates cause lag                                                                                                                                                                 | Actively being addressed by Mojang in experimental shapshots.   |
+| [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials                                                                                                           | Not properly resolved in Spigot implementation.                 |
+| [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Inactive sheep eat grass                                                                                                                                                                        | Rendered a non-issue by changes made to random ticking in 1.21. |
 
 These patches are not planned for any future release.
 
