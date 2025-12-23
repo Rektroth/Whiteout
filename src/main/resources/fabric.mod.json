@@ -22,9 +22,9 @@
 		"whiteout.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.18.2",
-		"minecraft": "1.21.11",
-		"java": ">=21"
+		"fabricloader": ">=0.18.3",
+		"minecraft": "26.1-snapshot-1",
+		"java": ">=25"
 	},
 	"suggests": {
 		"lithium": "0.21.0"
