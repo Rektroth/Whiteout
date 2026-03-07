@@ -1,17 +1,10 @@
-/*
- * Patch for breaking permanent blocks
- *
- * Authored for CraftBukkit/Spigot by Aikar <aikar@aikar.co>> on May 13, 2020.
- * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 28, 2024.
- */
-
 package io.github.rektroth.whiteout.mixin.breakingpermablocks;
 
 import io.github.rektroth.whiteout.accessors.CaptureTreeGenerationAccessor;
 import io.github.rektroth.whiteout.util.BlockUtil;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -19,8 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(World.class)
-public abstract class WorldMixin implements CaptureTreeGenerationAccessor {
+@Mixin(Level.class)
+public abstract class LevelMixin implements CaptureTreeGenerationAccessor {
 	@Shadow
 	public abstract BlockState getBlockState(BlockPos pos);
 
@@ -56,7 +49,7 @@ public abstract class WorldMixin implements CaptureTreeGenerationAccessor {
 	 */
 	@Inject(
 		at = @At("HEAD"),
-		method = "setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;II)Z",
+		method = "setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;II)Z",
 		cancellable = true
 	)
 	private void checkReplacePermaBlock(
