@@ -24,7 +24,7 @@
     "mc153010.FoxMixin",
     "mc153086.BeaconBlockEntityMixin",
     "mc157464.VillagerGoalPackagesMixin",
-    "mc158900.PlayerManagerMixin",
+    "mc158900.PlayerListMixin",
     "mc159283.EndIslandsMixin",
     "mc163962.TradeOfferMixin",
     "mc167279.BeeEntityMixin",
