@@ -1,17 +1,9 @@
-/*
- * Patch for top of nether void damage
- *
- * Authored for CraftBukkit/Spigot by Zach Brown <zach.brown@destroystokyo.com> on March 1, 2016.
- * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 28, 2024.
- */
-
 package io.github.rektroth.whiteout.mixin.nethervoiddamage;
 
 import io.github.rektroth.whiteout.util.PortalUtil;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.dimension.PortalForcer;
-import net.minecraft.world.poi.PointOfInterest;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.portal.PortalForcer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -26,7 +18,7 @@ import java.util.stream.Stream;
 public abstract class PortalForcerMixin {
 	@Final
 	@Shadow
-	private ServerWorld world;
+	private ServerLevel level;
 
 	/**
 	 * Filters points that are outside the logical boundary of the dimension out of a stream of points.
@@ -40,7 +32,7 @@ public abstract class PortalForcerMixin {
 			value = "INVOKE",
 			ordinal = 0
 		),
-		method = "getPortalPos"
+		method = "findClosestPortalPosition"
 	)
 	private Stream<BlockPos> filterPointsOutsideLogic(
 		Stream<BlockPos> instance,
@@ -48,7 +40,7 @@ public abstract class PortalForcerMixin {
 	) {
 		return instance
 			.filter(predicate)
-			.filter((pos) -> PortalUtil.isBelowCeiling(pos, this.world));
+			.filter((pos) -> PortalUtil.isBelowCeiling(pos, this.level));
 	}
 
 	/**
@@ -59,8 +51,8 @@ public abstract class PortalForcerMixin {
 	 */
 	@ModifyVariable(at = @At("STORE"), method = "createPortal", ordinal = 0)
 	private int roofMaximum(int value) {
-		if (this.world.getDimension().hasCeiling()) {
-			return Math.min(value, this.world.getBottomY() + this.world.getLogicalHeight() - 1);
+		if (this.level.dimensionType().hasCeiling()) {
+			return Math.min(value, this.level.getMinY() + this.level.getLogicalHeight() - 1);
 		}
 
 		return value;
