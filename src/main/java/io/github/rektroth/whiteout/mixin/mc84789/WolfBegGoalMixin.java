@@ -9,6 +9,9 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+/**
+ * Beg goal modifications for MC-84789 patch.
+ */
 @Mixin(BegGoal.class)
 public abstract class WolfBegGoalMixin {
     @Final

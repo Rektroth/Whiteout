@@ -21,8 +21,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Server explosion modifications for MC-27056 patch.
+ */
 @Mixin(ServerExplosion.class)
-public abstract class ExplosionImplMixin {
+public abstract class ServerExplosionMixin {
     @Final
     @Shadow
     private ServerLevel level;

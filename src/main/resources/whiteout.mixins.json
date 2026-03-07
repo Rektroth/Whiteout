@@ -40,7 +40,7 @@
     "mc263999.BreakDoorGoalMixin",
     "mc264285.CreeperEntityMixin",
     "mc264979.AbstractPropertiesHandlerMixin",
-    "mc27056.ExplosionImplMixin",
+    "mc27056.ServerExplosionMixin",
     "mc27056.compat.lithium.LithiumCompatExplosionImplMixin",
     "mc300685.WaypointCommandMixin",
     "mc4.EntityMixin",

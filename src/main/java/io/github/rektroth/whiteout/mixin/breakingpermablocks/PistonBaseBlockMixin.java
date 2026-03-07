@@ -15,6 +15,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Piston base block modifications to prevent breaking permanent blocks.
+ */
 @Mixin(PistonBaseBlock.class)
 public abstract class PistonBaseBlockMixin {
 	/**

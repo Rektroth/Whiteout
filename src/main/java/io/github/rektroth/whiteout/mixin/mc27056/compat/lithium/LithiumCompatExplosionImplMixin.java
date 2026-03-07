@@ -17,6 +17,9 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.List;
 
+/**
+ * Server explosion modifications for MC-27056 that are compatible with Lithium.
+ */
 @Mixin(ServerExplosion.class)
 public abstract class LithiumCompatExplosionImplMixin {
     @Final

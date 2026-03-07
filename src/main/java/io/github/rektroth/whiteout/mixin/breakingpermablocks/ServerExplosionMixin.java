@@ -10,6 +10,9 @@ import org.spongepowered.asm.mixin.injection.*;
 
 import java.util.Set;
 
+/**
+ * Server explosion modifications to prevent breaking permanent blocks.
+ */
 @Mixin(ServerExplosion.class)
 public class ServerExplosionMixin {
 	/**

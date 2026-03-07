@@ -9,11 +9,21 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Slice;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Entity modifications for MC-44654 patch.
+ */
 @Mixin(Entity.class)
 public abstract class EntityMixin {
+    /**
+     * Whether the entity needs re-synced.
+     */
     @Shadow
     public boolean needsSync;
 
+    /**
+     * Gets the entity's type.
+     * @return The entity's type.
+     */
     @Shadow
     public abstract EntityType<?> getType();
 

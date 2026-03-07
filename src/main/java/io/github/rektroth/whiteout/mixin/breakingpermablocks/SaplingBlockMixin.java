@@ -12,6 +12,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+/**
+ * Sapling block modifications to prevent breaking permanent blocks.
+ */
 @Mixin(SaplingBlock.class)
 public abstract class SaplingBlockMixin {
 	/**

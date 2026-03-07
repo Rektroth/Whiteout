@@ -12,6 +12,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Level modifications to prevent breaking permanent blocks.
+ */
 @Mixin(Level.class)
 public abstract class LevelMixin implements CaptureTreeGenerationAccessor {
 	@Shadow

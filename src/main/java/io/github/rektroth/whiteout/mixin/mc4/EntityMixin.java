@@ -8,13 +8,11 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+/**
+ * Entity modifications for MC-4 patch.
+ */
 @Mixin(Entity.class)
 public abstract class EntityMixin {
-	@Unique
-	private double fixCoord(double d) {
-		return (Entity)(Object)this instanceof ItemEntity ? Mth.lfloor(d * 4096.0D) * (1 / 4096.0D) : d;
-	}
-
 	// Unfortunately, I can only modify one variable with one function, and `@ModifyVariable` is non-repeatable.
 
 	/**
@@ -45,5 +43,10 @@ public abstract class EntityMixin {
 	@ModifyVariable(argsOnly = true, at = @At("HEAD"), method = "setPos(DDD)V", ordinal = 2)
 	private double fixItemZPositionDesync(double z){
 		return this.fixCoord(z);
+	}
+
+	@Unique
+	private double fixCoord(double d) {
+		return (Entity)(Object)this instanceof ItemEntity ? Mth.lfloor(d * 4096.0D) * (1 / 4096.0D) : d;
 	}
 }

@@ -15,6 +15,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Block behavior modifications to prevent breaking permanent blocks.
+ */
 @Mixin(BlockBehaviour.class)
 public abstract class BlockBehaviourMixin {
 	@Shadow
