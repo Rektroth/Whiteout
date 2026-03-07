@@ -23,7 +23,7 @@
     "mc147659.CatSpawnMixin",
     "mc153010.FoxMixin",
     "mc153086.BeaconBlockEntityMixin",
-    "mc157464.VillagerTaskListProviderMixin",
+    "mc157464.VillagerGoalPackagesMixin",
     "mc158900.PlayerManagerMixin",
     "mc159283.EndIslandsMixin",
     "mc163962.TradeOfferMixin",
