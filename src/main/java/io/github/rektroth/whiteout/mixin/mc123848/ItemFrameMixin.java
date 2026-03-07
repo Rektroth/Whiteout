@@ -15,13 +15,13 @@ import org.spongepowered.asm.mixin.Mixin;
  * Item frame modifications for MC-123848 patch.
  */
 @Mixin(ItemFrame.class)
-public abstract class ItemFrameEntityMixin extends HangingEntity {
+public abstract class ItemFrameMixin extends HangingEntity {
     /**
      * boilerplate
      * @param entityType boilerplate
      * @param level      boilerplate
      */
-    protected ItemFrameEntityMixin(EntityType<? extends HangingEntity> entityType, Level level) {
+    protected ItemFrameMixin(EntityType<? extends HangingEntity> entityType, Level level) {
         super(entityType, level);
     }
 

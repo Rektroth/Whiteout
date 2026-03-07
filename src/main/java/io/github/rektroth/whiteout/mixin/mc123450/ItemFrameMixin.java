@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
  * Item frame modifications for MC-123450 patch.
  */
 @Mixin(ItemFrame.class)
-public abstract class ItemFrameEntityMixin {
+public abstract class ItemFrameMixin {
     /**
      * Redirects checking if the item frame is empty to check both that and if the item frame was updated,
      * so that the item frame only plays a sound when updated.
