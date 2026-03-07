@@ -31,13 +31,16 @@ public abstract class EntityMixin {
             ordinal = 0,
             target = "Lnet/minecraft/world/entity/Entity;isRemoved()Z",
             shift = At.Shift.AFTER,
-            value = "JUMP"),
+            value = "JUMP"
+        ),
         method = "setPosRaw",
         slice = @Slice(
             from = @At(
                 target = "Lnet/minecraft/world/level/entity/EntityInLevelCallback;onMove()V",
-                value = "INVOKE"),
-            to = @At(value = "RETURN")
+                value = "INVOKE"
+            ),
+            to = @At(value = "RETURN"
+        )
     ))
     private void hasVelocityIfUpdateIntervalIsMax(final double x, final double y, final double z, CallbackInfo ci) {
         if (this.getType().updateInterval() == Integer.MAX_VALUE) {
