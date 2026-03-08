@@ -27,7 +27,7 @@
     "mc158900.PlayerListMixin",
     "mc159283.EndIslandDensityFunctionMixin",
     "mc163962.MerchantOfferMixin",
-    "mc167279.BeeEntityMixin",
+    "mc167279.BeeMixin",
     "mc171420.MinecraftServerMixin",
     "mc174630.BeaconScreenHandlerMixin",
     "mc177381.LocateCommandMixin",

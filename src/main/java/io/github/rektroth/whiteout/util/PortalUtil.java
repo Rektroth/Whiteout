@@ -3,6 +3,9 @@ package io.github.rektroth.whiteout.util;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.BlockPos;
 
+/**
+ * Utilities for handling portals.
+ */
 public abstract class PortalUtil {
 	/**
 	 * Checks if a given point is below the dimension's ceiling (if it has one).

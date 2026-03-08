@@ -3,6 +3,9 @@ package io.github.rektroth.whiteout.util;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
+/**
+ * Utilities for handling blocks.
+ */
 public abstract class BlockUtil {
 	/**
 	 * Returns whether a given block is destroyable (not permanent).
