@@ -58,6 +58,9 @@ public abstract class BlockBehaviourMixin {
 				|| (context.getPlayer() != null && context.getPlayer().getAbilities().instabuild)));
 	}
 
+	/**
+	 * Block state base modifications to prevent breaking permanent blocks.
+	 */
 	@Mixin(BlockBehaviour.BlockStateBase.class)
 	public abstract static class BlockStateBaseMixin {
 		@Final

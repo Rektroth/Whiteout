@@ -25,7 +25,7 @@
     "mc153086.BeaconBlockEntityMixin",
     "mc157464.VillagerGoalPackagesMixin",
     "mc158900.PlayerListMixin",
-    "mc159283.EndIslandsMixin",
+    "mc159283.EndIslandDensityFunctionMixin",
     "mc163962.TradeOfferMixin",
     "mc167279.BeeEntityMixin",
     "mc171420.MinecraftServerMixin",
