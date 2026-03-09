@@ -29,7 +29,7 @@
     "mc163962.MerchantOfferMixin",
     "mc167279.BeeMixin",
     "mc171420.MinecraftServerMixin",
-    "mc174630.BeaconScreenHandlerMixin",
+    "mc174630.BeaconMenuMixin",
     "mc177381.LocateCommandMixin",
     "mc179072.CreeperIgniteGoalMixin",
     "mc188840.PistonBlockMixin",
