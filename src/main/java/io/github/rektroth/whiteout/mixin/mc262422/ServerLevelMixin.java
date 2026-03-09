@@ -55,7 +55,8 @@ public abstract class ServerLevelMixin extends Level {
     }
 
     /**
-     * Redirects the call to `getEntitiesByClass` to also check that the entity isn't in spectator mode.
+     * Modifies the existing predicate for living entities that can be struck by the lightning to exclude living
+     * entities that are in spectator mode.
      * @param instance            boilerplate
      * @param baseClass           The entity class.
      * @param search              The area to search for the lightning to strike.
@@ -69,7 +70,7 @@ public abstract class ServerLevelMixin extends Level {
         ),
         method = "findLightningTargetAround"
     )
-    private List<LivingEntity> fixedListOfLivingEntities(
+    private List<LivingEntity> andIsNotSpectator(
         ServerLevel instance,
         Class<LivingEntity> baseClass,
         AABB search,
