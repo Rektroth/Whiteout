@@ -61,7 +61,7 @@ public abstract class ServerLevelMixin extends Level {
      * @param baseClass           The entity class.
      * @param search              The area to search for the lightning to strike.
      * @param isAliveAndCanSeeSky The existing predicate for entities that can be struck by the lightning.
-     * @return List of valid entities for lightning to strike.
+     * @return List of valid living entities for the lightning to strike.
      */
     @Redirect(
         at = @At(
