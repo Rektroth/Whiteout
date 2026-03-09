@@ -18,10 +18,7 @@ public class LocateCommandMixin {
 	 * @param j     The distance on the y-axis.
 	 * @return      The hypotenuse of i and j.
 	 */
-	@Redirect(
-		at = @At(target = "Lnet/minecraft/util/Mth;sqrt(F)F", value = "INVOKE"),
-		method = "dist"
-	)
+	@Redirect(at = @At(target = "Lnet/minecraft/util/Mth;sqrt(F)F", value = "INVOKE"), method = "dist")
 	private static float hypot(float value, @Local(ordinal = 4) int i, @Local(ordinal = 5) int j) {
 		return (float)Math.hypot(i, j);
 	}

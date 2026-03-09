@@ -31,7 +31,7 @@
     "mc171420.MinecraftServerMixin",
     "mc174630.BeaconMenuMixin",
     "mc177381.LocateCommandMixin",
-    "mc179072.CreeperIgniteGoalMixin",
+    "mc179072.SwellGoalMixin",
     "mc188840.PistonBlockMixin",
     "mc243057.AbstractFurnaceBlockEntityMixin",
     "mc248588.LeveledCauldronBlockMixin",
