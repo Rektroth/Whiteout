@@ -22,8 +22,8 @@ public abstract class PortalForcerMixin {
 
 	/**
 	 * Filters points that are outside the logical boundary of the dimension out of a stream of points.
-	 * @param instance    The stream of points to be filtered.
-	 * @param predicate   The predicate already being used to filter the points.
+	 * @param instance  The stream of points to be filtered.
+	 * @param predicate The predicate already being used to filter the points.
 	 * @return The same stream of points with those outside the logical boundary removed.
 	 */
 	@Redirect(
