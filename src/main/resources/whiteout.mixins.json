@@ -34,7 +34,7 @@
     "mc179072.SwellGoalMixin",
     "mc188840.PistonBaseBlockMixin",
     "mc243057.AbstractFurnaceBlockEntityMixin",
-    "mc248588.LeveledCauldronBlockMixin",
+    "mc248588.LayeredCauldronBlockMixin",
     "mc257487.EnderDragonFightMixin",
     "mc262422.ServerWorldMixin",
     "mc263999.BreakDoorGoalMixin",
