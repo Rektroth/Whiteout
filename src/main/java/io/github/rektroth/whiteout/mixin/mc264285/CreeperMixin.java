@@ -1,13 +1,16 @@
 package io.github.rektroth.whiteout.mixin.mc264285;
 
-import net.minecraft.entity.mob.CreeperEntity;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-@Mixin(CreeperEntity.class)
-public class CreeperEntityMixin {
+/**
+ * Creeper modifications for the MC-264285 patch.
+ */
+@Mixin(Creeper.class)
+public class CreeperMixin {
 	/**
 	 * Redirects the check to see if the item is damageable to instead check if the item has a maximum damage not equal
 	 * to zero.
@@ -16,10 +19,10 @@ public class CreeperEntityMixin {
 	 */
 	@Redirect(
 		at = @At(
-			target = "Lnet/minecraft/item/ItemStack;isDamageable()Z",
+			target = "Lnet/minecraft/world/item/ItemStack;isDamageableItem()Z",
 			value = "INVOKE"
 		),
-		method = "interactMob"
+		method = "mobInteract"
 	)
 	private boolean isMaxDamageNotEqualToZero(ItemStack instance) {
 		return instance.getMaxDamage() != 0;
