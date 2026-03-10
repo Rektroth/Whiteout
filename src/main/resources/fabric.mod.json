@@ -23,7 +23,7 @@
 	],
 	"depends": {
 		"fabricloader": "~0.18.0",
-		"minecraft": "26.1-snapshot-11",
+		"minecraft": "26.1-pre-1",
 		"java": ">=25"
 	},
 	"suggests": {
