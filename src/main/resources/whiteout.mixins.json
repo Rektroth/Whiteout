@@ -39,7 +39,7 @@
     "mc262422.ServerLevelMixin",
     "mc263999.BreakDoorGoalMixin",
     "mc264285.CreeperMixin",
-    "mc264979.AbstractPropertiesHandlerMixin",
+    "mc264979.SettingsMixin",
     "mc27056.ServerExplosionMixin",
     "mc27056.compat.lithium.LithiumCompatExplosionImplMixin",
     "mc300685.WaypointCommandMixin",
