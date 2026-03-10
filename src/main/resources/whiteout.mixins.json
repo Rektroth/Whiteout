@@ -37,6 +37,8 @@
     "mc243057.AbstractFurnaceBlockEntityMixin",
     "mc248588.LayeredCauldronBlockMixin",
     "mc257487.EnderDragonFightMixin",
+    "mc259832.MobEffectInstanceAccessor",
+    "mc259832.MobEffectInstanceMixin",
     "mc262422.ServerLevelMixin",
     "mc263999.BreakDoorGoalMixin",
     "mc264285.CreeperMixin",
