@@ -5,6 +5,9 @@ import net.caffeinemc.mods.lithium.common.util.POIRegistryEntries;
 import net.caffeinemc.mods.lithium.common.world.interests.PointOfInterestStorageExtended;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.ai.village.poi.PoiManager;
+import net.minecraft.world.entity.ai.village.poi.PoiRecord;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.portal.PortalForcer;
 import org.spongepowered.asm.mixin.Final;
@@ -38,20 +41,20 @@ public abstract class LithiumCompatPortalForcerMixin {
 	public Optional<BlockPos> findClosestPortalPosition(BlockPos approximateExitPos, boolean toNether, WorldBorder worldBorder) {
 		int searchRadius = toNether ? 16 : 128;
 
-		PointOfInterestStorage poiStorage = this.level.getPointOfInterestStorage();
-		poiStorage.preloadChunks(this.level, approximateExitPos, searchRadius);
+		PoiManager poiManager = this.level.getPoiManager();
+		poiManager.ensureLoadedAndValid(this.level, approximateExitPos, searchRadius);
 
-		Optional<PointOfInterest> ret = ((PointOfInterestStorageExtended) poiStorage).lithium$findNearestForPortalLogic(
+		Optional<PoiRecord> ret = ((PointOfInterestStorageExtended)poiManager).lithium$findNearestForPortalLogic(
 			approximateExitPos,
 			searchRadius,
 			POIRegistryEntries.NETHER_PORTAL_ENTRY,
-			PointOfInterestStorage.OccupationStatus.ANY,
+			PoiManager.Occupancy.ANY,
 			(poi) -> PortalUtil.isBelowCeiling(poi.getPos(), this.level) // this line is what's important
-				&& this.level.getBlockState(poi.getPos()).contains(Properties.HORIZONTAL_AXIS),
+				&& this.level.getBlockState(poi.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS),
 			worldBorder
 		);
 
-		return ret.map(PointOfInterest::getPos);
+		return ret.map(PoiRecord::getPos);
 	}
 
 	/**

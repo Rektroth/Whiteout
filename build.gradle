@@ -47,7 +47,7 @@ dependencies {
 	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
 	// Lithium
-	//compileOnly "maven.modrinth:lithium:${lithium_version}"
+	compileOnly "maven.modrinth:lithium:${lithium_version}"
 }
 
 processResources {

@@ -28,10 +28,18 @@ public abstract class SwellGoalMixin extends Goal {
 	 * Adds a condition to cancel swelling if the target is in creative or spectator mode.
 	 * @param ci boilerplate
 	 */
-	@Inject(at = @At(target = "Lnet/minecraft/world/entity/LivingEntity;isDeadOrDying()Z", value = "INVOKE_ASSIGN"), method="tick")
+	@Inject(
+		at = @At(
+			target = "Lnet/minecraft/world/entity/monster/Creeper;setSwellDir(I)V",
+			value = "INVOKE"
+		),
+		cancellable = true,
+		method = "tick"
+	)
 	private void cancelSwellIfCreativeOrSpectator(CallbackInfo ci) {
-		if (EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(this.target)) {
+		if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(this.target)) {
 			this.creeper.setSwellDir(-1);
+			ci.cancel();
 		}
 	}
 }

@@ -33,6 +33,6 @@ public abstract class ItemFrameMixin extends HangingEntity {
      */
     @Override
     public ItemEntity spawnAtLocation(final @NonNull ServerLevel level, final @NonNull ItemStack stack) {
-        return super.spawnAtLocation(level, stack, getDirection().equals(Direction.DOWN) ? 0.6F : 0.0F);
+        return super.spawnAtLocation(level, stack, getDirection().equals(Direction.DOWN) ? -0.6F : 0.0F);
     }
 }

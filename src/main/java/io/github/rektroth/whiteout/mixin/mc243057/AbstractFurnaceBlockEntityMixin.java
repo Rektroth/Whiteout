@@ -32,9 +32,10 @@ public class AbstractFurnaceBlockEntityMixin {
 	 * @param contents The available item stack contents.
 	 * @param ci       boilerplate
 	 */
-	@Inject(at = @At("HEAD"), method = "fillStackedContents")
+	@Inject(at = @At("HEAD"), cancellable = true, method = "fillStackedContents")
 	private void doNotAccountFuelStack(final StackedItemContents contents, CallbackInfo ci) {
 		contents.accountStack(this.items.get(SLOT_INPUT));
 		contents.accountStack(this.items.get(SLOT_RESULT));
+		ci.cancel();
 	}
 }

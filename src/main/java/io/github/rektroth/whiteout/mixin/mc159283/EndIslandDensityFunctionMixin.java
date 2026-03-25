@@ -6,9 +6,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-// compiler warning says that the target is public - this is incorrect, ignore it
-// i can't figure out how to suppress it
-
 /**
  * End island density function modifications for MC-159283 patch.
  */

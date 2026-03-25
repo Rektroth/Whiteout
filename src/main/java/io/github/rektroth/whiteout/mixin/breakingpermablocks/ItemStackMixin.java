@@ -1,7 +1,5 @@
 package io.github.rektroth.whiteout.mixin.breakingpermablocks;
 
-import com.llamalad7.mixinextras.expression.Definition;
-import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.sugar.Local;
 import io.github.rektroth.whiteout.accessors.CaptureTreeGenerationAccessor;
 import net.minecraft.world.InteractionResult;
@@ -45,10 +43,11 @@ public abstract class ItemStackMixin {
 	 * @param context The item usage context.
 	 * @param cir     boilerplate
 	 */
-	@Definition(id = "useOn", method = "Lnet/minecraft/world/item/Item;useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;")
-	@Expression("? = ?.useOn(?)")
 	@Inject(
-		at = @At(value = "MIXINEXTRAS:EXPRESSION", shift = At.Shift.AFTER),
+		at = @At(
+			target = "Lnet/minecraft/world/item/Item;useOn(Lnet/minecraft/world/item/context/UseOnContext;)Lnet/minecraft/world/InteractionResult;",
+			value = "INVOKE_ASSIGN" // there's a suggestion that this can be converted to an expression - doing that mysteriously breaks stuff, so don't
+		),
 		method = "useOn"
 	)
 	private void captureTreeGeneration(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
