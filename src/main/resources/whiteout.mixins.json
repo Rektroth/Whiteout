@@ -47,6 +47,7 @@
     "mc4.EntityMixin",
     "mc44654.EntityMixin",
     "mc84789.WolfBegGoalMixin",
+    "mc98153.PlayerListMixin",
     "mc99075.ServerGamePacketListenerImplMixin",
     "nethervoiddamage.EntityMixin",
     "nethervoiddamage.PortalForcerMixin",
