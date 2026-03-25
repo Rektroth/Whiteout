@@ -1,49 +1,45 @@
-/*
- * Patch for MC-147659
- *
- * Authored for CraftBukkit/Spigot by Jake Potrebic <jake.m.potrebic@gmail.com> on July 11, 2022.
- * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on July 4, 2024.
- */
-
 package io.github.rektroth.whiteout.mixin.mc147659;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
-import net.minecraft.entity.passive.CatEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.spawner.CatSpawner;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.animal.feline.Cat;
+import net.minecraft.world.entity.npc.CatSpawner;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Cat spawner modifications for MC-147659 patch.
+ */
 @Mixin(CatSpawner.class)
 public abstract class CatSpawnMixin {
 	/**
 	 * Sets the cat's position before it's type is set.
 	 * @param pos       The cat's spawn position.
-	 * @param world     boilerplate
+	 * @param level     boilerplate
 	 * @param ci        boilerplate
 	 * @param catEntity The cat.
 	 */
 	@Inject(
 		at = @At(
-			target = "Lnet/minecraft/entity/passive/CatEntity;initialize(Lnet/minecraft/world/ServerWorldAccess;Lnet/minecraft/world/LocalDifficulty;Lnet/minecraft/entity/SpawnReason;Lnet/minecraft/entity/EntityData;)Lnet/minecraft/entity/EntityData;",
+			target = "Lnet/minecraft/world/entity/animal/feline/Cat;finalizeSpawn(Lnet/minecraft/world/level/ServerLevelAccessor;Lnet/minecraft/world/DifficultyInstance;Lnet/minecraft/world/entity/EntitySpawnReason;Lnet/minecraft/world/entity/SpawnGroupData;)Lnet/minecraft/world/entity/SpawnGroupData;",
 			value = "INVOKE"
 		),
-		method = "spawn(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/server/world/ServerWorld;Z)V"
+		method = "spawnCat"
 	)
 	private void refreshPositionAndAnglesBeforeInitialize(
 			BlockPos pos,
-			ServerWorld world,
+			ServerLevel level,
 			boolean persistent,
 			CallbackInfo ci,
-			@Local LocalRef<CatEntity> catEntity
+			@Local LocalRef<Cat> catEntity
 	) {
-		CatEntity cat2 = catEntity.get();
-		cat2.refreshPositionAndAngles(pos, 0.0F, 0.0F);
+		Cat cat2 = catEntity.get();
+		cat2.snapTo(pos, 0.0F, 0.0F);
 		catEntity.set(cat2);
 	}
 
@@ -56,12 +52,12 @@ public abstract class CatSpawnMixin {
 	 */
 	@Redirect(
 		at = @At(
-			target = "Lnet/minecraft/entity/passive/CatEntity;refreshPositionAndAngles(Lnet/minecraft/util/math/BlockPos;FF)V",
+			target = "Lnet/minecraft/world/entity/animal/feline/Cat;snapTo(Lnet/minecraft/core/BlockPos;FF)V",
 			value = "INVOKE"
 		),
-		method = "spawn(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/server/world/ServerWorld;Z)V"
+		method = "spawnCat"
 	)
-	private void skipRefreshPositionAndAngles(CatEntity instance, BlockPos blockPos, float yaw, float pitch) {
+	private void skipRefreshPositionAndAngles(Cat instance, BlockPos blockPos, float yaw, float pitch) {
 		return;
 	}
 }

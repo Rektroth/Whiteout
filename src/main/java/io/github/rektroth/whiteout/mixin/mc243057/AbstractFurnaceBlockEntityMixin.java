@@ -1,41 +1,41 @@
-/*
- * Patch for MC-243057
- *
- * Authored for CraftBukkit/Spigot by Jake Potrebic <jake.m.potrebic@gmail.com> on July 11, 2022.
- * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on August 28, 2024.
- */
-
 package io.github.rektroth.whiteout.mixin.mc243057;
 
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.RecipeFinder;
-import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.entity.player.StackedItemContents;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Abstract furnace block entity modifications for MC-243057 patch.
+ */
 @Mixin(AbstractFurnaceBlockEntity.class)
 public class AbstractFurnaceBlockEntityMixin {
 	@Final
 	@Shadow
-	protected static int INPUT_SLOT_INDEX;
+	protected static int SLOT_INPUT;
 
 	@Final
 	@Shadow
-	protected static int OUTPUT_SLOT_INDEX;
+	protected static int SLOT_RESULT;
 
 	@Shadow
-	protected DefaultedList<ItemStack> inventory;
+	protected NonNullList<ItemStack> items;
 
 	/**
-	 * @author Rektroth
-	 * @reason The fix completely overhauls the method.
+	 * Makes the furnace only account the input and output stacks; ignores the fuel stack.
+	 * @param contents The available item stack contents.
+	 * @param ci       boilerplate
 	 */
-	@Overwrite
-	public void provideRecipeInputs(RecipeFinder finder) {
-		finder.addInput(this.inventory.get(INPUT_SLOT_INDEX));
-		finder.addInput(this.inventory.get(OUTPUT_SLOT_INDEX));
+	@Inject(at = @At("HEAD"), cancellable = true, method = "fillStackedContents")
+	private void doNotAccountFuelStack(final StackedItemContents contents, CallbackInfo ci) {
+		contents.accountStack(this.items.get(SLOT_INPUT));
+		contents.accountStack(this.items.get(SLOT_RESULT));
+		ci.cancel();
 	}
 }

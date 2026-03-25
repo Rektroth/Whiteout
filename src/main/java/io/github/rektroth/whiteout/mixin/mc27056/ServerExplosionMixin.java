@@ -1,23 +1,16 @@
-/*
- * Patch for MC-27056
- *
- * Authored for CraftBukkit/Spigot by commandblockguy <commandblockguy1@gmail.com> on August 14, 2020.
- * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 24, 2024.
- */
-
 package io.github.rektroth.whiteout.mixin.mc27056;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.PistonHeadBlock;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.PistonBlockEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.explosion.ExplosionImpl;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.ServerExplosion;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.piston.PistonHeadBlock;
+import net.minecraft.world.level.block.piston.PistonMovingBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -28,11 +21,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.List;
 import java.util.Set;
 
-@Mixin(ExplosionImpl.class)
-public abstract class ExplosionImplMixin {
+/**
+ * Server explosion modifications for MC-27056 patch.
+ */
+@Mixin(ServerExplosion.class)
+public abstract class ServerExplosionMixin {
     @Final
     @Shadow
-    private ServerWorld world;
+    private ServerLevel level;
 
     /**
      * Modifies the target method to also add the position of the corresponding piston base to the set of block
@@ -46,7 +42,7 @@ public abstract class ExplosionImplMixin {
         at = @At(
             value = "INVOKE_ASSIGN",
             target = "Ljava/util/Set;add(Ljava/lang/Object;)Z"),
-        method = "getBlocksToDestroy")
+        method = "calculateExplodedPositions")
     private void destroyHeadlessPiston(
         CallbackInfoReturnable<List<BlockPos>> cir,
         @Local LocalRef<Set<BlockPos>> set,
@@ -54,13 +50,13 @@ public abstract class ExplosionImplMixin {
         @Local BlockState blockState
     ) {
         if (blockState.getBlock() == Blocks.MOVING_PISTON) {
-            BlockEntity extension = this.world.getBlockEntity(blockPos);
+            BlockEntity extension = this.level.getBlockEntity(blockPos);
 
-            if (extension instanceof PistonBlockEntity blockEntity && blockEntity.isSource()) {
-                Direction direction = blockState.get(PistonHeadBlock.FACING);
+            if (extension instanceof PistonMovingBlockEntity blockEntity && blockEntity.isSourcePiston()) {
+                Direction direction = blockState.getValue(PistonHeadBlock.FACING);
 
                 Set<BlockPos> newSet = set.get();
-                newSet.add(blockPos.offset(direction.getOpposite()));
+                newSet.add(blockPos.relative(direction.getOpposite()));
                 set.set(newSet);
             }
         }

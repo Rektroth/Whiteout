@@ -1,22 +1,15 @@
-/*
- * Patch for top of nether void damage
- *
- * Authored for CraftBukkit/Spigot by Zach Brown <zach.brown@destroystokyo.com> on March 1, 2016.
- * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on April 28, 2024.
- */
-
 package io.github.rektroth.whiteout.mixin.nethervoiddamage.compat.lithium;
 
 import io.github.rektroth.whiteout.util.PortalUtil;
 import net.caffeinemc.mods.lithium.common.util.POIRegistryEntries;
 import net.caffeinemc.mods.lithium.common.world.interests.PointOfInterestStorageExtended;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.dimension.PortalForcer;
-import net.minecraft.world.border.WorldBorder;
-import net.minecraft.world.poi.PointOfInterest;
-import net.minecraft.world.poi.PointOfInterestStorage;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.ai.village.poi.PoiManager;
+import net.minecraft.world.entity.ai.village.poi.PoiRecord;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.border.WorldBorder;
+import net.minecraft.world.level.portal.PortalForcer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -30,14 +23,14 @@ import java.util.Optional;
 public abstract class LithiumCompatPortalForcerMixin {
 	@Final
 	@Shadow
-	private ServerWorld world;
+	private ServerLevel level;
 
 	/**
 	 * Gets the rectangle of the closest valid existing portal in the opposite dimension if one exists within
 	 * the valid range.
-	 * @param centerPos   The position of the portal.
-	 * @param dstIsNether Whether the destination is in the nether.
-	 * @param worldBorder The world border.
+	 * @param approximateExitPos The approximate position of the portal.
+	 * @param toNether           Whether the destination is in the nether.
+	 * @param worldBorder        The world border.
 	 * @return The rectangle of the closest valid existing portal if one exists within the valid range.
 	 * @author Rektroth
 	 * @reason Lithium completely overwrites this function with essentially what you see below,
@@ -45,20 +38,23 @@ public abstract class LithiumCompatPortalForcerMixin {
 	 * Easiest way to achieve compatibility with Lithium in this case is to simply overwrite the method ourselves.
 	 */
 	@Overwrite
-	public Optional<BlockPos> getPortalPos(BlockPos centerPos, boolean dstIsNether, WorldBorder worldBorder) {
-		int searchRadius = dstIsNether ? 16 : 128;
+	public Optional<BlockPos> findClosestPortalPosition(BlockPos approximateExitPos, boolean toNether, WorldBorder worldBorder) {
+		int searchRadius = toNether ? 16 : 128;
 
-		PointOfInterestStorage poiStorage = this.world.getPointOfInterestStorage();
-		poiStorage.preloadChunks(this.world, centerPos, searchRadius);
+		PoiManager poiManager = this.level.getPoiManager();
+		poiManager.ensureLoadedAndValid(this.level, approximateExitPos, searchRadius);
 
-		Optional<PointOfInterest> ret = ((PointOfInterestStorageExtended) poiStorage).lithium$findNearestForPortalLogic(centerPos, searchRadius,
-			POIRegistryEntries.NETHER_PORTAL_ENTRY, PointOfInterestStorage.OccupationStatus.ANY,
-			(poi) -> PortalUtil.isBelowCeiling(poi.getPos(), this.world) // this line is what's important
-				&& this.world.getBlockState(poi.getPos()).contains(Properties.HORIZONTAL_AXIS),
+		Optional<PoiRecord> ret = ((PointOfInterestStorageExtended)poiManager).lithium$findNearestForPortalLogic(
+			approximateExitPos,
+			searchRadius,
+			POIRegistryEntries.NETHER_PORTAL_ENTRY,
+			PoiManager.Occupancy.ANY,
+			(poi) -> PortalUtil.isBelowCeiling(poi.getPos(), this.level) // this line is what's important
+				&& this.level.getBlockState(poi.getPos()).hasProperty(BlockStateProperties.HORIZONTAL_AXIS),
 			worldBorder
 		);
 
-		return ret.map(PointOfInterest::getPos);
+		return ret.map(PoiRecord::getPos);
 	}
 
 	/**
@@ -69,8 +65,8 @@ public abstract class LithiumCompatPortalForcerMixin {
 	 */
 	@ModifyVariable(at = @At("STORE"), method = "createPortal", ordinal = 0)
 	private int roofMaximum(int value) {
-		if (this.world.getDimension().hasCeiling()) {
-			return Math.min(value, this.world.getBottomY() + this.world.getLogicalHeight() - 1);
+		if (this.level.dimensionType().hasCeiling()) {
+			return Math.min(value, this.level.getMinY() + this.level.getLogicalHeight() - 1);
 		}
 
 		return value;

@@ -2,10 +2,8 @@ package io.github.rektroth.whiteout.mixin.mc117075;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import it.unimi.dsi.fastutil.objects.ReferenceOpenHashSet;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.BlockEntityTickInvoker;
-import net.minecraft.world.tick.TickManager;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.TickingBlockEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -18,14 +16,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Iterator;
 import java.util.List;
 
-@Mixin(World.class)
-public abstract class WorldMixin {
+/**
+ * Level modifications for MC-117075 patch.
+ */
+@Mixin(Level.class)
+public abstract class LevelMixin {
     @Final
     @Shadow
-    protected List<BlockEntityTickInvoker> blockEntityTickers;
+    protected List<TickingBlockEntity> blockEntityTickers;
 
     @Unique
-    private ReferenceOpenHashSet<BlockEntityTickInvoker> toRemove;
+    private ReferenceOpenHashSet<TickingBlockEntity> toRemove;
 
     /**
      * Instantiates a list of block entities to be unloaded.
@@ -42,12 +43,12 @@ public abstract class WorldMixin {
     /**
      * Redirects the unloading of a given block entity to instead add that block entity to the list of block entities
      * to be unloaded at the end of the game tick.
-     * @param instance               boilerplate
-     * @param blockEntityTickInvoker The block entity to be unloaded.
+     * @param instance          boilerplate
+     * @param blockEntityTicker The block entity to be unloaded.
      */
     @Redirect(at = @At(target = "Ljava/util/Iterator;remove()V", value = "INVOKE"), method = "tickBlockEntities")
-    private void addToRemove(Iterator instance, @Local BlockEntityTickInvoker blockEntityTickInvoker) {
-        this.toRemove.add(blockEntityTickInvoker);
+    private void addToRemove(Iterator instance, @Local TickingBlockEntity blockEntityTicker) {
+        this.toRemove.add(blockEntityTicker);
     }
 
     /**

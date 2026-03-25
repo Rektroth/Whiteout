@@ -23,19 +23,19 @@
 	],
 	"depends": {
 		"fabricloader": "~0.18.0",
-		"minecraft": "1.21.11",
-		"java": ">=21"
+		"minecraft": "26.1",
+		"java": ">=25"
 	},
 	"suggests": {
-		"lithium": "~0.21.0"
+		"lithium": "~0.22.0"
 	},
 	"breaks": {
-		"lithium": "<0.21.0 >=0.22.0"
+		"lithium": "<0.22.0 >=0.23.0"
 	},
 	"custom": {
 		"loom:injected_interfaces": {
-			"net/minecraft/class_1511": ["io/github/rektroth/whiteout/accessors/GeneratedByDragonFightAccessor"],
-			"net/minecraft/class_1937": ["io/github/rektroth/whiteout/accessors/CaptureTreeGenerationAccessor"]
+			"net/minecraft/world/entity/boss/enderdragon/EndCrystal": ["io/github/rektroth/whiteout/accessors/GeneratedByDragonFightAccessor"],
+			"net/minecraft/world/level/Level": ["io/github/rektroth/whiteout/accessors/CaptureTreeGenerationAccessor"]
 		}
 	}
 }
