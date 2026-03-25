@@ -44,6 +44,8 @@
     "mc27056.ServerExplosionMixin",
     "mc27056.compat.lithium.LithiumCompatExplosionImplMixin",
     "mc300685.WaypointCommandMixin",
+    "mc302297.AbstractContainerMenuInvoker",
+    "mc302297.ServerPlayerMixin",
     "mc4.EntityMixin",
     "mc44654.EntityMixin",
     "mc84789.WolfBegGoalMixin",
