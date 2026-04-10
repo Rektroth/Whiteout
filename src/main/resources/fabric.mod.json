@@ -27,10 +27,10 @@
 		"java": ">=25"
 	},
 	"suggests": {
-		"lithium": "~0.23.0"
+		"lithium": "~0.24.0"
 	},
 	"breaks": {
-		"lithium": "<0.23.0 >=0.24.0"
+		"lithium": "<0.24.0 >=0.25.0"
 	},
 	"custom": {
 		"loom:injected_interfaces": {
