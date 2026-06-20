@@ -29,7 +29,6 @@ Whiteout is an attempt to implement the gameplay and mechanic consistency patche
 | [MC-163962](https://bugs.mojang.com/browse/MC-163962) | Paper           | ❌                  | Villager demand values decrease indefinitely                                                                                         |
 | [MC-167279](https://bugs.mojang.com/browse/MC-167279) | Paper           | ✔️                 | Bees get stuck in the void                                                                                                           |
 | [MC-171420](https://bugs.mojang.com/browse/MC-171420) | Paper           | ✔️                 | OP players get kicked for not being on the whitelist (enforce = on)                                                                  |
-| [MC-174630](https://bugs.mojang.com/browse/MC-174630) | Paper           | ❌                  | Secondary beacon effect remains when switching primary effect                                                                        |
 | [MC-177381](https://bugs.mojang.com/browse/MC-177381) | Paper           | ❌                  | Game does not count the distance properly if you locate a structure from more than 46340 blocks away                                 |
 | [MC-179072](https://bugs.mojang.com/browse/MC-179072) | Paper           | ❌                  | Creepers do not defuse when switching from Survival to Creative/Spectator                                                            |
 | [MC-188840](https://bugs.mojang.com/browse/MC-188840) | Paper           | ❌                  | *This ticket covered piston-based block duplication. It is unknown why the ticket was privated/deleted.*                             |
@@ -57,14 +56,16 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 
 ### Planned
 
-| Bug                                                             | Source | Name                                                                                                                       |
-|-----------------------------------------------------------------|--------|----------------------------------------------------------------------------------------------------------------------------|
-| [MC-33041](https://bugs.mojang.com/browse/MC-33041)             | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup                                              |
-| [MC-121706](https://bugs.mojang.com/browse/MC-121706)           | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing                                          |
-| [MC-157395](https://bugs.mojang.com/browse/MC-157395)           | Spigot | Small armor stands drop no loot table                                                                                      |
-| [MC-235045](https://bugs.mojang.com/browse/MC-235045)           | Paper  | Entity type tags suggestions don't work in target selectors                                                                |
-| [MC-259832](https://bugs.mojang.com/browse/MC/issues/MC-259832) | Paper  | Combination of potion effect durations and amplifiers will cause a specific effect to disappear                            |
-| [MC-302297](https://bugs.mojang.com/browse/MC/issues/MC-302297) | Paper  | Swapping an item stack from a GUI into the offhand on the same tick the player's inventory is cleared creates a ghost item |
+| Bug                                                                                                           | Source | Name                                                                                                                       |
+|---------------------------------------------------------------------------------------------------------------|--------|----------------------------------------------------------------------------------------------------------------------------|
+| [MC-33041](https://bugs.mojang.com/browse/MC-33041)                                                           | Spigot | Dedicated server logs "java.io.IOException: The handle is invalid" on startup                                              |
+| [MC-121706](https://bugs.mojang.com/browse/MC-121706)                                                         | Purpur | Skeletons and illusioners aren't looking up / down at their target while strafing                                          |
+| [MC-157395](https://bugs.mojang.com/browse/MC-157395)                                                         | Spigot | Small armor stands drop no loot table                                                                                      |
+| [MC-235045](https://bugs.mojang.com/browse/MC-235045)                                                         | Paper  | Entity type tags suggestions don't work in target selectors                                                                |
+| [MC-259832](https://bugs.mojang.com/browse/MC-259832)                                                         | Paper  | Combination of potion effect durations and amplifiers will cause a specific effect to disappear                            |
+| [MC-297169](https://bugs.mojang.com/browse/MC-297169)                                                         | Paper  | Memory leak when an entity is frequently damaged                                                                           |
+| [MC-301114](https://bugs.mojang.com/browse/MC-301114)                                                         | Paper  | Happy Ghast with Silent tag plays happy ghast sounds when mounted/dismounted                                               |
+| [MC-302297](https://bugs.mojang.com/browse/MC-302297) ([MC-297508](https://bugs.mojang.com/browse/MC-297508)) | Paper  | Swapping an item stack from a GUI into the offhand on the same tick the player's inventory is cleared creates a ghost item |
 
 ### Not Planned
 
@@ -73,7 +74,9 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 | [MC-11193](https://bugs.mojang.com/browse/MC-11193)   | The order in which powerable blocks (e.g. redstone dust blocks) along a wire are powered or de-powered is not clearly defined and causes a non-deterministic behavior for redstone contraptions | Actively being addressed by Mojang in experimental snapshots.   |
 | [MC-81098](https://bugs.mojang.com/browse/MC-81098)   | Redstone dust updates cause lag                                                                                                                                                                 | Actively being addressed by Mojang in experimental shapshots.   |
 | [MC-92282](https://bugs.mojang.com/browse/MC-92282)   | Mob spawner block_entity_data does not copy SpawnData data to missing SpawnPotentials                                                                                                           | Not properly resolved in Spigot implementation.                 |
-| [MC-210802](https://bugs.mojang.com/browse/MC-210802) | Inactive sheep eat grass                                                                                                                                                                        | Rendered a non-issue by changes made to random ticking in 1.21. |
+| [MC-304061](https://bugs.mojang.com/browse/MC-304061) | The warning time for world borders in new worlds is less than expected                                                                                                                          | Officially considered "fixed" as of 1.21.11.                    |
+| [MC-307513](https://bugs.mojang.com/browse/MC-307513) | Using /deop on multiple players shows the same player in all success messages                                                                                                                   | Officially considered "fixed" as of 26.2.                       |
+| [MC-307764](https://bugs.mojang.com/browse/MC-307764) | *unknown*                                                                                                                                                                                       | Ticket deleted - purpose unknown.                               |
 
 These patches are not planned for any future release.
 
