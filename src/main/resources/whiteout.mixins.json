@@ -42,6 +42,7 @@
     "mc264979.SettingsMixin",
     "mc27056.ServerExplosionMixin",
     "mc27056.compat.lithium.LithiumCompatExplosionImplMixin",
+    "mc297169.HappyGhastMixin",
     "mc300685.WaypointCommandMixin",
     "mc4.EntityMixin",
     "mc44654.EntityMixin",
