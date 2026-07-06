@@ -46,6 +46,7 @@
     "mc297169.HappyGhastMixin",
     "mc300685.WaypointCommandMixin",
     "mc301114.CombatTrackerMixin",
+    "mc33041.DedicatedServerMixin",
     "mc4.EntityMixin",
     "mc44654.EntityMixin",
     "mc84789.WolfBegGoalMixin",
