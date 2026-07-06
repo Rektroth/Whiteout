@@ -24,6 +24,7 @@
     "mc151857.GiveCommandMixin",
     "mc153010.FoxMixin",
     "mc153086.BeaconBlockEntityMixin",
+    "mc157395.ArmorStandMixin",
     "mc157464.VillagerGoalPackagesMixin",
     "mc158900.PlayerListMixin",
     "mc159283.EndIslandDensityFunctionMixin",
