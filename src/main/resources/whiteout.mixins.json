@@ -17,6 +17,7 @@
     "mc108513.EnderDragonFightAccessor",
     "mc108513.EndSpikeFeatureMixin",
     "mc117075.LevelMixin",
+    "mc121706.RangedBowAttackGoalMixin",
     "mc123450.ItemFrameMixin",
     "mc123848.ItemFrameMixin",
     "mc145260.MinecraftServerMixin",
