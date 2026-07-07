@@ -63,7 +63,6 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 
 | Bug                                                                                                           | Source | Name                                                                                                                       |
 |---------------------------------------------------------------------------------------------------------------|--------|----------------------------------------------------------------------------------------------------------------------------|
-| [MC-235045](https://bugs.mojang.com/browse/MC-235045)                                                         | Paper  | Entity type tags suggestions don't work in target selectors                                                                |
 | [MC-259832](https://bugs.mojang.com/browse/MC-259832)                                                         | Paper  | Combination of potion effect durations and amplifiers will cause a specific effect to disappear                            |
 | [MC-302297](https://bugs.mojang.com/browse/MC-302297) ([MC-297508](https://bugs.mojang.com/browse/MC-297508)) | Paper  | Swapping an item stack from a GUI into the offhand on the same tick the player's inventory is cleared creates a ghost item |
 
