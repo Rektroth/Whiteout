@@ -57,26 +57,4 @@ public abstract class BlockBehaviourMixin {
 			&& (BlockUtil.isDestroyable(state.getBlock())
 				|| (context.getPlayer() != null && context.getPlayer().getAbilities().instabuild)));
 	}
-
-	/**
-	 * Block state base modifications to prevent breaking permanent blocks.
-	 */
-	@Mixin(BlockBehaviour.BlockStateBase.class)
-	public abstract static class BlockStateBaseMixin {
-		@Final
-		@Shadow
-		private PushReaction pushReaction;
-
-		@Shadow
-		public abstract Block getBlock();
-
-		/**
-		 * Modifies the `getPistonBehavior` method to return BLOCK behavior if the block is permanent.
-		 * @param cir The callback.
-		 */
-		@Inject(at = @At("RETURN"), method = "getPistonPushReaction", cancellable = true)
-		private void blockIfPermanent(CallbackInfoReturnable<PushReaction> cir) {
-			cir.setReturnValue(!BlockUtil.isDestroyable(this.getBlock()) ? PushReaction.BLOCK : this.pushReaction);
-		}
-	}
 }

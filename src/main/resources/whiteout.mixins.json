@@ -6,6 +6,7 @@
   "mixins": [
     "breakingpermablocks.BlockBehaviourMixin",
     "breakingpermablocks.BlockBehaviourMixin$BlockStateBaseMixin",
+    "breakingpermablocks.BlockStateBaseMixin",
     "breakingpermablocks.DispenseItemBehaviorMixin",
     "breakingpermablocks.ItemStackMixin",
     "breakingpermablocks.LevelMixin",
