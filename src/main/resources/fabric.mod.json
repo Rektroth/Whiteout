@@ -22,17 +22,20 @@
 		"whiteout.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.16.9",
-		"minecraft": "1.21.4",
-		"java": ">=21"
+		"fabricloader": "~${fabric_version}",
+		"minecraft": "~${mc_version}",
+		"java": ">=25"
 	},
 	"suggests": {
-		"lithium": "mc1.21.4-0.14.3"
+		"lithium": "~${lithium_version}"
+	},
+	"breaks": {
+		"lithium": "<${lithium_version} >=${next_lithium_version}"
 	},
 	"custom": {
 		"loom:injected_interfaces": {
-			"net/minecraft/class_1511": ["io/github/rektroth/whiteout/accessors/GeneratedByDragonFightAccessor"],
-			"net/minecraft/class_1937": ["io/github/rektroth/whiteout/accessors/CaptureTreeGenerationAccessor"]
+			"net/minecraft/world/entity/boss/enderdragon/EndCrystal": ["io/github/rektroth/whiteout/accessors/GeneratedByDragonFightAccessor"],
+			"net/minecraft/world/level/Level": ["io/github/rektroth/whiteout/accessors/CaptureTreeGenerationAccessor"]
 		}
 	}
 }

@@ -1,14 +1,10 @@
 plugins {
-	id 'fabric-loom' version '1.8-SNAPSHOT'
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
 }
 
 version = project.mod_version
 group = project.maven_group
-
-base {
-	archivesName = project.archives_base_name
-}
 
 repositories {
 	// Add repositories to retrieve artifacts from in here.
@@ -41,26 +37,39 @@ loom {
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Lithium
-	modCompileOnly "maven.modrinth:lithium:${lithium_version}"
+	compileOnly "maven.modrinth:lithium:${lithium_version}"
 }
 
 processResources {
-	inputs.property "version", project.version
+	def version = project.version
+	def mc_version = minecraft_version
+	def fabric_version = loader_version
+	def current_lithium_version = lithium_version.split('-')[1]
+	def split_lithium_version = current_lithium_version.split("[.]")
+	split_lithium_version[1]++
+	def next_lithium_version = String.join('.', split_lithium_version)
+	inputs.property "version", version
+	inputs.property "mc_version", mc_version
+	inputs.property "fabric_version", fabric_version
+	inputs.property "lithium_version", current_lithium_version
+	inputs.property "next_lithium_version", next_lithium_version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+		expand ([
+			"version": version,
+			"mc_version": mc_version,
+			"fabric_version": fabric_version,
+			"lithium_version": current_lithium_version,
+			"next_lithium_version": next_lithium_version
+		])
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 25
 }
 
 java {
@@ -69,13 +78,16 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
 }
 
 jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
 	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
+		rename { "${it}_$projectName"}
 	}
 }
 

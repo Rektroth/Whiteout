@@ -1,40 +1,36 @@
-/*
- * Patch for MC-171420
- *
- * Authored for CraftBukkit/Spigot by William Blake Galbreath <Blake.Galbreath@GMail.com> on October 3, 2020.
- * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on July 4, 2024.
- */
-
 package io.github.rektroth.whiteout.mixin.mc171420;
 
-import com.mojang.authlib.GameProfile;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.PlayerManager;
-import net.minecraft.server.Whitelist;
+import net.minecraft.server.players.NameAndId;
+import net.minecraft.server.players.PlayerList;
+import net.minecraft.server.players.UserWhiteList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
+/**
+ * Minecraft server modifications for MC-171420 patch.
+ */
 @Mixin(MinecraftServer.class)
 public abstract class MinecraftServerMixin {
 	@Shadow
-	public abstract PlayerManager getPlayerManager();
+	public abstract PlayerList getPlayerList();
 
 	/**
 	 * Checks if the player is whitelisted *or* is an operator.
-	 * @param instance The whitelist.
-	 * @param profile  The player profile.
+	 * @param instance   The whitelist.
+	 * @param nameAndId  The name and ID of the player being checked.
 	 * @return True if the player is whitelisted or an operator, false otherwise.
 	 */
 	@Redirect(
 		at = @At(
-			target = "Lnet/minecraft/server/Whitelist;isAllowed(Lcom/mojang/authlib/GameProfile;)Z",
+			target = "Lnet/minecraft/server/players/UserWhiteList;isWhiteListed(Lnet/minecraft/server/players/NameAndId;)Z",
 			value = "INVOKE"
 		),
-		method = "kickNonWhitelistedPlayers"
+		method = "kickUnlistedPlayers"
 	)
-	private boolean isAllowedOrOp(Whitelist instance, GameProfile profile) {
-		return instance.isAllowed(profile) || this.getPlayerManager().isOperator(profile);
+	private boolean isAllowedOrOp(UserWhiteList instance, NameAndId nameAndId) {
+		return instance.isWhiteListed(nameAndId) || this.getPlayerList().isOp(nameAndId);
 	}
 }

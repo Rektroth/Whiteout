@@ -1,27 +1,18 @@
-/*
- * Patch for MC-4
- * 
- * Authored for CraftBukkit/Spigot by BillyGalbreath <blake.galbreath@gmail.com> on December 8, 2020.
- * Ported to Fabric by Rektroth <brian.rexroth.jr@gmail.com> on July 11, 2023.
- */
-
 package io.github.rektroth.whiteout.mixin.mc4;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+/**
+ * Entity modifications for MC-4 patch.
+ */
 @Mixin(Entity.class)
 public abstract class EntityMixin {
-	@Unique
-	private double fixCoord(double d) {
-		return (Entity)(Object)this instanceof ItemEntity ? MathHelper.lfloor(d * 4096.0D) * (1 / 4096.0D) : d;
-	}
-
 	// Unfortunately, I can only modify one variable with one function, and `@ModifyVariable` is non-repeatable.
 
 	/**
@@ -52,5 +43,10 @@ public abstract class EntityMixin {
 	@ModifyVariable(argsOnly = true, at = @At("HEAD"), method = "setPos(DDD)V", ordinal = 2)
 	private double fixItemZPositionDesync(double z){
 		return this.fixCoord(z);
+	}
+
+	@Unique
+	private double fixCoord(double d) {
+		return (Entity)(Object)this instanceof ItemEntity ? Mth.lfloor(d * 4096.0D) * (1 / 4096.0D) : d;
 	}
 }
