@@ -39,19 +39,32 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-
 	// Lithium
 	compileOnly "maven.modrinth:lithium:${lithium_version}"
 }
 
 processResources {
 	def version = project.version
+	def mc_version = minecraft_version
+	def fabric_version = loader_version
+	def current_lithium_version = lithium_version.split('-')[1]
+	def split_lithium_version = current_lithium_version.split("[.]")
+	split_lithium_version[1]++
+	def next_lithium_version = String.join('.', split_lithium_version)
 	inputs.property "version", version
+	inputs.property "mc_version", mc_version
+	inputs.property "fabric_version", fabric_version
+	inputs.property "lithium_version", current_lithium_version
+	inputs.property "next_lithium_version", next_lithium_version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": version
+		expand ([
+			"version": version,
+			"mc_version": mc_version,
+			"fabric_version": fabric_version,
+			"lithium_version": current_lithium_version,
+			"next_lithium_version": next_lithium_version
+		])
 	}
 }
 
