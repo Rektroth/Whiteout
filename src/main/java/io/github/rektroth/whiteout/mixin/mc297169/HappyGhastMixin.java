@@ -30,34 +30,23 @@ public abstract class HappyGhastMixin extends Animal {
 	 * Makes the happy ghast play the mount sound itself instead of the level,
 	 * so that it only plays if the ghast isn't silenced.
 	 * @param instance boilerplate
-	 * @param except   boilerplate
-	 * @param x        boilerplate
-	 * @param y        boilerplate
-	 * @param z        boilerplate
-	 * @param sound    boilerplate
-	 * @param source   boilerplate
-	 * @param volume   boilerplate
-	 * @param pitch    boilerplate
+	 */
+
+	/**
+	 * Makes the happy ghast play the mount sound itself instead of the level,
+	 * so that it only plays if the ghast isn't silenced.
+	 * @param instance   boilerplate
+	 * @param soundEvent The sound event of
 	 */
 	@Redirect(
 		at = @At(
-			target = "Lnet/minecraft/world/level/Level;playSound(Lnet/minecraft/world/entity/Entity;DDDLnet/minecraft/sounds/SoundEvent;Lnet/minecraft/sounds/SoundSource;FF)V",
+			target = "Lnet/minecraft/world/entity/animal/happyghast/HappyGhast;playSound(Lnet/minecraft/sounds/SoundEvent;)V",
 			value = "INVOKE"
 		),
 		method = "addPassenger"
 	)
-	private void onlyPlaySoundOnMountIfNotSilenced(
-		Level instance,
-		Entity except,
-		double x,
-		double y,
-		double z,
-		SoundEvent sound,
-		SoundSource source,
-		float volume,
-		float pitch
-	) {
-		this.playSound(SoundEvents.HARNESS_GOGGLES_DOWN, 1.0F, 1.0F);
+	private void onlyPlaySoundOnMountIfNotSilenced(HappyGhast instance, SoundEvent soundEvent) {
+		this.playSound(soundEvent, 1.0F, 1.0F);
 	}
 
 	/**
