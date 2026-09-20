@@ -60,6 +60,8 @@ If you wish to enable them, you will have to do so in `.minecraft/configs/whiteo
 
 | Bug                                                                                                           | Source | Name                                                                                                                       |
 |---------------------------------------------------------------------------------------------------------------|--------|----------------------------------------------------------------------------------------------------------------------------|
+| [MC-3304](https://bugs.mojang.com/browse/MC-3304)                                                             | Purpur | Enchantments from items held in the main hand are applied to other items when entities are killed                          |
+| [MC-238526](https://bugs.mojang.com/browse/MC-238526)                                                         | Purpur | Spawners for fishes, dolphins, squids & glow squids are height dependent                                                   |
 | [MC-302297](https://bugs.mojang.com/browse/MC-302297) ([MC-297508](https://bugs.mojang.com/browse/MC-297508)) | Paper  | Swapping an item stack from a GUI into the offhand on the same tick the player's inventory is cleared creates a ghost item |
 
 ### Not Planned
