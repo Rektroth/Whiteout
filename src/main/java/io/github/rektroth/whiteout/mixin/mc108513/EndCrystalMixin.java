@@ -71,7 +71,7 @@ public abstract class EndCrystalMixin extends Entity implements GeneratedByDrago
                 || ((EnderDragonFightAccessor)((ServerLevel)this.level()).getDragonFight()).getRespawnStage() == null
                 || ((EnderDragonFightAccessor)((ServerLevel)this.level()).getDragonFight()).getRespawnStage().ordinal() > DragonRespawnStage.SUMMONING_DRAGON.ordinal()
             ) {
-                this.setInvulnerable(false);
+                this.setPermanentlyInvulnerable(false);
                 this.setBeamTarget(null);
             }
         }
