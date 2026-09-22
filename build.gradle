@@ -39,19 +39,38 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
+	// If I'm developing in a Minecraft snapshot, this sets the version to the prior release.
+	// This is solely for streamlining development, so I can still grab an old Lithium build to use temporarily.
+	def dev_minecraft_version = project.minecraft_version
+	if (dev_minecraft_version.contains("snapshot")) {
+		dev_minecraft_version = dev_minecraft_version.tokenize("-")[0]
+		def split_minecraft_version = dev_minecraft_version.tokenize(".")
+		split_minecraft_version[1] = (split_minecraft_version[1] as int) - 1
+		dev_minecraft_version = split_minecraft_version.join('.');
+	}
+	// Follows the established version shema of Lithium.
+	def dev_lithium_version = "mc" + dev_minecraft_version + '-' + lithium_version + "-fabric"
 	// Lithium
-	compileOnly "maven.modrinth:lithium:${"mc" + project.minecraft_version + "-" + lithium_version + "-fabric"}"
+	compileOnly "maven.modrinth:lithium:${dev_lithium_version}"
 }
 
 processResources {
 	def version = project.version
-	def mc_version = minecraft_version
+
+	// This is a convoluted way of replacing "-snapshot-#" with "-alpha.#" in the fabric.mod.json,
+	// which is necessary because of how Loom handles Minecraft versions versus the Minecraft client and Fabric loader.
+	// This is purely for streamlining development.
+	def mc_version = minecraft_version.replace("snapshot", "alpha").replace('-', '#').replaceFirst('#', '-').replace('#', '.')
+
 	def fabric_version = loader_version
+
 	def current_lithium_version = lithium_version
+
 	def split_lithium_version = current_lithium_version.tokenize('.')
 	split_lithium_version[1] = (split_lithium_version[1] as int) + 1
 	split_lithium_version[2] = "0"
 	def next_lithium_version = split_lithium_version.join('.')
+
 	inputs.property "version", version
 	inputs.property "mc_version", mc_version
 	inputs.property "fabric_version", fabric_version

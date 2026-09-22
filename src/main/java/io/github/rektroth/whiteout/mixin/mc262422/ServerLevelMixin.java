@@ -39,7 +39,6 @@ public abstract class ServerLevelMixin extends Level {
         final Holder<DimensionType> dimensionTypeRegistration,
         final boolean isClientSide,
         final boolean isDebug,
-        final long biomeZoomSeed,
         final int maxChainedNeighborUpdates
     ) {
         super(
@@ -49,7 +48,6 @@ public abstract class ServerLevelMixin extends Level {
             dimensionTypeRegistration,
             isClientSide,
             isDebug,
-            biomeZoomSeed,
             maxChainedNeighborUpdates
         );
     }
