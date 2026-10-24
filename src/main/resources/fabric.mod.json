@@ -22,7 +22,7 @@
 		"whiteout.mixins.json"
 	],
 	"depends": {
-		"fabricloader": "~${fabric_version}",
+		"fabricloader": ">=${fabric_version} <1.0.0",
 		"minecraft": "~${mc_version}",
 		"java": ">=25"
 	},
