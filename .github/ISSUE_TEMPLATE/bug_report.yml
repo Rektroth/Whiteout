@@ -1,6 +1,5 @@
 name: Bug Report
 description: File a bug report.
-title: "bug"
 labels: ["bug"]
 projects: ["Rektroth/Whiteout"]
 type: bug
@@ -14,8 +13,7 @@ body:
     attributes:
       label: How did this happen?
       description: Describe _in detail_ what steps can be taken to reproduce this bug.
-      placeholder: Tell us what you did!
-      value: "I did something!"
+      placeholder: Tell me what you did
     validations:
       required: true
   - type: textarea
@@ -23,8 +21,7 @@ body:
     attributes:
       label: What was expected?
       description: Describe what you expected should happen after performing the above steps.
-      placeholder: Tell us what should've happened!
-      value: "A non-bug should've happened!"
+      placeholder: Tell me what should've happened
     validations:
       required: true
   - type: textarea
@@ -32,8 +29,7 @@ body:
     attributes:
       label: What actually happened?
       description: Describe what truly happened after you performed the above steps.
-      placeholder: Tell us what actually happened!
-      value: "A bug actually happened!"
+      placeholder: Tell me what actually happened
     validations:
       required: true
   - type: checkboxes
