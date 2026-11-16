@@ -1,0 +1,77 @@
+name: Mod Compatibility Issue
+description: Report an issue that occurs when Whiteout is installed with another mod.
+title: "incompatibility"
+labels: ["incompatibility"]
+projects: ["Rektroth/Whiteout"]
+type: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for submitting reports on issues that occur when Whiteout is installed with another mod. It must be completed with as much detail as is reasonable and necessary. Issue reports lacking necessary details are subject to be closed without further investigation. Please also be aware that issues of compatibility with other mods are not necessarily a high priority and that I reserve the right to refuse any request at fixing or improving compatibility with any mod.
+  - type: input
+    id: what-mod
+    attributes:
+      label: What mod?
+      description: Provide a link to the mod that causes the issue when installed with Whiteout. If you only provide a name and not a _link_, **the issue will immediately be closed.**
+      placeholder: lithium?
+      value: "https://modrinth.com/mod/lithium"
+    validations:
+      required: true
+  - type: textarea
+    id: what-you-did
+    attributes:
+      label: How did this happen?
+      description: Describe _in detail_ what steps can be taken to reproduce this issue. (If it is a crash as soon as the game loads, that is all the info you need to provide here.)
+      placeholder: Tell us what you did!
+      value: "I did something!"
+    validations:
+      required: true
+  - type: textarea
+    id: what-was-expected
+    attributes:
+      label: What was expected?
+      description: Describe what you expected should happen after performing the above steps.
+      placeholder: Tell us what should've happened!
+      value: "A non-bug should've happened!"
+    validations:
+      required: true
+  - type: textarea
+    id: what-actually-happened
+    attributes:
+      label: What actually happened?
+      description: Describe what truly happened after you performed the above steps.
+      placeholder: Tell us what actually happened!
+      value: "A bug actually happened!"
+    validations:
+      required: true
+  - type: checkboxes
+    id: latest-version
+    attributes:
+      label: Some things to check...
+      description: Before submitting this issue report, you must confirm that all of the below are true. **Intentionally circumventing this step will result in your account being blocked from submitting future issues.**
+      options:
+        - label: You are using the latest version of Whiteout
+          required: true
+        - label: You are playing on the latest version of Minecraft supported by Whiteout
+          required: true
+        - label: You are using [or have reproduced the issue on] Fabric, **not** Quilt or any other Fabric port
+          required: true
+        - label: You are **not** using [or have reproduced the issue without] a compatibility layer, such as Sinytra Connector
+          required: true
+        - label: The only other mods installed [when reproducing the issue] are Whiteout and [optionally] Lithium
+          required: true
+  - type: input
+    id: logs
+    attributes:
+      label: Logs
+      description: Provide a link to your MC log output using [mclo.gs](https://mclo.gs/).
+    validations:
+      required: true
+  - type: upload
+    id: screenshots
+    attributes:
+      label: Upload screenshots
+      description: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: false

@@ -28,7 +28,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: what-atually-happened
+    id: what-actually-happened
     attributes:
       label: What actually happened?
       description: Describe what truly happened after you performed the above steps.
@@ -37,7 +37,7 @@ body:
     validations:
       required: true
   - type: checkboxes
-    id: latest-version
+    id: crucial-checks
     attributes:
       label: Some things to check...
       description: Before submitting this bug report, you must confirm that all of the below are true. **Intentionally circumventing this step will result in your account being blocked from submitting future issues.**
@@ -52,12 +52,11 @@ body:
           required: true
         - label: The only mods installed [when reproducing the issue] are Whiteout and [optionally] Lithium
           required: true
-  - type: textarea
+  - type: input
     id: logs
     attributes:
       label: Logs
-      description: Provide your MC log output. Even if the bug is not a crash, you **must** provide this. You are encouraged to use the service [mclo.gs](https://mclo.gs/), but you can feel free to use any other paste-bin site or simply paste your log output here.
-      render: shell
+      description: Provide a link to your MC log output using [mclo.gs](https://mclo.gs/).
     validations:
       required: true
   - type: upload
