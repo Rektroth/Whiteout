@@ -90,10 +90,10 @@ Since all bug fixes provided by this mod are ported from Paper, said fixes inher
 
 Best effort is made to keep Whiteout compatible with [Lithium](https://github.com/caffeinemc/lithium-fabric). Reporting of issues with compatibility is appreciated.
 
-Compatibility with other mods is not guaranteed, but if you make an issue ticket I may get around to it. Attempts at compatibility are at my discretion. I generally will not make an effort maintain compatibility with very niche mods or large mod-packs, and will make no attempt at compatibility with mods that are fundamentally incompatible with the goals of Whiteout.
+Compatibility with all other mods is at my discretion.
 
-Compatibility with Sinytra Connector and similar projects is **not supported at all**. If you have issues using Whiteout with such layers, that is your problem.
+Compatibility with Sinytra Connector and similar projects is **not supported at all**. Issues using Whiteout with such layers are the responsibility of those wishing to use it.
 
 ### Backporting
 
-Deprecated versions of Minecraft will **never** be supported. ~~This is a hobby project.~~ *Actually, it's more accurate to say that I made this mod - and even learned how to mod in the first place - because <u>I personally</u> needed these fixes in Fabric. I only made this project public because I figured there might be at least a handful of others that want/need the same.* I do not care nor have the time to maintain backports. Please don't bother asking.
+I currently do not have the time to maintain backports. Deprecated versions will likely never be supported. **Do not open issue tickets asking for backports, fixes, or other updates to deprecated versions.**
